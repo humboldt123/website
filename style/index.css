@@ -12,3 +12,17 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
+.shortcut-box {
+    width: 1em;
+    height: 1em;
+    min-width: 0;
+    min-height: 0;
+    background: rgba(20, 20, 20, 0.5);
+    padding: 1em;
+    margin: 1em 1em 0 0;
+  }
+
+.rounded {
+    border-radius: 10px;
+}
