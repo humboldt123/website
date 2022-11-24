@@ -1,0 +1,46 @@
+@import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+:root {
+    --dark: #212121;
+    --superdark: #0a0a0a;
+    --light: #ffffff;
+    --red: #e83b3b;
+    --darkred: #ae2334;
+    --offwhite: #c7dcd0;
+    --magenta:#a884f3;
+    --darkpurple: #2e222f;
+    --superdarkpurple: #251c26;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--light);
+    background-color: var(--dark);
+}
+
+a, code {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+a:link {color: var(--red);}
+a:visited {color: var(--red);}
+a:hover {color: var(--darkred);}
+a:active {color: var(--darkred);} 
+
+.flex {
+	display: flex;
+}
+
+.flex-center {
+    justify-content: center;
+	align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.rounded {
+    border-radius: 10px;
+}

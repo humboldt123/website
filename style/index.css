@@ -1,40 +1,5 @@
-@import url('https://rsms.me/inter/inter.css');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-
-:root {
-    --dark: #212121;
-    --superdark: #0a0a0a;
-    --light: #ffffff;
-    --red: #e83b3b;
-    --offwhite: #c7dcd0;
-    --magenta:#a884f3;
-}
 body {
-    font-family: 'Inter', sans-serif;
-    color: var(--dark);
-    background-color: var(--light);
-}
-
-a, code {
-    font-family: 'JetBrains Mono', monospace;
-}
-
-a:link {color: var(--red);}
-a:visited {color: var(--magenta);}
-a:hover {color: var(--offwhite);}
-a:active {color: var(--light);} 
-
-.flex {
-	display: flex;
-}
-
-.flex-center {
-    justify-content: center;
-	align-items: center;
-}
-
-.flex-column {
-    flex-direction: column;
+    background-color: var(--darkpurple);
 }
 
 .shortcut-box {
@@ -43,11 +8,9 @@ a:active {color: var(--light);}
     background: rgba(20, 20, 20, 0.5);
     padding: 0.25em;
     margin: 0.5em;
-  }
-
-.rounded {
-    border-radius: 10px;
 }
+
+.shortcut-box > a {cursor: crosshair;}
 
 #main-cover {
     height: 100vh;
@@ -83,8 +46,8 @@ a:active {color: var(--light);}
     padding: 5px 0;
     border-radius: 6px;
 
-    width: 10em;
-    margin: 0 0 0.5em -5em;
+    width: 8em;
+    margin: 0 0 0.5em -4em;
     left: 50%;
 }
 
