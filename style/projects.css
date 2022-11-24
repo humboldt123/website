@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre&display=swap');
 #main-cover {
     height: 65vh;
-    background-image: url('../media/projects_backdrop.png');
+    background-image: url('../media/projects/backdrop.png');
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(6px);
@@ -11,4 +11,28 @@
     font-family: 'Averia Sans Libre', cursive;
     font-size: 6em;
     text-shadow: 6px 6px var(--dark);
+}
+
+.project {
+    background-color: var(--superdark);
+    margin: 1em;
+}
+.text-container {
+    width: 80%;
+}
+.text-container > h1 {margin-bottom: 0; text-align: center; text-decoration: underline var(--red);}
+.image-container {
+    width: 80%;
+}
+.links-container {
+    text-align: center; margin: 1em 1em 2em 1em;
+}
+.icon {
+    filter: invert(1);
+    color: var(--red);
+    width: 1em;
+    padding-left:0.5em;
+}
+.divider {
+    padding: 0 0.5em 0 0.5em;
 }

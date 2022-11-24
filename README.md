@@ -6,3 +6,4 @@ welcome to my website !
 - https://purecss.io/
 - https://github.com/SebastianAigner/twemoji-amazing
 - https://unsplash.com/photos/CfKV0CecnU8
+- https://github.com/simple-icons
