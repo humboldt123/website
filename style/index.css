@@ -9,15 +9,25 @@ body {
 
 .flex {
 	display: flex;
-	justify-content: center;
+}
+
+.flex-center {
+    justify-content: center;
 	align-items: center;
 }
 
+.flex-column {
+    flex-direction: column;
+}
+
+#container {
+    background-color: #212121; color: #fefefe; padding: 1em 2em 2em 2em;
+}
+
+
 .shortcut-box {
-    width: 1em;
-    height: 1em;
-    min-width: 0;
-    min-height: 0;
+    width: 2em;
+    height: 2em;
     background: rgba(20, 20, 20, 0.5);
     padding: 1em;
     margin: 1em 1em 0 0;
