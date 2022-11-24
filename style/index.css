@@ -1,5 +1,6 @@
 body {
-    background-color: var(--darkpurple);
+    background-color: var(--superdarkpurple);
+    overflow: hidden;
 }
 
 .shortcut-box {

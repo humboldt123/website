@@ -1,3 +1,29 @@
+# Incomplete
+
+(image) (name) (description) (date) (technologies?)
+`projects.html`
+- Games 📰 -> `games.html`
+- stogacs.club
+- the-thunderhead
+- mutuals
+- sharickpen
+- mellowTs
+- lazytopster
+- @vivi_irl (youtube)
+
+`pictures.html`
+- pictures i took and their significance  
+
+`games.html`
+- Far Cider
+- Future Strike HD
+- Abyssal
+- Cosmic Spirit
+- Clash
+- Odyssey
+
+# Done
+
 **What information needs to be communicated?**
 - Vishnu (17)
 - he/they [but any is fine, really]
@@ -12,24 +38,3 @@
 - LinkedIn 🔗
 - Projects 📰 -> `projects.html`
 - Pictures 📰 -> `pictures.html`
-
-`pictures.html`
-- pictures i took and their significance  
-
-`projects.html`
-- Projects 📰 -> `games.html`
-- stogacs.club
-- the-thunderhead
-- mutuals
-- sharickpen
-- mellowTs
-- lazytopster
-- @vivi_irl (youtube)
-
-`games.html`
-- Far Cider
-- Future Strike HD
-- Abyssal
-- Cosmic Spirit
-- Clash
-- Odyssey

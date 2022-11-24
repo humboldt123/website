@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre&display=swap');
+#main-cover {
+    height: 65vh;
+    background-image: url('../media/projects_backdrop.png');
+    background-size: cover;
+    background-attachment: fixed;
+    backdrop-filter: blur(6px);
+}
+
+#heading {
+    font-family: 'Averia Sans Libre', cursive;
+    font-size: 6em;
+    text-shadow: 6px 6px var(--dark);
+}
