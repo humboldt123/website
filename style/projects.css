@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Averia+Sans+Libre&display=swap");
 #main-cover {
 	height: 90vh;
-	background-image: url("../media/projects/backdrop.png");
+	background-image: url("../media/backdrop.png");
 	background-size: cover;
 	background-attachment: fixed;
 	backdrop-filter: blur(6px);

@@ -5,7 +5,7 @@ body {
 
 #main-cover {
 	height: 100vh;
-	background-image: url("../media/background.png");
+	background-image: url("../media/backdrop.png");
 	background-repeat: round;
 	background-attachment: fixed;
 }
@@ -39,4 +39,16 @@ body {
 
 .invite-hover {
 	border-bottom: 1px dotted var(--red);
+}
+
+.links-container {
+	text-align: center;
+	margin: 1em 1em 0em 1em;
+}
+
+.icon {
+	filter: invert(1);
+	color: var(--red);
+	width: 1em;
+	padding-left: 0.5em;
 }

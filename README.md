@@ -1,14 +1,14 @@
-## vivime.info
 
-welcome to my website !
+![vivime.info](./media/banner.png)
 
-## Todo
-- Change resume and linkedin links in `index.html` and compile a resume from Latex.
-- Pictures page
+My personal website.
+
 
 ## Acknowledgements
-- https://purecss.io/
-- https://github.com/SebastianAigner/twemoji-amazing
-- https://unsplash.com/photos/CfKV0CecnU8
-- https://github.com/simple-icons
-- https://stackoverflow.com/a/51584142/8288313
+
+- [PureCSS](https://purecss.io/) — CSS Modules
+- [Twemoji](https://github.com/SebastianAigner/twemoji-amazing) — For twitter emojis 
+- [Simple Icons](https://github.com/simple-icons) — For our SVG icons
+- [Containers Photo](https://unsplash.com/photos/CfKV0CecnU8) — Used as a background
+- [Wavy Shape](https://stackoverflow.com/a/51584142/8288313) — For the wavy border on the projects page
+- [Tooltips](https://www.w3schools.com/css/css_tooltip.asp) — For tooltips
