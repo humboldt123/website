@@ -1,11 +1,10 @@
-## humboldt123.me
+## vivime.info
 
 welcome to my website !
 
 ## Todo
 - Change resume and linkedin links in `index.html` and compile a resume from Latex.
 - Pictures page
-- Microgames page
 
 ## Acknowledgements
 - https://purecss.io/
