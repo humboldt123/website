@@ -1,8 +1,7 @@
 
 ![vivime.info](./media/banner.png)
 
-My personal website.
-
+My website.
 
 ## Acknowledgements
 
