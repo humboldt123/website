@@ -7,3 +7,4 @@ welcome to my website !
 - https://github.com/SebastianAigner/twemoji-amazing
 - https://unsplash.com/photos/CfKV0CecnU8
 - https://github.com/simple-icons
+- https://stackoverflow.com/a/51584142/8288313

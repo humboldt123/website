@@ -1,36 +1,38 @@
 body {
-    background-color: var(--superdarkpurple);
-    overflow: hidden;
+	background-color: var(--superdarkpurple);
+	overflow: hidden;
 }
 
 #main-cover {
-    height: 100vh;
-    background-image: url('../media/background.png');
-    background-repeat: round;
-    background-attachment: fixed;
+	height: 100vh;
+	background-image: url("../media/background.png");
+	background-repeat: round;
+	background-attachment: fixed;
 }
 
 #container {
-    background-color: #121212e0;
-    color: #fefefe;
-    padding: 1em 2em 2em 2em;
+	background-color: #121212e0;
+	color: #fefefe;
+	padding: 1em 2em 2em 2em;
 }
 
 .shortcut-box {
-    width: 4em;
-    height: auto;
-    background: rgba(20, 20, 20, 0.5);
-    padding: 0.25em;
-    margin: 0.5em;
+	width: 4em;
+	height: auto;
+	background: rgba(20, 20, 20, 0.5);
+	padding: 0.25em;
+	margin: 0.5em;
 }
 
-.shortcut-box > a {cursor: crosshair;}
+.shortcut-box > a {
+	cursor: crosshair;
+}
 
 .tooltip {
-    position: relative;
-    display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .invite-hover {
-    border-bottom: 1px dotted var(--red);
+	border-bottom: 1px dotted var(--red);
 }

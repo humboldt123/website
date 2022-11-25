@@ -1,48 +1,57 @@
-@import url('https://rsms.me/inter/inter.css');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
 
 :root {
-    --dark: #212121;
-    --superdark: #0a0a0a;
-    --light: #fefefe;
-    --superlight: #ffffff;
-    --red: #e83b3b;
-    --darkred: #ae2334;
-    --orange: #f8a435;
-    --offwhite: #c7dcd0;
-    --magenta:#a884f3;
-    --darkpurple: #2e222f;
-    --superdarkpurple: #251c26;
+	--dark: #212121;
+	--darker: #121212;
+	--superdark: #0a0a0a;
+	--light: #fefefe;
+	--superlight: #ffffff;
+	--red: #e83b3b;
+	--darkred: #ae2334;
+	--orange: #f8a435;
+	--offwhite: #c7dcd0;
+	--magenta: #a884f3;
+	--darkpurple: #2e222f;
+	--superdarkpurple: #251c26;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    color: var(--light);
-    background-color: var(--dark);
+	font-family: "Inter", sans-serif;
+	color: var(--light);
+	background-color: var(--dark);
 }
 
 a, code {
-    font-family: 'JetBrains Mono', monospace;
+	font-family: "JetBrains Mono", monospace;
 }
 
-a:link {color: var(--red);}
-a:visited {color: var(--red);}
-a:hover {color: var(--darkred);}
-a:active {color: var(--darkred);} 
+a:link {
+	color: var(--red);
+}
+a:visited {
+	color: var(--red);
+}
+a:hover {
+	color: var(--darkred);
+}
+a:active {
+	color: var(--darkred);
+}
 
 .flex {
 	display: flex;
 }
 
 .flex-center {
-    justify-content: center;
+	justify-content: center;
 	align-items: center;
 }
 
 .flex-column {
-    flex-direction: column;
+	flex-direction: column;
 }
 
 .rounded {
-    border-radius: 10px;
+	border-radius: 10px;
 }
