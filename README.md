@@ -2,6 +2,10 @@
 
 welcome to my website !
 
+## Todo
+- Change resume and linkedin links in `index.html` and compile a resume from Latex.
+- Pictures page
+
 ## Acknowledgements
 - https://purecss.io/
 - https://github.com/SebastianAigner/twemoji-amazing
