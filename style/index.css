@@ -12,16 +12,20 @@ body {
 
 #container {
 	background-color: #121212e0;
-	color: #fefefe;
+	color: var(--light);
 	padding: 1em 2em 2em 2em;
 }
 
 .shortcut-box {
 	width: 4em;
 	height: auto;
-	background: rgba(20, 20, 20, 0.5);
+	background: var(--darker);
 	padding: 0.25em;
 	margin: 0.5em;
+}
+
+.shortcut-box:hover {
+	background: var(--superdark);
 }
 
 .shortcut-box > a {
