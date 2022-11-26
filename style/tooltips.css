@@ -33,7 +33,7 @@
 
 @keyframes load-in {
 	0% {opacity: 0%;}
-	75% {opacity: 0%;}
+	80% {opacity: 0%;} /* 5% of buffer — just in case */
 	100% {opacity: 100%;}
 }
 

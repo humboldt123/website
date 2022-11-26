@@ -16,6 +16,11 @@ body {
 	padding: 1em 2em 2em 2em;
 }
 
+#shortcuts {
+	justify-content: space-evenly;
+	padding-top: 1vh;
+}
+
 .shortcut-box {
 	width: 4em;
 	height: auto;
@@ -51,4 +56,14 @@ body {
 	color: var(--red);
 	width: 1em;
 	padding-left: 0.5em;
+}
+
+/* For Mobile */
+@media screen and (max-width: 600px) {
+	body {
+		overflow-y: scroll;
+	}
+	#main-cover {
+		height: fit-content !important;
+	}
 }
