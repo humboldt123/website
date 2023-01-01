@@ -6,7 +6,7 @@ My website.
 ## Acknowledgements
 
 - [PureCSS](https://purecss.io/) — CSS Modules
-- [Inter](https://rsms.me/inter/), [Averia Sans Libre](https://fonts.google.com/specimen/Averia+Sans+Libre), & [JetBrains Mono](https://www.jetbrains.com/lp/mono/) — Fonts used in this site
+- [Space Grotesk](https://floriankarsten.github.io/space-grotesk/), [Averia Sans Libre](https://fonts.google.com/specimen/Averia+Sans+Libre), & [JetBrains Mono](https://www.jetbrains.com/lp/mono/) — Fonts used in this site
 - [Twemoji](https://github.com/SebastianAigner/twemoji-amazing) — For twitter emojis 
 - [Simple Icons](https://github.com/simple-icons) — For our SVG icons
 - [Containers Photo](https://unsplash.com/photos/CfKV0CecnU8) — Used as a background

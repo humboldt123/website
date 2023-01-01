@@ -1,4 +1,4 @@
-@import url("https://rsms.me/inter/inter.css");
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
 
 :root {
@@ -17,12 +17,12 @@
 }
 
 body {
-	font-family: "Inter", sans-serif;
+	font-family: 'Space Grotesk', sans-serif;
 	color: var(--light);
 	background-color: var(--dark);
 }
 
-a, code {
+code {
 	font-family: "JetBrains Mono", monospace;
 }
 
