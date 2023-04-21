@@ -37,11 +37,6 @@ body {
 	cursor: crosshair;
 }
 
-.tooltip {
-	position: relative;
-	display: inline-block;
-}
-
 .invite-hover {
 	border-bottom: 1px dotted var(--red);
 }
