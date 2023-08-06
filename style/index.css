@@ -5,13 +5,6 @@ body {
 
 #main-cover {
 	height: 100vh;
-	
-	/*Set this to a geometric background*/
-	background-image: url("");
-	
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
 }
 
 #container {
@@ -36,14 +29,10 @@ body {
 .shortcut-box a img {
 	width: inherit;
 }
-/* .shortcut-box:hover {
-	color: var(--superdark);
-}
 
 .shortcut-box > a {
 	cursor: crosshair;
-} */
-
+}
 
 .invite-hover {
 	border-bottom: 1px dotted var(--red);
