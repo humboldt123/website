@@ -36,7 +36,7 @@
 							<div class="pure-u-md-2-3">
 								<h1>Vishnu</h1>
 								<p>
-									17 y/o — <span class="tooltip invite-hover">he/they<tooltip>or any/all</tooltip></span>
+									<span id="age">18 y/o</span> — <span class="tooltip invite-hover">he/they<tooltip>or any/all</tooltip></span>
 								</p>
 								<p>
 									Welcome to my website! If you're curious about the projects I've been working on, feel free to visit my <a href="/projects" target="_blank">projects page</a>. And if you want to look more into my background and experience, you can check out my <a href="https://resume.vivime.info/resume.pdf" target="_blank">résumé</a>.
@@ -92,5 +92,10 @@
 			</div>
 		</div>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SebastianAigner/twemoji-amazing@1.1.0/twemoji-amazing.css" />
+		<script async defer>
+			// Makes me one year older on my birthday, isn't that neat?
+			const yearsElapsed = Math.floor((Date.now() - new Date('2005-08-22T04:00:00').getTime()) / (365.25 * 24 * 60 * 60 * 1000));
+			document.getElementById("age").innerText = `${yearsElapsed}  y/o`;
+		</script>
 	</body>
 </html>
