@@ -6,6 +6,8 @@ body {
 #main-cover {
 	height: 100vh;
 	
+	/*Set this to a geometric background*/
+	background-image: url("");
 	
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -24,7 +26,7 @@ body {
 }
 
 .shortcut-box {
-	width: 2em;
+	width: 2.5em;
 	height: auto;
 	padding: 0.25em;
 	margin: 0.5em;
