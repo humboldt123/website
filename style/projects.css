@@ -11,6 +11,10 @@ a:active {
 	color: var(--darkochre);
 }
 
+#heading {
+	text-decoration: underline var(--ochre);
+}
+
 .project {
 	background-color: var(--light);
 	margin: 1em;

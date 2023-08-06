@@ -60,13 +60,21 @@ a:active {
 	border-radius: 10px;
 }
 
+#header {
+	height: 30vh;
+}
+#heading {
+	font-size: 4em;
+	text-decoration: underline var(--red);
+}
+
 .deco-border {
 	border-style: solid double double solid;
 	border-width: 2px 5px 5px 2px;
 	border-color: var(--darker);
 }
 
-.deco-image {
+.deco-img {
 	border-style: dashed;
 	border-width: 1px;
 	border-color: var(--darker);
