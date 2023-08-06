@@ -1,41 +1,47 @@
 body {
-	background-color: var(--superdarkpurple);
+	background-color: var(--light);
 	overflow: hidden;
 }
 
 #main-cover {
 	height: 100vh;
-	background-image: url("../media/backdrop.png");
-	background-repeat: round;
+	
+	
+	background-size: cover;
+	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
 
 #container {
-	background-color: #121212e0;
-	color: var(--light);
+	background-color: var(--light);
+	color: var(--superdark);
 	padding: 1em 2em 2em 2em;
 }
 
 #shortcuts {
-	justify-content: space-evenly;
+	justify-content: space-around;
 	padding-top: 1vh;
 }
 
 .shortcut-box {
-	width: 4em;
+	width: 2em;
 	height: auto;
-	background: var(--darker);
 	padding: 0.25em;
 	margin: 0.5em;
 }
 
-.shortcut-box:hover {
-	background: var(--superdark);
+.shortcut-box a,
+.shortcut-box a img {
+	width: inherit;
+}
+/* .shortcut-box:hover {
+	color: var(--superdark);
 }
 
 .shortcut-box > a {
 	cursor: crosshair;
-}
+} */
+
 
 .invite-hover {
 	border-bottom: 1px dotted var(--red);

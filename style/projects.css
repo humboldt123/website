@@ -1,23 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Averia+Sans+Libre&display=swap");
 #main-cover {
 	height: 90vh;
-	background-image: url("../media/backdrop.png");
+	
+
 	background-size: cover;
 	background-attachment: fixed;
 	backdrop-filter: blur(6px);
 }
 
-body {
-	font-family: "Averia Sans Libre", cursive;
+a:link {
+	color: var(--ochre);
+}
+a:visited {
+	color: var(--ochre);
+}
+a:hover {
+	color: var(--darkochre);
+}
+a:active {
+	color: var(--darkochre);
 }
 
 #heading {
 	font-size: 6em;
-	text-shadow: 6px 6px var(--dark);
+	color: var(--light);
+	text-shadow: 4px 4px var(--ochre);
 }
 
 .project {
-	background-color: var(--darker);
+	background-color: var(--light);
 	margin: 1em;
 }
 
@@ -27,7 +37,7 @@ body {
 .text-container > h1 {
 	margin-bottom: 0;
 	text-align: center;
-	text-decoration: underline var(--red);
+	text-decoration: underline var(--ochre);
 }
 
 .image-container {
@@ -39,10 +49,12 @@ body {
 }
 
 .icon {
-	filter: invert(1);
-	color: var(--red);
+	color: var(--ochre);
 	width: 1em;
+	position: relative;
 	padding-left: 0.5em;
+	top: 0.19em; /* without this the icon looks slightly out of place and it bothers me so much */
+
 }
 
 .divider {
