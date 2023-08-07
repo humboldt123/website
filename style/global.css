@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lisu+Bosa&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
 
 :root {
@@ -9,17 +9,20 @@
 	--superlight: #ffffff;
 	--red: #e83b3b;
 	--darkred: #ae2334;
-	--orange: #f8a435;
+	--ochre: #f8a435;
+	--darkochre: #c77407;
 	--offwhite: #c7dcd0;
 	--magenta: #a884f3;
 	--darkpurple: #2e222f;
 	--superdarkpurple: #251c26;
+
+	--transparent: #00000000;
 }
 
 body {
-	font-family: 'Space Grotesk', sans-serif;
-	color: var(--light);
-	background-color: var(--dark);
+	font-family: 'Lisu Bosa', serif;
+	color: var(--dark);
+	background-color: var(--light);
 }
 
 code {
@@ -54,4 +57,25 @@ a:active {
 
 .rounded {
 	border-radius: 10px;
+}
+
+#header {
+	height: 30vh;
+}
+
+#heading {
+	font-size: 4em;
+	text-decoration: underline var(--red);
+}
+
+.deco-border {
+	border-style: solid double double solid;
+	border-width: 2px 5px 5px 2px;
+	border-color: var(--darker);
+}
+
+.deco-img {
+	border-style: dashed;
+	border-width: 1px;
+	border-color: var(--darker);
 }
