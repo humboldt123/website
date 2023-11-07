@@ -1,81 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lisu+Bosa&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
 
 :root {
-	--dark: #212121;
-	--darker: #121212;
-	--superdark: #0a0a0a;
-	--light: #fefefe;
-	--superlight: #ffffff;
-	--red: #e83b3b;
-	--darkred: #ae2334;
-	--ochre: #f8a435;
-	--darkochre: #c77407;
-	--offwhite: #c7dcd0;
-	--magenta: #a884f3;
-	--darkpurple: #2e222f;
-	--superdarkpurple: #251c26;
+	--bg: #fefefe;
+	--fg: #212121;
 
-	--transparent: #00000000;
-}
+	--accent: #e83b3b;
+	--faded-fg: #ae2334;
 
-body {
-	font-family: 'Lisu Bosa', serif;
-	color: var(--dark);
-	background-color: var(--light);
-}
-
-code {
-	font-family: "JetBrains Mono", monospace;
-}
-
-a:link {
-	color: var(--red);
-}
-a:visited {
-	color: var(--red);
-}
-a:hover {
-	color: var(--darkred);
-}
-a:active {
-	color: var(--darkred);
-}
-
-.flex {
-	display: flex;
-}
-
-.flex-center {
-	justify-content: center;
-	align-items: center;
-}
-
-.flex-column {
-	flex-direction: column;
-}
-
-.rounded {
-	border-radius: 10px;
-}
-
-#header {
-	height: 30vh;
-}
-
-#heading {
-	font-size: 4em;
-	text-decoration: underline var(--red);
-}
-
-.deco-border {
-	border-style: solid double double solid;
-	border-width: 2px 5px 5px 2px;
-	border-color: var(--darker);
-}
-
-.deco-img {
-	border-style: dashed;
-	border-width: 1px;
-	border-color: var(--darker);
+	--main-font: 'Lisu Bosa', serif;
 }

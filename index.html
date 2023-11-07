@@ -1,96 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="-no-dark-theme" lang="en">
 	<head>
-		<title>Vishnu's Site</title>
-		<meta charset="UTF-8">
+		<title>Vishnu M.</title>
+		<meta charset="utf-8">
 		<meta name="title" content="Vishnu's Site" />
 		<meta name="description" content="Welcome to my slice of the internet!" />
 		<meta name="theme-color" content="#e83b3b" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-		<link href="./style/global.css" rel="stylesheet" />
-		<link href="./style/index.css" rel="stylesheet" />
-		<link href="./style/tooltips.css" rel="stylesheet" />
-
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+		
+		<link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.1">
+		<link rel="stylesheet" href="/style/global.css">
 	</head>
 	<body>
-		<div id="main-cover" class="flex flex-center">
-			<div class="pure-g pure-u-1 flex flex-center">
-				<div class="pure-u-md-1-4">
-					<!-- do not touch: here for formatting -->
-				</div>
-				<div class="pure-u-md-1-2">
-					<div id="container" class="deco-border">
-						<div class="pure-g">
-							<div class="pure-u-md-1-4">
-								<div class="flex flex-center flex-column" style="height: 100%; margin-top: 1em;">
-									<img class="pure-img deco-img" src="./media/avatars/2023-august.png" alt="A picture of me!" />
-								</div>
-							</div>
-							<div class="pure-u-md-1-12">
-								<!-- do not touch: here for formatting -->
-							</div>
-							<div class="pure-u-md-2-3">
-								<h1>Vishnu</h1>
-								<p>
-									<span id="age">18 y/o</span> — he/they
-								</p>
-								<p>
-									Welcome to my website! I'm a student/developer based in Philadelphia, PA. I make games, websites, apps, (and more) — you can find a lot of them listed on my <a href="/projects" target="_blank">projects page</a>. If you want to have a look at my background or experience, check out my <a href="https://resume.vivime.info/resume.pdf" target="_blank">résumé</a>.
-								</p>
-								<p>
-									I love working with other people, so if you want to work on something together, hire me, or just say hi, don't hesitate to get in touch at <a href="mailto:vishnu@vivime.info">vishnu@vivime.info</a>.
-								</p>
-							</div>
-						</div>
-						<div id="shortcuts" class="flex">
-							<div class="shortcut-box">
-								<a href="https://resume.vivime.info/resume.pdf" class="tooltip" target="_blank">
-									<tooltip>Résumé</tooltip>
-									<img class="pure-img" src="./media/icons/vector/material/description.svg" alt="Resume Icon" />
-								</a>
-							</div>
-							<div class="shortcut-box">
-								<a href="https://github.com/humboldt123/" class="tooltip" target="_blank">
-									<tooltip>Github</tooltip>
-									<img class="pure-img" src="./media/icons/vector/simpleicons/github.svg" alt="Github Icon" />
-								</a>
-							</div>
-							<div class="shortcut-box">
-								<a href="https://www.linkedin.com/in/23vivime/" class="tooltip" target="_blank">
-									<tooltip>LinkedIn</tooltip>
-									<img class="pure-img" src="./media/icons/vector/simpleicons/linkedin.svg" alt="LinkedIn Icon" />
-								</a>
-							</div>
-							<!-- todo: make gallery page -->
-							<!--
-							<div class="shortcut-box">
-								<a href="/gallery" class="tooltip">
-									<tooltip>Gallery</tooltip>
-									<img class="pure-img" src="./media/icons/vector/material/photo_library.svg" alt="Gallery Page Icon" />
-								</a>
-							</div>
-							-->
-							<div class="shortcut-box">
-								<a href="/projects" class="tooltip">
-									<tooltip>Projects</tooltip>
-									<img class="pure-img" src="./media/icons/vector/material/work.svg" alt="Projects Icon" />
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="pure-u-md-1-4">
-					<!-- do not touch: here for formatting -->
-				</div>
-			</div>
-		</div>
+		<main>
+			<h1>Vishnu</h1>
+			<small class="sub-title"><span id="age">18 y/o</span> | he/they | <span id="timezone">UTC-05:00</span></small>
+		
+			<hr>
+			<p><i>Honors Computer Science Student @ Drexel University</i></p>
+			<hr>
+
+			<h3>about:</h3>
+			<p>
+				Welcome to my website! I'm a student/developer based in Philadelphia, PA. I make games, websites, apps, (and more) — you can find a lot of them listed on my <a href="/projects" target="_blank">projects page</a>. If you want to have a look at my background or experience, check out my <a href="https://resume.vivime.info/resume.pdf" target="_blank">résumé</a>.
+			</p>
+			<p>
+				I love working with other people, so if you want to work on something together, hire me, or just say hi, don't hesitate to get in touch at <a href="mailto:vishnu@vivime.info">vishnu@vivime.info</a>.
+			</p>
+
+			<h3>links:</h3>
+			<p>
+				<a href="https://resume.vivime.info/resume.pdf" target="_blank">[resume]</a>&nbsp;
+				<a href="https://github.com/humboldt123" target="_blank">[github]</a>&nbsp;
+				<a href="https://www.linkedin.com/in/23vivime/" target="_blank">[linkedin]</a>&nbsp;
+				<a href="/projects" target="_blank">[projects]</a>&nbsp;
+				<a href="https://www.youtube.com/@vivi_irl" target="_blank">[youtube]</a>&nbsp;
+				<a href="mailto:vishnu@vivime.info">[email]</a>
+			</p>
+		</main>
 		<script async defer>
 			// Makes me one year older on my birthday
 			const yearsElapsed = Math.floor((Date.now() - new Date('2005-08-22T04:19:02').getTime()) / (365.25 * 24 * 60 * 60 * 1000));
 			document.getElementById("age").innerText = `${yearsElapsed}  y/o`;
+
+			// Update timezone
+			const isDaylightSavings = false;
+			document.getElementById("timezone").innerText = `UTC-0${isDaylightSavings ? "4" : "5"}:00`;
 		</script>
 	</body>
 </html>
