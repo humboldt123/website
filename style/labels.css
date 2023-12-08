@@ -1,0 +1,53 @@
+/* programming language colors */
+:root {
+    --kotlin: #a97bff;
+    --java: #f79617;
+    --sql: #45293f;   
+    --rust: #9e4539;
+    --javascript: #f9c22b;
+    --typescript: #484a77;
+    --vue: #41b883;
+    --node: #0b5e65;
+    --html: #e34c26;
+    --css: #f68181;
+    --python: #3572a5;
+    --dart: #00b4ab;
+    --swift: #f05138;
+    --c: #555555;
+    --csharp: #4d65b4;
+    --cpp: #f34b7d;
+    --assembly: #6e4c13;
+
+}
+
+.labelbox {
+    visibility: hidden;
+    height: 0;
+}
+
+.label {
+    background-color: var(--dark);
+    color: var(--overcast);
+    padding: 3px 5px 3px 5px;
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(5, 5, 5, 0.3);
+    user-select: none;
+}
+
+.kotlin {background-color: var(--kotlin);}
+.java {background-color: var(--java);  color: var(--bright);}
+.sql {background-color: var(--sql);}
+.rust {background-color: var(--rust);}
+.javascript {background-color: var(--javascript); color: var(--bright);}
+.typescript {background-color: var(--typescript);}
+.vue {background-color: var(--vue);}
+.node {background-color: var(--node); color: var(--bright);}
+.html {background-color: var(--html); color: var(--bright);}
+.css {background-color: var(--css); color: var(--bright);}
+.python {background-color: var(--python);}
+.dart {background-color: var(--dart);}
+.swift {background-color: var(--swift);}
+.c {background-color: var(--c);}
+.csharp {background-color: var(--csharp);}
+.cpp {background-color: var(--cpp);}
+.assembly {background-color: var(--assembly);}

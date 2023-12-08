@@ -1,0 +1,158 @@
+/* landing */
+#polaroid {
+    animation: polaroid-in 0.6s ease-out;
+    transform: rotate(5deg) translate(10%, 5%);
+    cursor: crosshair;
+}
+
+#polaroid > img {
+    width: 25em;
+}
+#polaroid > small {
+    position: absolute;
+    display: block;
+    top: 35em;
+    left: 16em;
+}
+
+#header {
+    padding-top: 12em;
+}
+
+#title {
+    font-size: 6em;
+    margin: 0;
+
+    animation: typing 1s steps(9), blink .4s step-end 3.5 alternate;
+    width: 9ch; /* hardcoded! 👆 that too */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid transparent;
+    font-family: monospace;
+}
+
+#description {
+    animation: typing 2.5s steps(44) 1.5s forwards, blink .5s step-end 12 alternate;
+    width: 44ch; /* hardcoded!  👆 also that, again!  sorry */
+    display: block; /* width doesn't work without this */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid transparent;
+    font-family: monospace;
+    visibility: hidden; /* don't appear until animation starts */
+
+    margin-left: 2ch;
+}
+
+/* projects */
+#projects-splash {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#projects-header {
+    font-size: 5em;
+    margin: 0;
+    
+    animation: typing 1s steps(8), dark-blink .4s step-end 3.5 alternate;
+    width: 8ch; /* hardcoded! 👆 that too */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid transparent;
+    font-family: monospace;
+}
+
+
+.project {
+    border: solid var(--bright) 1px;
+    border-radius: 5px;
+
+    background-color: var(--overcast);
+    color: var(--dark);
+    
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+    transition: transform ease 300ms;
+
+    padding: 1em;
+    margin: 1em;
+}
+
+.project:not(:hover) { transform: translate(0, 0px) scale(1.0); }
+.project:hover { transform: translate(0, -10px) scale(1.05); }
+
+.project-title {
+    margin: 0 0.5em 0 0;
+}
+
+.project-image {
+    object-fit: cover;
+    width: 100%;
+}
+
+/* resume */
+#resume-header {
+    font-size: 5em;
+    margin: 0;
+
+    animation: typing 1s steps(9), blink .4s step-end 3.5 alternate;
+    width: 9ch; /* hardcoded! 👆 that too */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid transparent;
+    font-family: monospace;
+
+}
+
+#resume-container {
+    animation: resume-in 0.6s ease-out;
+    transform: translate(0%, 0%);
+    cursor: crosshair;
+}
+
+#resume-container > a > img {
+    width: 30em;
+    transition: transform ease 300ms;
+}
+
+#resume-container > a > img:not(:hover) { transform: translate(0, 0px) scale(1.0); }
+#resume-container > a > img:hover { transform: translate(0, -10px) scale(1.05); }
+#resume-container > a > img:active { transform: scale(1.2); }
+
+/* animations */
+@keyframes polaroid-in {
+    from { transform: rotate(50deg) translate(10%, 80%); }
+}
+
+@keyframes resume-in {
+    from { transform: translate(0%, 50%); }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { visibility: visible; }
+}
+
+@keyframes blink {
+    50% { border-color: var(--accent); }
+}
+
+@keyframes dark-blink {
+    50% { border-color: var(--dark-accent); }
+}
+
+/* mobile considerations */
+section { overflow: hidden; }
+
+@media all and (max-width: 600px) {
+    #polaroid { transform: rotate(5deg) translate(-20%, 10%); }
+    @keyframes polaroid-in { from { transform: translate(-50%, 10%); } }
+    #header { padding-top: 5em; }
+    #title { font-size: 3em;}
+    #description { margin-top: 0.5ch; margin-left: 0.5ch; }
+    #projects-header, #resume-header { font-size: 2.5em; }
+    #resume-splash {padding-left: 10%; padding-right: 8%;}
+}
