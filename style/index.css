@@ -57,12 +57,6 @@
 #projects-header {
     font-size: 5em;
     margin: 0;
-    
-    animation: typing 1s steps(8), dark-blink .4s step-end 3.5 alternate;
-    width: 8ch; /* hardcoded! 👆 that too */
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid transparent;
     font-family: monospace;
 }
 
@@ -97,12 +91,6 @@
 #resume-header {
     font-size: 5em;
     margin: 0;
-
-    animation: typing 1s steps(9), blink .4s step-end 3.5 alternate;
-    width: 9ch; /* hardcoded! 👆 that too */
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid transparent;
     font-family: monospace;
 
 }
@@ -138,10 +126,6 @@
 
 @keyframes blink {
     50% { border-color: var(--accent); }
-}
-
-@keyframes dark-blink {
-    50% { border-color: var(--dark-accent); }
 }
 
 /* mobile considerations */
