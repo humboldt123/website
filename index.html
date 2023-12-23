@@ -238,8 +238,28 @@
             <div class="pure-u-md-1-4"><!-- formatting div --></div>
             <div class="pure-u-1-1" style="height: 175px;"><!-- formatting div --></div>
         </section>
-        
-        <section id="about" class="pure-g midnight">
-        </section> 
+
+        <!--
+        <section id="footer" class="pure-g night">
+            <p>Hello World</p>
+        </section>
+        -->
+
+        <script async defer>
+			// Makes me one year older on my birthday
+			const yearsElapsed = Math.floor((Date.now() - new Date('2005-08-22T04:19:02').getTime()) / (365.25 * 24 * 60 * 60 * 1000));
+			document.getElementById("age").innerText = `${yearsElapsed}  y/o`;
+
+			// Update timezone
+			// todo: fix edgecase where dst is different in est than users timezone
+			document.getElementById("timezone").innerText = `UTC-0${isDuringDST(new Date(/* current date */)) ? "4" : "5"}:00`;
+
+            function isDuringDST(date) {
+                console.log(date);
+                let early = new Date(date.getFullYear(), 0, 1).getTimezoneOffset();
+                let middle = new Date(date.getFullYear(), 6, 1).getTimezoneOffset();
+                return Math.max(early, middle) !== date.getTimezoneOffset();
+            }
+		</script>
     </body>
 </html>
