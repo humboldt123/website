@@ -68,7 +68,7 @@
 #projects-header {
     font-size: 5em;
     font-family: monospace;
-    text-decoration: underline;
+    text-decoration: underline 0.115ch;
     margin: 0;
     color: var(--overcasty);
 }
@@ -87,6 +87,7 @@
     margin: 1em;
 
     border-radius: 0.6rem;
+    font-family: monospace;
 }
 
 
