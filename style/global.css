@@ -6,6 +6,13 @@
     --overcast: #f0f0f0;
 	--dark: #212121;
     --midnight: #121212;
+    --darksky: #010101;
+    
+    --dreary: #7e7e73;
+    --darken: #0a0a0a90;
+    --lighten: #ffffff16;
+    --overcasty: #f0f0f0d8;
+    --accentify: #e83b3bbc;
 
     --selection: lightblue;
 	--accent: #e83b3b;
@@ -34,6 +41,7 @@ img { user-select: none; }
 .overcast { background-color: var(--overcast); color: var(--dark); }
 .night { background-color: var(--dark); color: var(--bright); }
 .midnight { background-color: var(--midnight); color: var(--bright); }
+.darksky { background-color: var(--darksky); color: var(--overcast); }
 
 /* styles */
 .serif { font-family: 'Lisu Bosa', serif; }

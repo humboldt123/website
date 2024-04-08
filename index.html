@@ -1,20 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Vishnu M.</title>
-		<meta charset="utf-8">
-		<meta name="title" content="Vishnu Menon" />
-		<meta name="description" content="Honors Student @ Drexel CCI" />
-		<meta name="theme-color" content="#e83b3b" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" />
+    <head>
+        <title>Vishnu M.</title>
+        <meta charset="utf-8">
+        <meta name="title" content="Vishnu Menon" />
+        <meta name="description" content="Honors Student @ Drexel CCI" />
+        <meta name="theme-color" content="#e83b3b" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css"/>
 
         <link rel="stylesheet" href="/style/global.css">
         <link rel="stylesheet" href="/style/index.css">
         <link rel="stylesheet" href="/style/labels.css">
 	</head>
+    <!--
+        just want to mess with vuln scanners.. ignore this please <3
+        
+        There is an error in your SQL syntax
+        error
+        overflow
+        "><script>alert('xss')</script>
+        500 Error
+        password123
+        admin, 123456
+        blah@blah.com
+        ommand not found
+        exception
+        panic
+        [object Object]
+        xz-utils 5.6.1
+        Employees.xlsx
+        Payroll.pdf
+        Passwords.docx
+        API_KEY=aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ
+
+        sshd:x:106:65534::/run/sshd:/usr/sbin/nologin
+        syslog:x:107:113::/home/syslog:/usr/sbin/nologin
+        uuidd:x:108:114::/run/uuidd:/usr/sbin/nologin
+        tcpdump:x:109:115::/nonexistent:/usr/sbin/nologin
+        tss:x:110:116: TPM software stack,,,:/var/lib/tpm:/bin/false
+        landscape:x:111:117::/var/lib/landscape:/usr/sbin/nologin
+        fwupd-refresh:x:112:118: fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
+        usbmux:x:113:46: usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+        rtkit:x:114:119: RealtimeKit,,,:/proc:/usr/sbin/nologin
+        dnsmasq :x:115:65534: dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+        kernoops:x:116:65534: Kernel Oops Tracking Daemon,,,:/:/usr/sbin/nologin
+        lightdm:x:117:122: Light Display Manager: /var/lib/lightdm:/bin/false
+        whoopsie:x:118:124::/nonexistent:/bin/false
+        avahi-autoipd:x:119:127: Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+        avahi:X:120:128: Avahi mDNS daemon,,,:/run/avahi-daemon:/usr/sbin/nologin
+        cups-pk-helper:x:121:129:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+        speech-dispatcher:x:122:29: Speech Dispatcher,,,:/run/speech-dispatcher:/bin/false
+        saned:X:123:131::/var/lib/saned:/usr/sbin/nologin
+        colord:x: 124:132: colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+        geoclue:x:125:133::/var/lib/geoclue:/usr/sbin/nologin
+
+        [Microsoft] [ODBC SQL Server Driver] [SQL Server] Unclosed quotation mark before
+        ORA-00933: SQL command not properly ended
+        Microsoft SQL Native Client err
+        Query failed: ERROR: syntax error at or near
+    -->
 	<body>
         <section id="main" class="pure-g overcast">
             <div class="pure-u-md-1-3" style="overflow: visible;">
@@ -44,8 +91,12 @@
             <div class="pure-u-md-1-4"><!-- formatting div --></div>
             <div class="pure-u-1-1" style="height: 150px;"><!-- formatting div --></div>
         </section>
-        <section id="projects" class="pure-g midnight">
-            
+        <section id="projects" class="pure-g darksky">
+            <div id="divider-projects-top">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.28 2.17" preserveAspectRatio="none">
+                    <path d="M0 .5c3.07.55 9.27-.42 16.14 0 6.88.4 13.75.57 19.14-.11V0H0z"/>
+                </svg>
+            </div>
             <!-- hack: what am I doing?-->
             <div class="pure-u-md-1-1" style="height: 75px"><!-- formatting div --></div>
             <div class="pure-u-1-1" style="height: 150px">
@@ -59,164 +110,138 @@
 
             <div class="pure-u-md-1-8"><!-- formatting div --></div>
             <div class="pure-u-md-18-24">
-                <div class="pure-g">
-                    <div class="pure-u-sm-1-3">
-                        <div class="project">
-                            <h2 class="project-title">The Thunderhead</h2>
-                            <small>October 2019 — Present</small>
-                            <p>A Discord bot I wrote and maintained! While originally written in JavaScript, I've since rewritten it in Kotlin.</p>
-                            <p>
-                                <a href="https://thunderhead.vivime.info/invite" target="_blank">[invite]</a> 
-                                <a href="https://github.com/the-thunderhead/bot" target="_blank">[source code]</a>
-                            </p>
-                            <img class="pure-img project-image" src="/media/projects/the-thunderhead.png" alt="thunderhead command screenshot">
-                            <p class="labelbox">
-                                <span class="label kotlin">Kotlin</span>
-                                <span class="label sql">SQL</span>
-                                <span class="label rust">Rust</span>
-                                <span class="label java">Java</span>
-                                <span class="label javascript">JavaScript</span>
-                            </p>
+                <div class="carousel">
+                    <div class="pure-g">
+                        <div class="pure-u-sm-1-3">
+                            <div class="project">
+                                <h2 class="project-title">LLMs and Flocking</h2>
+                                <small>December 2023 — April 2024</small>
+                                <p>Wrote a paper on the challenges faced when trying to get LLMs to control mutli-agent flocking behavior.</p>
+                                <p>
+                                    <!--<a href="TBD" target="_blank">[arxiv]</a> -->
+                                    <a href="https://github.com/Zhourobotics/llms-for-flocking" target="_blank">[github]</a>
+                                </p>
+                                <img class="pure-img project-image" src="/media/projects/llms-for-flocking.gif" alt="elles sont tres confusee">
+                            </div>
                         </div>
-                    </div>
-                    <div class="pure-u-sm-1-3">
-                        <div class="project">
-                            <h2 class="project-title">Courseboard</h2>
-                            <small>October 2023</small>
-                            <p>Create a dashboard with all your courses, and add related links to have them all in one place! Built with VueJS.</p>
-                            <p>
-                                <a href="https://courseboard.vivime.info" target="_blank">[link]</a> 
-                                <a href="https://github.com/humboldt123/courseboard" target="_blank">[source code]</a>
-                            </p>
-                            <img class="pure-img project-image" src="/media/projects/courseboard.png" alt="courseboard website screenshot">
-                            <p class="labelbox">
-                                <span class="label vue">Vue</span>
-                                <span class="label html">HTML</span>
-                                <span class="label css">CSS</span>
-                                <span class="label javascript">JavaScript</span>
-                            </p>
+                        <div class="pure-u-sm-1-3">
+                            <div class="project">
+                                <h2 class="project-title">The Thunderhead</h2>
+                                <small>October 2019 — Present</small>
+                                <p>A Discord bot I wrote and maintained! While originally written in JavaScript, I've since rewritten it in Kotlin.</p>
+                                <p>
+                                    <a href="https://thunderhead.vivime.info/invite" target="_blank">[invite]</a> 
+                                    <a href="https://github.com/the-thunderhead/bot" target="_blank">[source code]</a>
+                                </p>
+                                <img class="pure-img project-image" src="/media/projects/the-thunderhead.png" alt="thunderhead command screenshot">
+                            </div>
                         </div>
-                    </div>
-                    <div class="pure-u-sm-1-3">
-                        <div class="project">
-                            <h2 class="project-title">Gamedev</h2>
-                            <small>May 2018 — Present</small>
-                            <p>I love to make videogames, and you can expect to see most of my games published to my itch.io page. (Linked below)</p>
-                            <p>
-                                <a href="https://humboldt123.itch.io/" target="_blank">[link]</a>
-                            </p>
-                            <img class="pure-img project-image" src="/media/projects/games.gif" alt="games animated preview">
-                            <p class="labelbox">
-                                <span class="label csharp">C#</span>
-                            </p>
+                        <div class="pure-u-sm-1-3">
+                            <div class="project">
+                                <h2 class="project-title">Courseboard</h2>
+                                <small>October 2023</small>
+                                <p>Create a dashboard with all your courses, and add related links to have them all in one place! Built with VueJS.</p>
+                                <p>
+                                    <a href="https://courseboard.vivime.info" target="_blank">[link]</a> 
+                                    <a href="https://github.com/humboldt123/courseboard" target="_blank">[source code]</a>
+                                </p>
+                                <img class="pure-img project-image" src="/media/projects/courseboard.png" alt="courseboard website screenshot">
+                            </div>
                         </div>
-                    </div>
-                    <div class="pure-u-sm-1-3">
-                        <div class="project">
-                            <h2 class="project-title">stogacs.club</h2>
-                            <small>October 2021 — June 2023</small>
-                            <p>My highschool computer science club's website that I created and maintained during my time as a club officer!</p>
-                            <p>
-                                <a href="https://stogacs.club" target="_blank">[link]</a> 
-                                <a href="https://github.com/stogacs/website" target="_blank">[source code]</a>
-                            </p>
-                            <img class="pure-img project-image" src="/media/projects/stogacs.club.gif" alt="stogacs.club animated website preview">
-                            <p class="labelbox">
-                                <span class="label html">HTML</span>
-                                <span class="label css">CSS</span>
-                                <span class="label javascript">JavaScript</span>
-                            </p>
+                        <div class="pure-u-sm-1-3">
+                            <div class="project">
+                                <h2 class="project-title">Gamedev</h2>
+                                <small>May 2018 — Present</small>
+                                <p>I love to make videogames. You can expect to see some of my games on my itch.io page. (Linked below)</p>
+                                <p>
+                                    <a href="https://humboldt123.itch.io/" target="_blank">[link]</a>
+                                </p>
+                                <img class="pure-img project-image" src="/media/projects/games.gif" alt="games animated preview">
+                            </div>
                         </div>
-                    </div>
-                    <div class="pure-u-sm-1-3">
-                        <div class="project">
-                            <h2 class="project-title">Sharickpen</h2>
-                            <small>April 2021</small>
-                            <p>The power of Sharick++ right in your browser; created as a submission for StogaCS's CodeFest III.</p>
-                            <p>
-                                <a href="https://github.com/humboldt123/Sharickpen" target="_blank">[source code]</a>
-                            </p>
-                            <img class="pure-img project-image" src="/media/projects/sharickpen.png" alt="sharickpen website screenshot">
-                            <p class="labelbox">
-                                <span class="label node">NodeJS</span>
-                                <span class="label html">HTML</span>
-                                <span class="label css">CSS</span>
-                                <span class="label javascript">JavaScript</span>
-                                <span class="label csharp">C#</span>
-                            </p>
+                        <div class="pure-u-sm-1-3">
+                            <div class="project">
+                                <h2 class="project-title">stogacs.club</h2>
+                                <small>October 2021 — June 2023</small>
+                                <p>My highschool computer science club's website that I created and maintained as the club's president!</p>
+                                <p>
+                                    <a href="https://stogacs.club" target="_blank">[link]</a> 
+                                    <a href="https://github.com/stogacs/website" target="_blank">[source code]</a>
+                                </p>
+                                <img class="pure-img project-image" src="/media/projects/stogacs.club.gif" alt="stogacs.club animated website preview">
+                            </div>
                         </div>
-                    </div>
-                    <div class="pure-u-sm-1-3">
-                        <div class="project">
-                            <h2 class="project-title">Lazytopster</h2>
-                            <small>March 2021</small>
-                            <p>Worked with a friend to create a site that builds a topster for you based on your Spotify listens!</p>
-                            <p>
-                                <a href="https://lazytopster.vivime.info" target="_blank">[link]</a>
-                            </p>
-                            <img class="pure-img project-image" src="/media/projects/lazytopster.gif" alt="lazytopster animated website preview">
-                            <p class="labelbox">
-                                <span class="label node">NodeJS</span>
-                                <span class="label html">HTML</span>
-                                <span class="label css">CSS</span>
-                                <span class="label javascript">JavaScript</span>
-                            </p>
+                        <div class="pure-u-sm-1-3">
+                            <div class="project">
+                                <h2 class="project-title">Sharickpen</h2>
+                                <small>April 2021</small>
+                                <p>The power of Sharick++ right in your browser; created as a submission for StogaCS's CodeFest III.</p>
+                                <p>
+                                    <a href="https://github.com/humboldt123/Sharickpen" target="_blank">[source code]</a>
+                                </p>
+                                <img class="pure-img project-image" src="/media/projects/sharickpen.png" alt="sharickpen website screenshot">
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="pure-u-sm-1-3">
-                        <div class="project">
-                            <h2 class="project-title">mellowTS</h2>
-                            <small>December 2020</small>
-                            <p>A command line lookalike, in your web-browser; created as a submission for StogaCS's CodeFest &alpha;.</p>
-                            <p>
-                                <a href="https://terminal.vivime.info" target="_blank">[link]</a> 
-                                <a href="https://github.com/humboldt123/mellowTs" target="_blank">[source code]</a>
-                            </p>
-                            <img class="pure-img project-image" src="/media/projects/mellow-ts.png" alt="screenshot of the cowsay command's output on mellowTS">
-                            <p class="labelbox">
-                                <span class="label html">HTML</span>
-                                <span class="label css">CSS</span>
-                                <span class="label javascript">JavaScript</span>
-                                <span class="label typescript">TypeScript</span>
-                            </p>
+                        <div class="pure-u-sm-1-3">
+                            <div class="project">
+                                <h2 class="project-title">Lazytopster</h2>
+                                <small>March 2021</small>
+                                <p>Worked with a friend to create a site that builds a topster for you based on your Spotify listens!</p>
+                                <p>
+                                    <a href="https://lazytopster.vivime.info" target="_blank">[link]</a>
+                                </p>
+                                <img class="pure-img project-image" src="/media/projects/lazytopster.gif" alt="lazytopster animated website preview">
+                            </div>
                         </div>
-                    </div>
-                    <div class="pure-u-sm-1-3">
-                        <div class="project">
-                            <h2 class="project-title">Mutuals</h2>
-                            <small>May 2022</small>
-                            <p>Visualize your network of mutual friends on Discord in a network graph.</p>
-                            <p>
-                                <a href="https://github.com/humboldt123/mutuals" target="_blank">[source code]</a>
-                            </p>
-                            <img class="pure-img project-image" src="/media/projects/mutuals.png" alt="a mutuals web">
-                            <p class="labelbox">
-                                <span class="label node">NodeJS</span>
-                                <span class="label javascript">JavaScript</span>
-                            </p>
+    
+                        <div class="pure-u-sm-1-3">
+                            <div class="project">
+                                <h2 class="project-title">mellowTS</h2>
+                                <small>December 2020</small>
+                                <p>A command line lookalike, in your web-browser; created as a submission for StogaCS's CodeFest &alpha;.</p>
+                                <p>
+                                    <a href="https://terminal.vivime.info" target="_blank">[link]</a> 
+                                    <a href="https://github.com/humboldt123/mellowTs" target="_blank">[source code]</a>
+                                </p>
+                                <img class="pure-img project-image" src="/media/projects/mellow-ts.png" alt="screenshot of the cowsay command's output on mellowTS">
+                            </div>
                         </div>
-                    </div>
-                    <div class="pure-u-sm-1-3">
-                        <div class="project">
-                            <h2 class="project-title">BringBackTheBird</h2>
-                            <small>July 2023</small>
-                            <p>Tired of Twitter's new rebrand to X? BringBackTheBird changes the logo well... back to the bird!</p>
-                            <p>
-                                <a href="https://chrome.google.com/webstore/detail/bringbackthebird/fiklfkdepbnaldjjliifhmleabcckhhl" target="_blank">[chrome]</a> 
-                                <a href="https://addons.mozilla.org/en-US/firefox/addon/bringbackthebird/" target="_blank">[firefox]</a> 
-                                <a href="https://github.com/humboldt123/BringBackTheBird" target="_blank">[source code]</a>
-                            </p>
-                            <img class="pure-img project-image" src="/media/projects/bringbackthebird.png" alt="bringbackthebird browser extension prewview">
-                            <p class="labelbox">
-                                <span class="label javascript">JavaScript</span>
-                            </p>
+                        <!--
+                        <div class="pure-u-sm-1-3">
+                            <div class="project">
+                                <h2 class="project-title">Mutuals</h2>
+                                <small>May 2022</small>
+                                <p>Visualize your network of mutual friends on Discord in an interactive network graph, and watch your connections come to life.</p>
+                                <p>
+                                    <a href="https://github.com/humboldt123/mutuals" target="_blank">[source code]</a>
+                                </p>
+                                <img class="pure-img project-image" src="/media/projects/mutuals.png" alt="a mutuals web">
+                            </div>
                         </div>
-                    </div>
-                </div> 
+                        -->
+                        <div class="pure-u-sm-1-3">
+                            <div class="project">
+                                <h2 class="project-title">BringBackTheBird</h2>
+                                <small>July 2023</small>
+                                <p>Tired of Twitter's new rebrand to X? BringBackTheBird changes the logo well... back to the bird!</p>
+                                <p>
+                                    <a href="https://chrome.google.com/webstore/detail/bringbackthebird/fiklfkdepbnaldjjliifhmleabcckhhl" target="_blank">[chrome]</a> 
+                                    <a href="https://addons.mozilla.org/en-US/firefox/addon/bringbackthebird/" target="_blank">[firefox]</a> 
+                                    <a href="https://github.com/humboldt123/BringBackTheBird" target="_blank">[source code]</a>
+                                </p>
+                                <img class="pure-img project-image" src="/media/projects/bringbackthebird.png" alt="bringbackthebird browser extension prewview">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
             </div>
             <div class="pure-u-md-1-8"><!-- formatting div --></div>
             <div class="pure-u-md-1-1" style="height: 200px;"><!-- formatting div --></div>
+            <div id="divider-projects-bottom">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.28 2.17" preserveAspectRatio="none">
+                    <path d="M0 .5c3.07.55 9.27-.42 16.14 0 6.88.4 13.75.57 19.14-.11V0H0z"/>
+                </svg>
+            </div>
         </section>
         <section id="resume" class="pure-g overcast">
             <div class="pure-u-1-1" style="height: 75px;"><!-- formatting div --></div>
@@ -224,7 +249,7 @@
             <div class="pure-u-md-1-4">
                 <div id="resume-splash">
                     <h1 id="resume-header">My Résumé</h1>
-                    <p>If you want to have a look at my background or experience, please check out my résumé. I love working with other people, so if you want to work on something together, hire me, or just say hi, don't hesitate to get in touch at <a href="mailto:vishnu@vivime.info.">vishnu@vivime.info.</a></a></p>
+                    <p>If you want to have a look at my background or experience, please check out my résumé. I love working with other people, so if you want to work on something together, hire me, or just say hi, don't hesitate to get in touch at <a href="mailto:vishnu@vivime.info">vishnu@vivime.info.</a></a></p>
                 </div>
                 <div class="pure-u-1-1" style="height: 50px;"><!-- formatting div --></div>
             </div>
@@ -255,7 +280,6 @@
 			document.getElementById("timezone").innerText = `UTC-0${isDuringDST(new Date(/* current date */)) ? "4" : "5"}:00`;
 
             function isDuringDST(date) {
-                console.log(date);
                 let early = new Date(date.getFullYear(), 0, 1).getTimezoneOffset();
                 let middle = new Date(date.getFullYear(), 6, 1).getTimezoneOffset();
                 return Math.max(early, middle) !== date.getTimezoneOffset();

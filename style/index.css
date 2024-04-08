@@ -44,6 +44,17 @@
     margin-left: 2ch;
 }
 
+#divider-projects-top, #divider-projects-bottom {
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+#divider-projects-top > svg > path { fill: var(--overcast);}
+#divider-projects-top {top: 0;}
+#divider-projects-bottom {bottom: 0; transform: rotate(180deg) scale(1.3);}
+#divider-projects-bottom > svg > path { fill: var(--overcast);}
+
 /* projects */
 #projects-splash {
     height: 100%;
@@ -56,30 +67,35 @@
 
 #projects-header {
     font-size: 5em;
-    margin: 0;
     font-family: monospace;
+    text-decoration: underline;
+    margin: 0;
+    color: var(--overcasty);
 }
 
 
 .project {
-    border: solid var(--bright) 1px;
-    border-radius: 5px;
+    border: solid var(--lighten) 1px;
+    border-radius: 1px;
 
-    background-color: var(--overcast);
-    color: var(--dark);
+    background-color: var(--darken);
+    color: var(--dreary);
     
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
     transition: transform ease 300ms;
 
-    padding: 1em;
+    padding: 1.3em;
     margin: 1em;
+
+    border-radius: 0.6rem;
 }
 
+
 .project:not(:hover) { transform: translate(0, 0px) scale(1.0); }
-.project:hover { transform: translate(0, -10px) scale(1.05); }
+.project:hover { transform: translate(0, -10px) scale(1.03); box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); }
 
 .project-title {
     margin: 0 0.5em 0 0;
+    color: var(--overcast);
 }
 
 .project-image {
@@ -87,12 +103,14 @@
     width: 100%;
 }
 
+.project a { color: var(--accentify); }
+
 /* resume */
 #resume-header {
     font-size: 5em;
-    margin: 0;
     font-family: monospace;
-
+    text-decoration: underline;
+    margin: 0;
 }
 
 #resume-container {
