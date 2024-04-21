@@ -40,8 +40,8 @@
     border-right: 3px solid transparent;
     font-family: monospace;
     visibility: hidden; /* don't appear until animation starts */
-
-    margin-left: 2ch;
+    margin-top: 0;
+    margin-left: 1.5ch;
 }
 
 #divider-projects-top, #divider-projects-bottom {
