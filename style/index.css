@@ -158,7 +158,8 @@ section { overflow: hidden; }
     @keyframes polaroid-in { from { transform: translate(-50%, 10%); } }
     #header { padding-top: 5em; }
     #title { font-size: 3em;}
-    #description { margin-top: 0.5ch; margin-left: 0.5ch; }
+    #description { margin-top: 0.5ch; margin-left: 0.6ch; }
+    #links {margin-left: 0ch; font-size: small;}
     #projects-header, #resume-header { font-size: 2.5em; }
     #resume-splash {padding-left: 10%; padding-right: 8%;}
 }
