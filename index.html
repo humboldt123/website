@@ -82,9 +82,9 @@
                     <a href="#projects">[projects]</a>&nbsp;
                     <a href="mailto:vishnu@vivime.info">[email]</a>&nbsp;
                     <a href="https://github.com/humboldt123" target="_blank">[github]</a>&nbsp;
-                    <a href="https://www.linkedin.com/in/23vivime/" target="_blank">[linkedin]</a>&nbsp;
+                    <a href="https://blog.vivime.info" target="_blank">[blog]</a>&nbsp;
+                    <!-- <a href="https://www.linkedin.com/in/23vivime/" target="_blank">[linkedin]</a>&nbsp; -->
                     <a href="https://www.youtube.com/@vivi_irl" target="_blank">[youtube]</a>&nbsp;
-                    <!-- link to resume page instead of anchor tag for a more streamlined userflow -->
                     <a href="https://resume.vivime.info/resume.pdf">[resume]</a>&nbsp;
                 </p>
             </div>
@@ -254,25 +254,12 @@
                 </svg>
             </div>
         </section>
-        <section id="resume" class="pure-g overcast">
-            <div class="pure-u-1-1" style="height: 75px;"><!-- formatting div --></div>
-            <div class="pure-u-md-1-4"></div>
-            <div class="pure-u-md-1-4">
-                <div id="resume-splash">
-                    <h1 id="resume-header">My Résumé</h1>
-                    <p>If you want to have a look at my background or experience, please check out my résumé. I love working with other people, so if you want to work on something together, hire me, or just say hi, don't hesitate to get in touch at <a href="mailto:vishnu@vivime.info">vishnu@vivime.info.</a></p>
-                </div>
-                <div class="pure-u-1-1" style="height: 50px;"><!-- formatting div --></div>
+        <section id="footer" class="pure-g overcast">
+            <div class="pure-u-1-1" style="height: 20px;"><!-- formatting div --></div>
+            <div class="pure-u-md-1-1">
+                <p id="footer-text" style="text-align: center; font-size: larger;">Made with ❤️ by Vish</p>
             </div>
-            <div class="pure-u-md-1-4">
-                <div id="resume-container">
-                    <a href="https://resume.vivime.info/resume.pdf" target="_blank">
-                        <img draggable="false" class="pure-img no-select" src="/media/misc/resume.png">
-                    </a>
-                </div>
-            </div>
-            <div class="pure-u-md-1-4"><!-- formatting div --></div>
-            <div class="pure-u-1-1" style="height: 175px;"><!-- formatting div --></div>
+            <div class="pure-u-1-1" style="height: 20px;"><!-- formatting div --></div>
         </section>
 
         <!--
@@ -283,8 +270,12 @@
 
         <script async defer>
 			// Makes me one year older on my birthday
-			const yearsElapsed = Math.floor((Date.now() - new Date('2005-08-22T04:19:02').getTime()) / (365.25 * 24 * 60 * 60 * 1000));
-			document.getElementById("age").innerText = `${yearsElapsed}  y/o`;
+            const specificity = 0;
+			const yearsElapsed = Math.floor((Date.now() - new Date('2005-08-22T04:19:02').getTime()) / (365.25 * 24 * 60 * 60 * 1000) * (10**specificity))/(10**specificity);
+            document.getElementById("age").innerText = `${yearsElapsed}  y/o`;
+            document.getElementById("footer-text").innerHTML = 
+                `Made with ❤️ by Vish ` + 
+                `| &copy; 2022-${new Date().getFullYear()}`;
 
 			// Update timezone
 			// todo: fix edgecase where dst is different in est than users timezone

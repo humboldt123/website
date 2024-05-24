@@ -106,32 +106,6 @@
 
 .project a { color: var(--accentify); }
 
-/* resume */
-#resume-header {
-    font-size: 5em;
-    font-family: monospace;
-    text-decoration: underline;
-    margin: 0;
-}
-
-#resume-container {
-    animation: resume-in 0.6s ease-out;
-    transform: translate(0%, 0%);
-    cursor: crosshair;
-}
-
-#resume-container > a > img {
-    width: 30em;
-    transition: transform ease 300ms;
-}
-
-#resume-container > a > img:not(:hover) { transform: translate(0, 0px) scale(1.0); }
-#resume-container > a > img:hover { transform: translate(0, -10px) scale(1.05); }
-#resume-container > a > img:active { transform: scale(1.2); }
-
-/* footer */
-#footer > p { text-align: center; width: 100%; }
-
 /* animations */
 @keyframes polaroid-in {
     from { transform: rotate(50deg) translate(10%, 80%); }
