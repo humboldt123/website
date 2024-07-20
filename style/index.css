@@ -1,4 +1,30 @@
 /* landing */
+#projects,main {
+    position: relative;
+    overflow: hidden;
+}
+
+#main:before {
+    --size: 45px;
+    --line: color-mix(in lch, var(--dreary), transparent 80%);
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(
+        90deg,
+        var(--line) 1px,
+        transparent 1px var(--size)
+    ) 50% 50% / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+    var(--size) var(--size);
+    mask: linear-gradient(20deg, transparent 50%, white);
+    top: 0;
+    left: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: 1;
+}
 #polaroid {
     animation: polaroid-in 0.6s ease-out;
     transform: rotate(5deg) translate(10%, 5%);
@@ -56,6 +82,32 @@
 #divider-projects-bottom > svg > path { fill: var(--overcast);}
 
 /* projects */
+#projects {
+    position: relative;
+    overflow: hidden;
+}
+
+#projects::before {
+    --size: 45px;
+    --line: color-mix(in lch, var(--bright), transparent 90%);
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(
+        90deg,
+        var(--line) 1px,
+        transparent 1px var(--size)
+    ) 50% 50% / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+    var(--size) var(--size);
+    mask: linear-gradient(-20deg, transparent 50%, white);
+    top: 0;
+    left: 0;
+    transform-style: flat;
+    pointer-events: none;
+}
+
 #projects-splash {
     height: 100%;
     width: 100%;
