@@ -33,7 +33,6 @@ img {
     border-radius: 1em;
     transform: perspective(1000px) rotateY(0deg);
     transition: transform 0.3s;
-    pointer-events: none;
     /* todo, shadow */
 }
 
