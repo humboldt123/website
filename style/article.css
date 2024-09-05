@@ -36,6 +36,15 @@ img {
     /* todo, shadow */
 }
 
+/* silly */
+.doodle { 
+    image-rendering: pixelated; 
+    width: 100%;
+    user-select: none;
+    pointer-events: none;
+    border: none;
+}
+
 img:hover { transform: perspective(1000px) rotateY(10deg); }
 
 content:before {

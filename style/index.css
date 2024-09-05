@@ -25,18 +25,17 @@
     cursor: pointer;
 }
 
-#polaroid > div:not(:hover) {
-    transform: translate(0, 0px) scale(1.0);
-    filter: drop-shadow(4px 8px 4px #00000022);
-}
-#polaroid > div:hover {
-    transform: translate(0, -10px) scale(1.03); box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-    filter: drop-shadow(8px 12px 3px #00000022);
-}
+#polaroid > div { transition: transform 0.3s; }
+#polaroid > div:not(:hover) { transform: perspective(1000px) rotateY(0deg); }
+#polaroid > div:hover { transform: perspective(1000px) rotateY(10deg); }
 
-#polaroid > div > img {
-    width: 25em;
-}
+#polaroid > div > img { transition: filter 0.3s ease-in-out; }
+#polaroid > div:hover > img { filter: drop-shadow(-4px 8px 3px #00000022);  }
+
+#polaroid > div > small { transition: filter 0.3s ease-in-out; }
+#polaroid > div:hover > small { filter: drop-shadow(-1px 3px 3px #00000022); }
+
+#polaroid > div > img { width: 25em; }
 
 #polaroid > div > small {
     position: absolute;
