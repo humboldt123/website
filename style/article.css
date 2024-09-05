@@ -1,0 +1,28 @@
+:root {
+    --rhythm: 1.4rem;
+    --line-length: 40rem;
+}
+
+html {
+    line-height: var(--rhythm);
+}
+
+content {
+    display: block;
+    overflow: hidden;
+
+    max-width: min(calc(100vw - (2* var(--rhythm))), var(--line-length));
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+content h1 {
+    margin-top: calc(var(--rhythm) * 1.5);
+}
+
+img {
+    border-radius: 1em;
+    max-width: 100%;
+}

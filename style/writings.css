@@ -63,9 +63,7 @@
 section { overflow: hidden; }
 
 @media all and (max-width: 600px) {
-    #item { transform: rotate(15deg) translate(160%, -130%); }
-    #item > img { width: 10em; }
-    @keyframes item-in { from { transform: rotate(15deg) translate(200%, -130%); } }
+    #item { display: none; } /* seems to be the simplest solution to this whole mess */
     #header { padding-top: 5em; }
     #title { font-size: 3em;}
     #description { margin-top: 0.5ch; margin-left: 0.6ch; }
