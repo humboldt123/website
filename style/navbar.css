@@ -3,11 +3,7 @@ navbar {
     justify-content: space-evenly;
 
 
-    background: linear-gradient(
-        to bottom,
-        var(--soggypaper) 45%,
-        var(--papyrus)
-    );
+    background-color: var(--papyrus);
 
     padding: 2vh 6vw 3vh 6vw;
 
