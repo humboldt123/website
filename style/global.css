@@ -4,6 +4,10 @@
 :root {
 	--bright: #fefefe;
     --overcast: #f0f0f0;
+
+    --papyrus: #fbf6f0;
+    --soggypaper: #F7EDE0;
+
 	--dark: #212121;
     --midnight: #121212;
     --darksky: #010101;
@@ -39,6 +43,8 @@ img { user-select: none; }
 /* themes */
 .day { background-color: var(--bright); color: var(--dark); }
 .overcast { background-color: var(--overcast); color: var(--dark); }
+.papyrus { background-color: var(--papyrus); color: var(--dark); }
+
 .night { background-color: var(--dark); color: var(--bright); }
 .midnight { background-color: var(--midnight); color: var(--bright); }
 .darksky { background-color: var(--darksky); color: var(--overcast); }

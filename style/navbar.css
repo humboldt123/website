@@ -1,0 +1,41 @@
+navbar {
+    display: flex;
+    justify-content: space-evenly;
+
+
+    background: linear-gradient(
+        to bottom,
+        var(--soggypaper) 45%,
+        var(--papyrus)
+    );
+
+    padding: 2vh 6vw 3vh 6vw;
+
+    overflow: hidden;
+    
+}
+
+navbar a {
+    color: var(--dark);
+
+    padding: 15px 20px 15px 20px;
+    border-radius: 5px;
+
+    text-decoration: underline 1px;
+
+    transition: transform ease 300ms;
+}
+
+navbar a:not(:hover) {
+    transform: translate(0, 0px)
+}
+navbar a:hover {
+    text-decoration: underline 2px;
+    transform: translate(0, -8px)
+}
+
+@media (max-width: 600px) {
+    navbar { padding: 3vh 1vw; }
+    navbar a { padding: 12px 15px 12px 15px; }
+    .mobile-optional { display: none; }
+}
