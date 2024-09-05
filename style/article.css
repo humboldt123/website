@@ -7,6 +7,34 @@ html {
     line-height: var(--rhythm);
 }
 
+navbar {
+    padding-bottom: 2em !important;
+}
+
+content:before {
+    --size: 45px;
+    --line: color-mix(in lch, var(--dreary), transparent 80%);
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+    background: linear-gradient(
+        270deg,
+        var(--line) 1px,
+        transparent 1px var(--size)
+    ) 50% 50% / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+    var(--size) var(--size);
+    mask: linear-gradient(20deg, transparent 50%, white);
+
+    top: 0;
+    left: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: 0;
+}
+
 content {
     display: block;
     overflow: hidden;

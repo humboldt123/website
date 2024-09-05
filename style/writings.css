@@ -23,7 +23,7 @@
 }
 #item {
     animation: item-in 0.6s ease-out;
-    transform: rotate(5deg) translate(30%, 10%);
+    transform: rotate(0deg) translate(10%, 5%);
     cursor: crosshair;
 }
 
@@ -32,7 +32,7 @@
 }
 
 #header {
-    padding-top: 12em;
+    padding-top: 6em;
 }
 
 #title {
@@ -52,11 +52,7 @@
 }
 /* animations */
 @keyframes item-in {
-    from { transform: rotate(5deg) translate(55%, 10%); }
-}
-
-@keyframes blink {
-    50% { border-color: var(--accent); }
+    from { transform: rotate(0deg) translate(35%, 5%); }
 }
 
 /* mobile considerations */

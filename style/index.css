@@ -22,13 +22,23 @@
 #polaroid {
     animation: polaroid-in 0.6s ease-out;
     transform: rotate(5deg) translate(10%, 5%);
-    cursor: crosshair;
+    cursor: pointer;
 }
 
-#polaroid > img {
+#polaroid > div:not(:hover) {
+    transform: translate(0, 0px) scale(1.0);
+    filter: drop-shadow(4px 8px 4px #00000022);
+}
+#polaroid > div:hover {
+    transform: translate(0, -10px) scale(1.03); box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    filter: drop-shadow(8px 12px 3px #00000022);
+}
+
+#polaroid > div > img {
     width: 25em;
 }
-#polaroid > small {
+
+#polaroid > div > small {
     position: absolute;
     display: block;
     top: 35em;
@@ -153,6 +163,7 @@
 /* animations */
 @keyframes polaroid-in {
     from { transform: rotate(50deg) translate(10%, 80%); }
+
 }
 
 @keyframes typing {

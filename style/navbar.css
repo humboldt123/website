@@ -2,10 +2,9 @@ navbar {
     display: flex;
     justify-content: space-evenly;
 
+    background: var(--papyrus);
 
-    background-color: var(--papyrus);
-
-    padding: 2vh 6vw 3vh 6vw;
+    padding: 4vh 8vw 0vh 8vw;
 
     overflow: hidden;
     
@@ -16,8 +15,10 @@ navbar a {
 
     padding: 15px 20px 15px 20px;
     border-radius: 5px;
+    
+    background-color: var(--greyen);
 
-    text-decoration: underline 1px;
+    text-decoration: none;
 
     transition: transform ease 300ms;
 }
@@ -26,12 +27,12 @@ navbar a:not(:hover) {
     transform: translate(0, 0px)
 }
 navbar a:hover {
-    text-decoration: underline 2px;
+    text-decoration: underline 1px;
     transform: translate(0, -8px)
 }
 
 @media (max-width: 600px) {
-    navbar { padding: 3vh 1vw; }
+    navbar { padding: 4vh 1vw 0vh 1vw; }
     navbar a { padding: 12px 15px 12px 15px; }
     .mobile-optional { display: none; }
 }
