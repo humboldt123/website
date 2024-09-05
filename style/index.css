@@ -60,8 +60,8 @@
 }
 
 #description {
-    animation: typing 1.5s steps(27) 1.5s forwards, blink .5s step-end 12 alternate;
-    width: 27ch; /* hardcoded!  👆 also that, again!  sorry */
+    animation: typing 1.5s steps(28) 1.5s forwards, blink .5s step-end 12 alternate;
+    width: 28ch; /* hardcoded!  👆 also that, again!  sorry */
     display: block; /* width doesn't work without this */
     white-space: nowrap;
     overflow: hidden;
