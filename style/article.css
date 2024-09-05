@@ -11,6 +11,33 @@ navbar {
     padding-bottom: 2em !important;
 }
 
+content {
+    display: block;
+    overflow: hidden;
+
+    max-width: min(calc(100vw - (2* var(--rhythm))), var(--line-length));
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+content h1 {
+    margin-top: calc(var(--rhythm) * 1.5);
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+    border: 2px solid var(--greyen);
+    border-radius: 1em;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: transform 0.3s;
+    /* todo, shadow */
+}
+
+img:hover { transform: perspective(1000px) rotateY(10deg); }
+
 content:before {
     --size: 45px;
     --line: color-mix(in lch, var(--dreary), transparent 80%);
@@ -33,24 +60,4 @@ content:before {
     transform-style: flat;
     pointer-events: none;
     z-index: 0;
-}
-
-content {
-    display: block;
-    overflow: hidden;
-
-    max-width: min(calc(100vw - (2* var(--rhythm))), var(--line-length));
-    width: 100%;
-
-    margin-left: auto;
-    margin-right: auto;
-}
-
-content h1 {
-    margin-top: calc(var(--rhythm) * 1.5);
-}
-
-img {
-    border-radius: 1em;
-    max-width: 100%;
 }

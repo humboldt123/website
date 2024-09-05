@@ -14,87 +14,156 @@
         <link rel="stylesheet" href="/style/global.css">
         <link rel="stylesheet" href="/style/article.css">
         <link rel="stylesheet" href="/style/navbar.css">
-	</head>
+    </head>
     <style>
-        .alt {
-            margin-top: 0;
-            margin-left: 0.65em;
-        }
+        /* page custom styling,,,, :3 */
+
+        /* caption */
+        .caption { margin-top: 0; margin-left: 0.65em; }
+        #space > div > .caption { text-align: center; }
+
+        /* more fun image interactivity */
+        div:nth-child(odd):hover > img { transform: perspective(1000px) rotateY(-10deg);}
+        div:nth-child(even):hover > img { transform: perspective(1000px) rotateY(10deg);}
+        
+        /* kitty cat card carousel */
+        #space > #j { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%;}
+        #space > #j > img { width: 45%; margin: 0.25em;}
+
         @media all and (min-width: 800px) {
-            #b {
-                width: 60%;
-            }
+            #space { display: flex; flex-wrap: wrap; justify-content: space-between; }
+            #space > div { margin: 0 2%; width: 45%; }
+
+            /* image custom stlying basic */
+            #space > #d { margin-bottom: 0; }
+            #space > #e::before { width: 45%; }
+            #space > #e { margin-top: -8em; }
+            #space > #f { width: 100%; }
+            #space > #o { width: 100%; }
+            #space > #u::before { width: 45%; }
+            #space > #v { width: 100%; }
+            #space > #v > img { width: 100%; }
+
+            /* kitty cat card carousel  cont'd. */
+            #space > #j { padding: 3em 0em;}
+            #j img:nth-child(1) { transform: rotate(-15deg) translate(0, 0px);}
+            #j img:nth-child(2) { transform: rotate(-5deg) translate(0, -20px); }
+            #j img:nth-child(3) { transform: rotate(5deg) translate(0, -20px); }
+            #j img:nth-child(4) { transform: rotate(15deg) translate(0, 0); }
+            #j img { width: 24% !important; transition: transform 0.3s; margin: 0 !important;}
+            #j img:hover { transform: translateY(-20px) scale(1.1); z-index: 10;}
+            
         }
     </style>
-	<body class="papyrus">
+    <body class="papyrus">
         <content>
             <h1>Freshman Photoblog</h1>
             <hr>
             <p>I took photos freshman year, now that the year is over. I thought I'd share them!</p>
             <br>
+            <div id="space">
+                <div id="a">
+                    <img src="./assets/2023-08-18.jpg">
+                    <p class="caption">My freshman year dorm</p>
+                </div>
+    
+                <div id="b">
+                    <img src="./assets/2023-10-02.png">
+                    <p class="caption">Mes amis</p>
+                </div>
+    
+                <div id="c">
+                    <img src="./assets/2023-10-23.jpg">
+                    <p class="caption">I am locked in</p>
+                </div>
+    
+                <div id="d">
+                    <img src="./assets/2023-11-16.jpg">
+                    <p class="caption">I was so happy to have found this gaming room</p>
+                </div>
+                
+                <div class="hide-mobile">
+                    <p class="caption">add cool doodle here :3</p>
+                </div>
+    
+                <div id="e">
+                    <img src="./assets/2023-12-02.png">
+                    <p class="caption">First photo I took with my new iPhone</p>
+                </div>
+    
+                <div id="f">
+                    <img src="./assets/2024-01-06.png">
+                    <p class="caption">My team at the <a href="https://globalgamejam.org/games/2024/par-course-4" target="_blank">2024 PGM Global Game Jawn</a></p>
+                </div>
+    
+                <div id="g">
+                    <img src="./assets/2024-02-17-01.jpg">
+                    <p class="caption">Picturing myself inside a reconstructed pithos</p>
+                </div>
+    
+                <div id="h">
+                    <img src="./assets/2024-02-17-02.jpg">
+                    <p class="caption">Ella picturing herself inside a reconstructed pithos</p>
+                </div>
+    
+                <div id="i">
+                    <img src="./assets/2024-03-0X.png">
+                    <p class="caption">My lab had a photo day and I was caught totally unaware</p>
+                </div>
+    
+                <div id="n">
+                    <img src="./assets/2024-04-08.png">
+                    <p class="caption">Eclipse wasn't enough stimulation for my brain</p>
+                </div>
+    
+                <div id="j">
+                    <img src="./assets/2024-04-04-01.png">
+                    <img src="./assets/2024-04-04-03.png">
+                    <img src="./assets/2024-04-04-04.png">
+                    <img src="./assets/2024-04-04-05.png">
+                    <p class="caption">Kitty cats at the cat park near my dorm</p>
+                </div>
 
-            <img src="./assets/2023-08-18.jpg" id="a">
-            <p class="alt">My freshman year dorm</p>
+    
+                <div id="o">
+                    <img src="./assets/2024-04-20-01.gif">
+                    <p class="caption">Philly Codefest brainstorming session</p>
+                </div>
+    
+                <div id="q">
+                    <img src="./assets/2024-05-03.png">
+                    <p class="caption">Fancy wear in Boston</p>
+                </div>
+    
+                <div id="r">
+                    <img src="./assets/2024-05-10.png">
+                    <p class="caption">Laufey concert was so cool</p>
+                </div>
+    
+                <div id="s">
+                    <img src="./assets/2024-05-17.png">
+                    <p class="caption">Cool photo of campus</p>
+                </div>
+    
+                <div id="t">
+                    <img src="./assets/2024-06-03.png">
+                    <p class="caption">Cool photo of my buddy</p>
+                </div>
 
-            <img src="./assets/2023-10-02.png" id="b">
-            <p class="alt">My friends!</p>
-
-            <img src="./assets/2023-10-23.jpg" id="c">
-            <p class="alt">I am locked in</p>
-
-            <img src="./assets/2023-11-16.jpg" id="d">
-            <p class="alt">I was so happy to have found this gaming room</p>
-
-            <img src="./assets/2023-12-02.png" id="e">
-            <p class="alt">This is the first photo I took with my new iPhone</p>
-
-            <img src="./assets/2024-01-06.png" id="f">
-            <p class="alt">2024 PGM Global Game Jawn... we <a href="https://globalgamejam.org/games/2024/par-course-4" target="_blank">won</a>!</p>
-
-            <img src="./assets/2024-02-17-01.jpg" id="g">
-            <p class="alt">Picturing myself inside a reconstructed pithos</p>
-
-            <img src="./assets/2024-02-17-02.jpg" id="h">
-            <p class="alt">Ella picturing herself inside a reconstructed pithos</p>
-
-            <img src="./assets/2024-03-0X.png" id="i">
-            <p class="alt">My lab had a photo day and I was caught totally unaware</p>
-
-            <img src="./assets/2024-04-04-01.png" id="j">
-            <p class="alt">Kitty 1</p>
-
-            <img src="./assets/2024-04-04-03.png" id="k">
-            <p class="alt">Kitty 2</p>
-
-            <img src="./assets/2024-04-04-04.png" id="l">
-            <p class="alt">Kitty 3</p>
-
-            <img src="./assets/2024-04-04-05.png" id="m">
-            <p class="alt">Kitty 4</p>
-
-            <img src="./assets/2024-04-08.png" id="n">
-            <p class="alt">Elipse wasn't enough stimulation for my brain</p>
-
-            <img src="./assets/2024-04-20-01.gif" id="o">
-            <p class="alt">Philly Codefest brainstorming session</p>
-
-            <img src="./assets/2024-05-03.png" id="q">
-            <p class="alt">Dressing fancy for Boston</p>
-
-            <img src="./assets/2024-05-10.png" id="r">
-            <p class="alt">Laufey concert was so cool</p>
-
-            <img src="./assets/2024-05-17.png" id="s">
-            <p class="alt">Cool photo of campus</p>
-
-            <img src="./assets/2024-06-03.png" id="t">
-            <p class="alt">Cool photo of Andy</p>
-
-            <img src="./assets/2024-06-04.png" id="u">
-            <p class="alt">30th Street Station looks pretty at night</p>
-
-            <img src="./assets/2024-06-14.png" id="v">
-            <p class="alt">ALL DONE!!!</p>
+                <div class="hide-mobile">
+                    <p class="caption">add cool doodle here :3</p>
+                </div>
+    
+                <div id="u">
+                    <img src="./assets/2024-06-04.png">
+                    <p class="caption">30th Street Station looks pretty at night</p>
+                </div>
+    
+                <div id="v">
+                    <img src="./assets/2024-06-14.png">
+                    <p class="caption">ALL DONE!!!</p>
+                </div>
+            </div>
         </content>
         <navbar class="no-select">
             <a href="/">home</a>

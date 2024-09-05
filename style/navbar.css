@@ -34,5 +34,4 @@ navbar a:hover {
 @media (max-width: 600px) {
     navbar { padding: 4vh 1vw 0vh 1vw; }
     navbar a { padding: 12px 15px 12px 15px; }
-    .mobile-optional { display: none; }
 }

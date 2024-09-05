@@ -57,3 +57,8 @@ img { user-select: none; }
 .mono { font-family: 'JetBrains Mono', monospace; }
 .no-select { user-select: none; }
 .no-pointer { pointer-events: none; }
+
+/* mobile */
+@media (max-width: 600px) {
+    .hide-mobile { display: none; }
+}
