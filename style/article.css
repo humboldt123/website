@@ -23,7 +23,7 @@ content {
 }
 
 content h1 {
-    margin-top: calc(var(--rhythm) * 1.5);
+    margin-top: calc(var(--rhythm) * 2.5);
     margin-bottom: calc(var(--rhythm) * .5);
 }
 
