@@ -20,9 +20,10 @@
     z-index: 0;
 }
 #polaroid {
-    animation: polaroid-in 0.6s ease-out;
+    animation: polaroid-in 0.6s ease-out forwards;
     transform: rotate(5deg) translate(10%, 5%);
     cursor: pointer;
+    opacity: 0;
 }
 
 #polaroid > div { transition: transform 0.3s; }
@@ -59,9 +60,10 @@
     border-right: 3px solid transparent;
 }
 
+
 #description {
-    animation: typing 1.5s steps(28) 1.5s forwards, blink .5s step-end 12 alternate;
-    width: 28ch; /* hardcoded!  👆 also that, again!  sorry */
+    animation: typing 1.5s steps(27) 1.5s forwards, blink .5s step-end 12 alternate;
+    width: 27ch; /* hardcoded!  👆 also that, again!  sorry */
     display: block; /* width doesn't work without this */
     white-space: nowrap;
     overflow: hidden;
@@ -161,8 +163,15 @@
 
 /* animations */
 @keyframes polaroid-in {
-    from { transform: rotate(50deg) translate(10%, 80%); }
-
+    0% { 
+        transform: rotate(50deg) translate(10%, 80%); 
+        opacity: 0;
+    }
+    20% {opacity: 0;} 25% {opacity: .6;}
+    100% { 
+        transform: rotate(5deg) translate(10%, 5%);
+        opacity: 1; 
+    }
 }
 
 @keyframes typing {
@@ -179,7 +188,7 @@ section { overflow: hidden; }
 
 @media all and (max-width: 600px) {
     #polaroid { transform: rotate(5deg) translate(-20%, 10%); }
-    @keyframes polaroid-in { from { transform: translate(-50%, 10%); } }
+    @keyframes polaroid-in { 0% { opacity: 0; } 20% {opacity: 0;} 25% {opacity: .6;} 100% { transform: translate(-50%, 10%); opacity: 1;} }
     #header { padding-top: 5em;}
     #title { font-size: 3em;}
     #description { margin-top: 0.5ch; margin-left: 0.6ch;}
