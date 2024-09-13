@@ -165,9 +165,9 @@
 @keyframes polaroid-in {
     0% { 
         transform: rotate(50deg) translate(10%, 80%); 
-        opacity: 0;
     }
-    20% {opacity: 0;} 25% {opacity: .6;}
+    20% { opacity: 0; }
+    25% { opacity: .6; }
     100% { 
         transform: rotate(5deg) translate(10%, 5%);
         opacity: 1; 
@@ -187,8 +187,12 @@
 section { overflow: hidden; }
 
 @media all and (max-width: 600px) {
-    #polaroid { transform: rotate(5deg) translate(-20%, 10%); }
-    @keyframes polaroid-in { 0% { opacity: 0; } 20% {opacity: 0;} 25% {opacity: .6;} 100% { transform: translate(-50%, 10%); opacity: 1;} }
+    #polaroid { transform: rotate(5deg) translate(-50%, 10%); }
+    @keyframes polaroid-in {
+        0% { opacity: 0; }
+        20% { opacity: 0.4; }
+        100% { transform: rotate(5deg) translate(-30%, 10%) ; opacity: 1;} 
+    }
     #header { padding-top: 5em;}
     #title { font-size: 3em;}
     #description { margin-top: 0.5ch; margin-left: 0.6ch;}
