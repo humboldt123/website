@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lisu+Bosa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
 :root {
@@ -34,7 +34,7 @@ html {
 }
 
 body {
-    font-family: 'Lisu Bosa', serif;
+    font-family: 'Vollkorn', serif;
 }
 
 /* overrides */
@@ -53,7 +53,7 @@ img { user-select: none; }
 .darksky { background-color: var(--darksky); color: var(--overcast); }
 
 /* styles */
-.serif { font-family: 'Lisu Bosa', serif; }
+.serif { font-family: 'Vollkorn', serif; }
 .mono { font-family: 'JetBrains Mono', monospace; }
 .no-select { user-select: none; }
 .no-pointer { pointer-events: none; }
