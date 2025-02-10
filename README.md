@@ -1,7 +1,7 @@
 
 ![vivime.info](./media/banner.png)
 
-My website. (gh actions counter: 1)
+My website.
 
 ## Acknowledgements
 
