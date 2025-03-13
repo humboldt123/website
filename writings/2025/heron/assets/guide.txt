@@ -1,6 +1,0 @@
-foo makedir
-===
-ask_me_why: 1
-amy_himi: 2
-heron_pure: 3
-heron_ext: 4

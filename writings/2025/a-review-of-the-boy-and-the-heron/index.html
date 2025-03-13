@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A Review of The Boy and the Heron | Writings</title>
+        <meta charset="utf-8">
+        <meta name="title" content="A Review of The Boy and the Heron" />
+        <meta name="description" content=" This review serves as my final project for HNRS 280 (W'24). It spoils the entire plot of The Boy and the Heron." />
+        <meta name="theme-color" content="#f4e6d4" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css"/>
+
+        <link rel="stylesheet" href="/style/global.css">
+        <link rel="stylesheet" href="/style/article.css">
+        <link rel="stylesheet" href="/style/navbar.css">
+        <style>
+            /* Custom Styling */
+            .staff { cursor: pointer; }
+            .staff[playing=true] { cursor: pointer; }
+
+            /* stupid weird bars hack */
+            [data-id="overlay"] path[d^="m 0,0 v 100 h 15 v -100 z"] { display: none; }
+
+            /* hide notes fix */
+            [data-id="overlay"] rect[data-id="background"] { fill: var(--papyrus); }
+
+            /* hide timesig, and the gap it leaves */
+            /* [data-id="time-key"] { display: none; }
+            [data-id="overlay"] { width: 50%; }
+            svg:has([data-id="overlay"]) { display: none; } */
+        </style>
+
+        <!-- Thanks to the music player, this page does not work without Javascript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.58/Tone.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@magenta/music@^1.0.0/es6/core.js"></script>
+	</head>
+
+	<body class="papyrus">
+        <content>
+            <h1>A Review of <i>The Boy and the Heron</i></h1>
+            <p id="date">March 16, 2025</p>
+            <hr>
+            <blockquote class="accent">
+                <p>
+                    This review serves as my final project for <a href="https://termmasterschedule.drexel.edu/webtms_du/courseDetails/25202?crseNumb=280" target="_blank">HNRS 280 (W'24)</a>. It contains spoilers for <i>The Boy and the Heron</i>. Please watch the movie if you haven't already. I promise it's worth it. <noscript>Also, enable JavaScript. This page doesn't work properly without it.</noscript>
+                </p>
+                <cite>Vish</cite>
+            </blockquote>
+            
+            <p>
+                [Typically, Studio Ghibli films open with a thematic title sequence and a full orchestral score.]
+                The score of The Boy and the Heron, in contrast, spends much of its first hour either in ensembles
+                of piano and chamber strings or complete silence. 
+            </p>
+
+            <section>
+                <div class="visualizer-bin">
+                  <div class="staff" motif="ask_me_why"></div>
+                </div>
+                <small>taken from: <i>Ask Me Why (Evacuation)</i></small>
+            </section>
+
+            <section>
+                <div class="visualizer-bin">
+                  <div class="staff" motif="mothers_message"></div>
+                </div>
+                <small>taken from: <i>Ask Me Why (Mother's Message)</i></small>
+            </section>
+
+
+            <section>
+                <div class="visualizer-bin">
+                  <div class="staff" motif="heron_puremotif"></div>
+                </div>
+                <small>taken from: <i>idk bro</i></small>
+            </section>
+
+
+            <section>
+                <div class="visualizer-bin">
+                  <div class="staff" motif="heron_ext"></div>
+                </div>
+                <small>taken from: <i>idk bro</i></small>
+            </section>
+
+            <blockquote class="quote">
+                <p>
+                    Through me one goes into the city of sorrow,<br>
+                    through me one goes into the city of eternal woe,<br>
+                    though me one goes among the lost people.<br>
+                    <br>
+                    Justice moved my high Maker;<br>
+                    divine power made me,<br>
+                    supreme wisdom and primal love.
+                </p>
+                <cite><i>Inferno</i>; Canto III</cite>
+            </blockquote>
+        </content>
+        <navbar class="no-select">
+            <a href="/writings/">back</a>
+        </navbar>
+        <script src="./assets/visualizer.js"></script>
+    </body>
+</html>
