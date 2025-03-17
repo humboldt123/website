@@ -52,7 +52,7 @@ function startOrStop(index) {
 	// already playing something
     if (currentlyPlayingIndex !== -1) {
         player.stop();
-		// lol this doesn't work in stop i gotta do this out here
+        // lol this doesn't work in stop i gotta do this out here
 		for (let i = 0; i < visualizers.length; i++) {
 			visualizers[i].clearActiveNotes();
 			visualizers[i].clear();
@@ -70,14 +70,14 @@ function startOrStop(index) {
             visualizers[currentlyPlayingIndex].clearActiveNotes();
         }
         
-		// if we click on what we're playing just stop
+        // if we click on what we're playing just stop
         if (currentlyPlayingIndex === index) {
             currentlyPlayingIndex = -1;
             return;
         }
     }
     
-    currentlyPlayingIndex = index;    
+    currentlyPlayingIndex = index;
 	staffs[index].setAttribute("playing", "true");
     
     // use audio, fallback to midi
