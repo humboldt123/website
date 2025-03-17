@@ -18,6 +18,7 @@ const player = new mm.SoundFontPlayer(
 const staffs = document.getElementsByClassName("staff");
 const visualizers = new Array(staffs.length);
 const sequences = new Array(staffs.length);
+const bpm = new Array(staffs.length);
 const audioElements = new Array(staffs.length);
 
 
@@ -25,6 +26,9 @@ for (let i = 0; i < staffs.length; i++) {
     const staff = staffs[i];
     const motif = staff.getAttribute("motif");
     
+    if (staff.hasAttribute("bpm")) {
+        bpm[i] = staff.getAttribute("bpm");
+    }
 
     const audioElement = document.createElement('audio');
     audioElement.style.display = "none";
@@ -47,7 +51,12 @@ for (let i = 0; i < staffs.length; i++) {
 
 function startOrStop(index) {
 	if (sequences[index].tempos && sequences[index].tempos.length > 0) {
-		player.setTempo(sequences[index].tempos[0].qpm);
+        if (bpm[index] == null) {
+            player.setTempo(sequences[index].tempos[0].qpm);
+        } else {
+            player.setTempo(bpm[index]);
+        }
+
 	}
 	// already playing something
     if (currentlyPlayingIndex !== -1) {
