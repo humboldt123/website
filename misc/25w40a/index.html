@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fold and Cut Theorem Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: #fafbfc;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+            padding: 40px;
+            max-width: 1200px;
+            border: 1px solid #e8ebed;
+        }
+
+        #canvas {
+            border: 2px solid #e8ebed;
+            border-radius: 12px;
+            cursor: crosshair;
+            background: white;
+        }
+
+        .control-panel {
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .control-section {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 1px solid #e8ebed;
+        }
+
+        .control-section h3 {
+            margin-bottom: 14px;
+            color: #1a1f36;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 15px;
+            color: #3c4257;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .radio-group label:hover {
+            background: rgba(99, 179, 237, 0.08);
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #63b3ed;
+            width: 16px;
+            height: 16px;
+        }
+
+        button {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            background: #63b3ed;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.3px;
+        }
+
+        button:hover {
+            background: #4fa3dd;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button.secondary {
+            background: #e8ebed;
+            color: #3c4257;
+        }
+
+        button.secondary:hover {
+            background: #d5dade;
+            box-shadow: 0 4px 12px rgba(60, 66, 87, 0.1);
+        }
+
+        button.danger {
+            background: #fc8181;
+        }
+
+        button.danger:hover {
+            background: #f56565;
+            box-shadow: 0 4px 12px rgba(245, 101, 101, 0.3);
+        }
+
+        .instructions {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #525f7f;
+        }
+
+        .instructions ol {
+            padding-left: 22px;
+        }
+
+        .instructions li {
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a1f36;
+            margin-bottom: 8px;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .title-section {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title-section p {
+            font-size: 15px;
+            color: #525f7f;
+            font-weight: 400;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .control-panel {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="flex: 1;">
+            <div class="title-section">
+                <h1>Fold and Cut Theorem</h1>
+                <p>Create any shape with straight edges by folding and making a single cut</p>
+            </div>
+            <canvas id="canvas" width="800" height="600"></canvas>
+        </div>
+
+        <div class="control-panel">
+            <div class="control-section">
+                <h3>Mode</h3>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="mode" value="fold" checked>
+                        Fold Line
+                    </label>
+                    <label>
+                        <input type="radio" name="mode" value="cut">
+                        Cut Line
+                    </label>
+                </div>
+            </div>
+
+            <div class="control-section button-group">
+                <button id="executeBtn">Execute</button>
+                <button id="unfoldBtn" class="secondary">Unfold</button>
+                <button id="resetBtn" class="danger">Reset</button>
+            </div>
+
+            <div class="control-section instructions">
+                <h3>Instructions</h3>
+                <ol>
+                    <li>Select Fold or Cut mode</li>
+                    <li>Click two points to draw line</li>
+                    <li>Line turns green when valid</li>
+                    <li>Click Execute</li>
+                    <li>Click Unfold to see result</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/decimal.js@10.4.3/decimal.min.js"></script>
+    <script src="./game.js"></script>
+</body>
+</html>
