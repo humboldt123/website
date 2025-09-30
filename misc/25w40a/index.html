@@ -3,36 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fold and Cut Theorem Game</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Fold and Cut Theorem | Misc</title>
+    <meta name="description" content="Create any shape with straight edges by folding and making a single cut" />
+    <meta name="theme-color" content="#f4e6d4" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css"/>
+
+    <link rel="stylesheet" href="/style/global.css">
+    <link rel="stylesheet" href="/style/article.css">
+    <link rel="stylesheet" href="/style/navbar.css">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        content {
+            max-width: min(calc(100vw - (2* var(--rhythm))), 70rem);
         }
 
-        body {
-            font-family: 'Playfair Display', serif;
-            background: #fafbfc;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-
-        .container {
+        .game-container {
             display: flex;
             gap: 30px;
             background: white;
             border-radius: 20px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
             padding: 40px;
-            max-width: 1200px;
             border: 1px solid #e8ebed;
+            margin: 2rem 0;
         }
 
         #canvas {
@@ -103,7 +98,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Vollkorn', serif;
             letter-spacing: 0.3px;
         }
 
@@ -150,27 +145,6 @@
             margin-bottom: 8px;
         }
 
-        h1 {
-            text-align: center;
-            color: #1a1f36;
-            margin-bottom: 8px;
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .title-section {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .title-section p {
-            font-size: 15px;
-            color: #525f7f;
-            font-weight: 400;
-        }
-
         .button-group {
             display: flex;
             flex-direction: column;
@@ -178,7 +152,7 @@
         }
 
         @media (max-width: 900px) {
-            .container {
+            .game-container {
                 flex-direction: column;
             }
 
@@ -188,49 +162,62 @@
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div style="flex: 1;">
-            <div class="title-section">
-                <h1>Fold and Cut Theorem</h1>
-                <p>Create any shape with straight edges by folding and making a single cut</p>
-            </div>
-            <canvas id="canvas" width="800" height="600"></canvas>
-        </div>
+<body class="papyrus">
+    <content>
+        <h1>Fold and Cut Theorem</h1>
+        <p id="date">Interactive Demo</p>
+        <hr>
+        <p>
+            Hi Max Alphons. This is a stupid demo have fun trying to break it
+        </p>
 
-        <div class="control-panel">
-            <div class="control-section">
-                <h3>Mode</h3>
-                <div class="radio-group">
-                    <label>
-                        <input type="radio" name="mode" value="fold" checked>
-                        Fold Line
-                    </label>
-                    <label>
-                        <input type="radio" name="mode" value="cut">
-                        Cut Line
-                    </label>
+        <div class="game-container">
+            <div style="flex: 1;">
+                <canvas id="canvas" width="600" height="600"></canvas>
+            </div>
+
+            <div class="control-panel">
+                <div class="control-section">
+                    <h3>Mode</h3>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="mode" value="fold" checked>
+                            Fold Line
+                        </label>
+                        <label>
+                            <input type="radio" name="mode" value="cut">
+                            Cut Line
+                        </label>
+                    </div>
+                </div>
+
+                <div class="control-section button-group">
+                    <button id="executeBtn">Execute</button>
+                    <button id="unfoldBtn" class="secondary">Unfold</button>
+                    <button id="resetBtn" class="danger">Reset</button>
+                </div>
+
+                <div class="control-section instructions">
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li>Select Fold or Cut mode</li>
+                        <li>Click two points to draw line</li>
+                        <li>Line turns green when valid</li>
+                        <li>Click Execute</li>
+                        <li>Click Unfold to see result</li>
+                    </ol>
                 </div>
             </div>
-
-            <div class="control-section button-group">
-                <button id="executeBtn">Execute</button>
-                <button id="unfoldBtn" class="secondary">Unfold</button>
-                <button id="resetBtn" class="danger">Reset</button>
-            </div>
-
-            <div class="control-section instructions">
-                <h3>Instructions</h3>
-                <ol>
-                    <li>Select Fold or Cut mode</li>
-                    <li>Click two points to draw line</li>
-                    <li>Line turns green when valid</li>
-                    <li>Click Execute</li>
-                    <li>Click Unfold to see result</li>
-                </ol>
-            </div>
         </div>
-    </div>
+        <p>
+            Create any shape with straight edges by folding and making a single cut. This interactive visualization demonstrates the fold-and-cut theorem, which states that it is possible to fold a piece of flat material and make a single straight complete cut, such that when unfolded, the material is cut into any desired polygonal shape.
+            <br><br>
+            This demo is inspired by the paper <i>"Folding and One Straight Cut Suffice"</i> by Erik D. Demaine, Martin L. Demaine, and Anna Lubiw. <a href="https://dl.acm.org/doi/pdf/10.5555/314500.315072" target="_blank">Read the paper here</a>.
+        </p>
+    </content>
+    <navbar class="no-select">
+        <a href="/microgames/">back</a>
+    </navbar>
 
     <script src="https://cdn.jsdelivr.net/npm/decimal.js@10.4.3/decimal.min.js"></script>
     <script src="./game.js"></script>
