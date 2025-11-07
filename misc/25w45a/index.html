@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weekly schedule | 25w45a</title>
+    <meta name="title" content="25w45a" />
+    <meta name="description" content="fall 2025 class schedule" />
+    <meta name="theme-color" content="#f4e6d4" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .calendar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border: 1px solid #e0e0e0;
+        }
+
+        .calendar-header {
+            display: grid;
+            grid-template-columns: 80px repeat(5, 1fr);
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .timezone {
+            font-size: 13px;
+            color: #666;
+            font-weight: 500;
+            padding: 15px 10px;
+            text-align: right;
+            padding-right: 15px;
+        }
+
+        .day-header {
+            text-align: center;
+            font-weight: 500;
+            color: #333;
+            font-size: 15px;
+            padding: 15px 10px;
+            border-left: 1px solid #e0e0e0;
+        }
+
+        .calendar-body {
+            display: grid;
+            grid-template-columns: 80px repeat(5, 1fr);
+            position: relative;
+        }
+
+        .time-column {
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .time-label {
+            height: 60px;
+            font-size: 13px;
+            color: #666;
+            font-weight: 500;
+            text-align: right;
+            padding-right: 15px;
+            padding-top: 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .day-column {
+            position: relative;
+            border-left: 1px solid #e0e0e0;
+            min-height: 540px;
+        }
+
+        .hour-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #f0f0f0;
+        }
+
+        .event {
+            position: absolute;
+            left: 4px;
+            right: 4px;
+            background: #fce4e4;
+            border-left: 4px solid #c94a4a;
+            padding: 8px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #8b2424;
+            line-height: 1.4;
+            overflow: hidden;
+        }
+
+        .event-title {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .event-time {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .event.optional {
+            background: #e8f4f8;
+            border-left: 4px solid #4a9cc9;
+            border-left-style: dashed;
+            color: #1a5a7a;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <div class="timezone">EST</div>
+            <div class="day-header">Mon</div>
+            <div class="day-header">Tue</div>
+            <div class="day-header">Wed</div>
+            <div class="day-header">Thu</div>
+            <div class="day-header">Fri</div>
+        </div>
+        
+        <div class="calendar-body">
+            <!-- Time column -->
+            <div class="time-column">
+                <div class="time-label">9 AM</div>
+                <div class="time-label">10 AM</div>
+                <div class="time-label">11 AM</div>
+                <div class="time-label">12 PM</div>
+                <div class="time-label">1 PM</div>
+                <div class="time-label">2 PM</div>
+                <div class="time-label">3 PM</div>
+                <div class="time-label">4 PM</div>
+                <div class="time-label">5 PM</div>
+            </div>
+
+            <!-- Monday -->
+            <div class="day-column">
+                <div class="event" style="top: 90px; height: 80px;">
+                    <div class="event-title">Systems Architecture</div>
+                    <div class="event-time">10:30–11:50 AM</div>
+                </div>
+                <div class="event" style="top: 300px; height: 50px;">
+                    <div class="event-title">Discrete Math</div>
+                    <div class="event-time">2–2:50 PM</div>
+                </div>
+                <div class="event" style="top: 360px; height: 80px;">
+                    <div class="event-title">Artificial Intelligence</div>
+                    <div class="event-time">3–4:20 PM</div>
+                </div>
+            </div>
+
+            <!-- Tuesday -->
+            <div class="day-column">
+                <div class="event" style="top: 30px; height: 80px;">
+                    <div class="event-title">ML Practicum</div>
+                    <div class="event-time">9:30–10:50 AM</div>
+                </div>
+                <div class="event" style="top: 180px; height: 80px;">
+                    <div class="event-title">Web Development</div>
+                    <div class="event-time">12–1:20 PM</div>
+                </div>
+            </div>
+
+            <!-- Wednesday -->
+            <div class="day-column">
+                <div class="event" style="top: 90px; height: 80px;">
+                    <div class="event-title">Systems Architecture</div>
+                    <div class="event-time">10:30–11:50 AM</div>
+                </div>
+                <div class="event" style="top: 210px; height: 80px;">
+                    <div class="event-title">Ethics</div>
+                    <div class="event-time">12:30–1:50 PM</div>
+                </div>
+                <div class="event" style="top: 300px; height: 50px;">
+                    <div class="event-title">Discrete Math</div>
+                    <div class="event-time">2–2:50 PM</div>
+                </div>
+                <div class="event" style="top: 360px; height: 80px;">
+                    <div class="event-title">Artificial Intelligence</div>
+                    <div class="event-time">3–4:20 PM</div>
+                </div>
+            </div>
+
+            <!-- Thursday -->
+            <div class="day-column">
+                <div class="event" style="top: 30px; height: 80px;">
+                    <div class="event-title">ML Practicum</div>
+                    <div class="event-time">9:30–10:50 AM</div>
+                </div>
+            </div>
+
+            <!-- Friday -->
+            <div class="day-column">
+                <div class="event" style="top: 0px; height: 110px;">
+                    <div class="event-title">Systems Architecture</div>
+                    <div class="event-time">9–10:50 AM</div>
+                </div>
+                <div class="event optional" style="top: 135px; height: 60px;">
+                    <div class="event-title">Weekly Design Catch Up</div>
+                </div>
+                <div class="event" style="top: 300px; height: 50px;">
+                    <div class="event-title">Discrete Math</div>
+                    <div class="event-time">2–2:50 PM</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
