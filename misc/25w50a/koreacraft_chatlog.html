@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Chat Log</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            margin: 0;
+        }
+        .chat-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba<span class="translation">(0, 0, 0, 0.5)</span>;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .message {
+            margin: 2px 0;
+            line-height: 1.4;
+        }
+        .system {
+            color: #ffff55;
+        }
+        .player {
+            color: #ffffff;
+        }
+        .translation {
+            color: #888888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="message system">MellowSkrub <span class="translation">(It's your first time! Welcome!!!)</span></div>
+        <div class="message system"><span class="translation">(The sidebar is not activated. You can activate the sidebar with the /sc on command.)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; ?</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; <span class="translation">(Hello)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(I don't have items)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(Kill?)</span></div>
+        <div class="message system">Saved screenshot as 2025-12-14_01.54.59.png</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(No KakaoTalk room)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(I can't kill because I don't have items)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(Give me)</span></div>
+        <div class="message system">Saved screenshot as 2025-12-14_01.55.15.png</div>
+        <div class="message player">&lt;MellowSkrub&gt; Hello!</div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(If not robbery then it's terror)</span></div>
+        <div class="message player">&lt;HalfArt6041&gt; <span class="translation">(Is the owner not here)</span></div>
+        <div class="message system">TeenyLamp153723 <span class="translation">(left the server..)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Yes)</span></div>
+        <div class="message system">jiyul2015 was slain by Piglin</div>
+        <div class="message system">MellowSkrub was slain by jiyul2015 using [I will snatch your heart]</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Pour lava)</span></div>
+        <div class="message system">MellowSkrub was slain by jiyul2015 using [I will snatch your heart]</div>
+        <div class="message system">MellowSkrub was burned to a crisp while fighting jiyul2015</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; <span class="translation">(Why kill them)</span></div>
+        <div class="message system">MellowSkrub tried to swim in lava</div>
+        <div class="message player">&lt;MellowSkrub&gt; <span class="translation">(That was rude)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Not in the KakaoTalk room)</span></div>
+        <div class="message system">MellowSkrub burned to death</div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(Explain)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Are they a foreigner?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(Yes)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(Why is a foreigner here?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(When the server is distributed)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(They might come)</span></div>
+        <div class="message system">MellowSkrub was slain by jiyul2015</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(This server is already distributed)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(For now don't kill)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Just watch)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; <span class="translation">(Why did you do that?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(Why did you come?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(I think they're a foreigner)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; hey</div>
+        <div class="message player">&lt;MellowSkrub&gt; hi</div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(Leave)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; where are you from</div>
+        <div class="message player">&lt;MellowSkrub&gt; The US</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; how did you come here</div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(Everyone please watch)</span></div>
+        <div class="message system">jiyul2015 <span class="translation">(left the server..)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; ?</div>
+        <div class="message player">&lt;MellowSkrub&gt; This afternoon, I wrote a program to find minecraft servers</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(I don't have items so)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Can't watch)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(It's distributed on the internet)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; I've just been joining random servers</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; oh</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Java)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Please watch that person)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; what are you gonna do in this server</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; <span class="translation">(Where are they)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Lobby)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; Walk around; I</div>
+        <div class="message player">&lt;MellowSkrub&gt; I've been looking at builds</div>
+        <div class="message system">Yonggurt_sdh <span class="translation">(joined the server!)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(I don't have items so I'll stop here)</span></div>
+        <div class="message system">[Christmas Event] leh0404 <span class="translation">(participated in the Christmas event!)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; its rly cool to see different servers and their builds</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; pls dont break or grief anything</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; ?</div>
+        <div class="message player">&lt;MellowSkrub&gt; ofc</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; <span class="translation">(What)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; Thank you, Java0506</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; <span class="translation">(Who are you..?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(I think a foreigner came in)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; <span class="translation">(A foreigner?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; Hello</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; let me take you to my base</div>
+        <div class="message player">&lt;MellowSkrub&gt; Hello</div>
+        <div class="message player">&lt;MellowSkrub&gt; YES!!!</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; <span class="translation">(Seems kind)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(But)</span></div>
+        <div class="message system">Yonggurt_sdh <span class="translation">(left the server..)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(First that skin)</span></div>
+        <div class="message system">Yonggurt_sdh <span class="translation">(joined the server!)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(I think I saw it on YouTube)</span></div>
+        <div class="message system">Yonggurt_sdh <span class="translation">(left the server..)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; do you have a youtube account</div>
+        <div class="message player">&lt;MellowSkrub&gt; Woah are these shops?</div>
+        <div class="message player">&lt;MellowSkrub&gt; Yes I do but im not rly active</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; yeah</div>
+        <div class="message system">jiyul2015 <span class="translation">(joined the server!)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; oh</div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(Who?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Really)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(A foreigner)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; be careful</div>
+        <div class="message player">&lt;MellowSkrub&gt; Is this your base it looks so cool</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Some robber distributed the server address on the internet)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; <span class="translation">(How do you buy land?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(What a unique bad thing)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Slash)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Land)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; buy</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; creepers dont explode here</div>
+        <div class="message player">&lt;MellowSkrub&gt; oh goood</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; to prevent griefing</div>
+        <div class="message player">&lt;MellowSkrub&gt; I was worried about that</div>
+        <div class="message player">&lt;MellowSkrub&gt; i cant sprint anymore</div>
+        <div class="message system">kmj_XD <span class="translation">(joined the server!)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; hjahaha awesome</div>
+        <div class="message player">&lt;kmj_XD&gt; <span class="translation">(Haha)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Oh)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(It's the sub-admin)</span></div>
+        <div class="message player">&lt;HalfArt6041&gt; <span class="translation">(Sub-admin)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Big trouble)</span></div>
+        <div class="message player">&lt;HalfArt6041&gt; <span class="translation">(Please help me)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; it's here</div>
+        <div class="message player">&lt;MellowSkrub&gt; CREEPR</div>
+        <div class="message player">&lt;kmj_XD&gt; ?</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(That)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(That foreigner)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; sword portal!</div>
+        <div class="message player">&lt;HalfArt6041&gt; <span class="translation">(This snow block)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Says this server's address was posted on an internet website)</span></div>
+        <div class="message player">&lt;HalfArt6041&gt; <span class="translation">(Please clear it all)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; saw it in youtube xd</div>
+        <div class="message player">&lt;kmj_XD&gt; hello</div>
+        <div class="message player">&lt;MellowSkrub&gt; I love those</div>
+        <div class="message player">&lt;MellowSkrub&gt; invisble guy</div>
+        <div class="message player">&lt;MellowSkrub&gt; hi</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; what do you need</div>
+        <div class="message player">&lt;kmj_XD&gt; hi</div>
+        <div class="message player">&lt;MellowSkrub&gt; Me?</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; yeah</div>
+        <div class="message player">&lt;MellowSkrub&gt; not much, im just here for a tour</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; he's a mod</div>
+        <div class="message player">&lt;MellowSkrub&gt; Ah</div>
+        <div class="message player">&lt;HalfArt6041&gt; <span class="translation">(Sub-admin..?)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; actually food would be nice</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; wait a sec</div>
+        <div class="message player">&lt;MellowSkrub&gt; can i put down a sign?</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; yes</div>
+        <div class="message player">&lt;MellowSkrub&gt; ok sweet</div>
+        <div class="message player">&lt;HalfArt6041&gt; <span class="translation">(I'm blacksmithing)</span></div>
+        <div class="message player">&lt;kmj_XD&gt; :D</div>
+        <div class="message player">&lt;HalfArt6041&gt; <span class="translation">(Ah I see..)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; yo i got food</div>
+        <div class="message player">&lt;MellowSkrub&gt; awesome!</div>
+        <div class="message player">&lt;HalfArt6041&gt; <span class="translation">(Please kill this snowman)</span></div>
+        <div class="message player">&lt;HalfArt6041&gt; <span class="translation">(Thank you)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(XD)</span></div>
+        <div class="message player">&lt;kmj_XD&gt; <span class="translation">(Yes)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(One more big problem)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(The server crashed yesterday right)</span></div>
+        <div class="message player">&lt;kmj_XD&gt; <span class="translation">(Yes)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; Is this your castle?</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; yes</div>
+        <div class="message player">&lt;MellowSkrub&gt; Nice</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(If people who were in the Christmas event area when it crashed)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; it took 2 month</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(All their items will disappear when they log into lobby)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; Wow its huge</div>
+        <div class="message player">&lt;kmj_XD&gt; <span class="translation">(Sigh)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; are you gonna do the inside?</div>
+        <div class="message player">&lt;kmj_XD&gt; <span class="translation">(Ask the owner lol)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; :<span class="translation">(</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; follow me</div>
+        <div class="message player">&lt;kmj_XD&gt; (I gave them a plugin to use for this kind of thing)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; ill take you to the inside</div>
+        <div class="message player">&lt;kmj_XD&gt; <span class="translation">(Can't help it..:()</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(But that foreigner)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(What should we do)</span></div>
+        <div class="message player">&lt;kmj_XD&gt; <span class="translation">(It's a multinational server)</span></div>
+        <div class="message system">TeenyLamp153723 <span class="translation">(joined the server!)</span></div>
+        <div class="message player">&lt;kmj_XD&gt; <span class="translation">(English study too, nice lol)</span></div>
+        <div class="message system">Respawn point set</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; not finished :<span class="translation">(</div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; (Who is that person?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(Don't kill them)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Foreigner)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; This is so cool</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; thx</div>
+        <div class="message player">&lt;MellowSkrub&gt; Ive only ever built this big in creative</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; lol</div>
+        <div class="message system">[Christmas Event] TeenyLamp153723 <span class="translation">(participated in the Christmas event!)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; do you have discord?</div>
+        <div class="message player">&lt;MellowSkrub&gt; Yes</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; lemme add you</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; id?</div>
+        <div class="message player">You whisper to Java0506: @mellowskrub</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; ok</div>
+        <div class="message player">&lt;MellowSkrub&gt; o7</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; sent</div>
+        <div class="message player">&lt;MellowSkrub&gt; accepted!</div>
+        <div class="message system">Yonggurt_sdh <span class="translation">(joined the server!)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; <span class="translation">(Why you so obsessed)</span></div>
+        <div class="message system">kimchi_6273 <span class="translation">(joined the server!)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; <span class="translation">(What do you mean?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(Kimchi haha)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; do you wanna build in creative</div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(Kimchi haha)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; <span class="translation">(There are suddenly so many people?)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; No, dude, I suck at building</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; ok</div>
+        <div class="message player">&lt;MellowSkrub&gt; And its also 2Am here LMAO</div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(leh0404 can you help?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(What is it)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; oh lol</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(If it's the Christmas event I can't help)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; it's 4pm here</div>
+        <div class="message player">&lt;kimchi_6273&gt; <span class="translation">(Who's not in KakaoTalk?)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; is your ping good?</div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(Java that thing isn't free dueling right?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(From duck warehouse TP 3 TNT and bring it)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; I think so</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Um)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; tab menu says 4 bars</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(I don't even have a pickaxe)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Can't go)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; wouldn't pvp with it, but its not bad</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; are you from bedrock or java</div>
+        <div class="message system">leh0404 fell from a high place</div>
+        <div class="message system">kimchi_6273 <span class="translation">(left the server..)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Right)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(XD)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; ok</div>
+        <div class="message player">&lt;MellowSkrub&gt; Java, I dont think you can join java servers with bedrock</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; exceptionally</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(I should have gotten that head yesterday but couldn't because the server crashed)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; this server can</div>
+        <div class="message player">&lt;MellowSkrub&gt; Oh really?</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; idk lot about it</div>
+        <div class="message system">TeenyLamp153723 <span class="translation">(left the server..)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; umm....</div>
+        <div class="message player">&lt;MellowSkrub&gt; haha, technically I'm using a mod called ViaFabricPlus which lets me join bedrock servers with java</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; <span class="translation">(Can you do creative it seems)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; But its very buggy and early in development</div>
+        <div class="message player">&lt;MellowSkrub&gt; so you cant do things like ride horses</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; ohh</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; ive heard of it</div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(leh0404 you don't have to do it)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; .</div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(If you took it do it)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(I just took it out with difficulty)</span></div>
+        <div class="message player">&lt;kmj_XD&gt; hi bro</div>
+        <div class="message player">&lt;MellowSkrub&gt; hi</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; Wow</div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(TP leh0404)</span></div>
+        <div class="message player">&lt;kmj_XD&gt; where r u from?</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; <span class="translation">(Where are they)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(Lobby)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; The United States</div>
+        <div class="message system">leh0404 tried to swim in lava</div>
+        <div class="message player">&lt;kmj_XD&gt; omg</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; U.S????????????</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; Wow</div>
+        <div class="message system">[Christmas Event] leh0404 <span class="translation">(participated in the Christmas event!)</span></div>
+        <div class="message system">TeenyLamp153723 <span class="translation">(joined the server!)</span></div>
+        <div class="message player">&lt;kmj_XD&gt; Finally our server became an international server lol</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; I think it's great that you came to our server</div>
+        <div class="message player">&lt;MellowSkrub&gt; hahahaha</div>
+        <div class="message player">&lt;[Duck Hunt Team] leh0404&gt; <span class="translation">(But)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; Thank you!</div>
+        <div class="message system">jiyul2015 <span class="translation">(left the server..)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; there once was a terrorist and that's why our people killed you at first</div>
+        <div class="message player">&lt;kmj_XD&gt; yap You're welcome</div>
+        <div class="message player">&lt;MellowSkrub&gt; HAHAHAHAHAHAHAHA</div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(Why is everyone enjoying free dueling)</span></div>
+        <div class="message player">&lt;kmj_XD&gt; <span class="translation">(Lololol)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; we thought you would</div>
+        <div class="message player">&lt;MellowSkrub&gt; That happens!</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; How did you end up on our server?</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; terror or grief</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; <span class="translation">(Dueling nonsense)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; yesterday was my last day of finals, so today i was bored and wrote a tool to scan the internet for minecraft servers</div>
+        <div class="message player">&lt;MellowSkrub&gt; and ive been joining random ones to see what people build</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; wow</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; Are you living in America now?</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; thats amazing</div>
+        <div class="message system">jiyul2015 <span class="translation">(joined the server!)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; you are a university student??</div>
+        <div class="message player">&lt;MellowSkrub&gt; Well, I'm American, but yes I currently live in America</div>
+        <div class="message player">&lt;MellowSkrub&gt; Yes</div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(Dueling dueling rolling rolling dueling)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; ?</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; actually im 14</div>
+        <div class="message player">&lt;MellowSkrub&gt; hahaha thats when I used to play minecraft the most</div>
+        <div class="message system">jiyul2015 tried to swim in lava</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; <span class="translation">(I'm the only one who can't understand what they're saying)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; am i good at english</div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(What that person is saying?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; yes</div>
+        <div class="message player">&lt;MellowSkrub&gt; Yeah you're really good at english</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; yay</div>
+        <div class="message player">&lt;MellowSkrub&gt; when i was 14 it was the pandemic so i had so much time to play minecraft xD</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; ohh</div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; 14 <span class="translation">(years old)</span>?</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; <span class="translation">(They're a university student)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; ?</div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(Huh)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; a hat</div>
+        <div class="message system">MellowSkrub has made the advancement [Cover Me with Diamonds]</div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(Robbery?)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(Yes)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; what are your plans now</div>
+        <div class="message player">&lt;[Duck Hunt Team] jiyul2015&gt; <span class="translation">(I gave it)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; leave a sign i guess</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; oh</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; What time is it over there?</div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(What are they saying)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; actually i do have to go to bed, but maybe i can hop on later and tour some of the builds and take screenshots</div>
+        <div class="message player">&lt;MellowSkrub&gt; its 2AM lol</div>
+        <div class="message player">&lt;MellowSkrub&gt; screenshots of the builds*, if thats okay</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; 2AM?</div>
+        <div class="message player">&lt;MellowSkrub&gt; Yeah</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; i mean I'm fine with that but</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; 2am???</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; idk what the mods will think about that</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; <span class="translation">(I know am is morning)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; ill tell them you are a good person</div>
+        <div class="message player">&lt;[Duck Hunt Team] Yonggurt_sdh&gt; <span class="translation">(2 in the morning?????????)</span></div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(It's 2AM now?)</span></div>
+        <div class="message player">&lt;MellowSkrub&gt; I stayed up all night after my final exams so my sleep schedule is wrecked</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; loll</div>
+        <div class="message player">&lt;MellowSkrub&gt; i do have to go to bed, but it was really nice chatting with y'all</div>
+        <div class="message player">&lt;MellowSkrub&gt; Goodnight!</div>
+        <div class="message player">&lt;[Duck Hunt Team] TeenyLamp153723&gt; <span class="translation">(What are you saying!!!!!!!!!!!!Dueling delete.)</span></div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; yep</div>
+        <div class="message player">&lt;[Boss Scholar] Java0506&gt; gn</div>
+        <div class="message system">Stopping worker threads</div>
+    </div>
+</body>
+</html>
