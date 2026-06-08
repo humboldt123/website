@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Writing | Vishnu M.</title>
+        <meta charset="utf-8">
+        <meta name="title" content="Vishnu's Writing" />
+        <meta name="description" content="My thoughts on various subjects, matters, etc." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/style/global.css">
+    </head>
+    <body>
+        <nav>
+            <a href="/">home</a>
+            <a href="/writing/">writing</a>
+            <a href="/works/">works</a>
+            <a href="/stuff/">stuff</a>
+        </nav>
+        <main class="writing-index">
+            <h1>Writing</h1>
+            <b>2026</b>
+            <ul>
+                <li data-banner="./2026/what-the-models-learn/banner.png" data-tagline="Image models understand concepts geometrically.">
+                    <span class="date">Mar</span>
+                    <div><a href="./2026/what-the-models-learn/">What the Models Learn</a></div>
+                </li>
+                <li>
+                    <span class="date">Feb</span>
+                    <div>On Waymos (<i><a href="https://www.thetriangle.org/opinion/why-waymo-deserves-a-chance-on-our-streets" target="_blank" data-banner="./2026/on-waymos/banner.jpg" data-tagline="Why Waymo deserves a chance on Philly’s streets.">The Triangle</a></i>)</div>
+                </li>
+            </ul>
+            <b>2025</b>
+            <ul>
+                <li data-banner="./2025/stars/banner.png" data-tagline="My diary entry for July 16th, 2025.">
+                    <span class="date">Jul</span>
+                    <div><a href="./2025/stars/">Stars</a></div>
+                </li>
+                <li data-banner="./2025/a-review-of-the-boy-and-the-heron/banner.png" data-tagline="Hidden article.">
+                    <span class="date">Mar</span>
+                    <div><a href="./2025/a-review-of-the-boy-and-the-heron/">A Review of <i>The Boy and the Heron</i></a>*</div>
+                </li>
+                <li data-banner="./2025/erdos/banner.jpeg" data-tagline="My Erdős number is 5.">
+                    <span class="date">Feb</span>
+                    <div><a href="./2025/erdos/">Erdős</a></div>
+                </li>
+                <li data-banner="./2025/on-programming-for-hazel/banner.png" data-tagline="Hidden article.">
+                    <span class="date">Jan</span>
+                    <div><a href="./2025/on-programming-for-hazel/">On Programming, For Hazel</a>*</div>
+                </li>
+            </ul>
+            <b>2024</b>
+            <ul>
+                <li data-banner="./2024/freshman-photoblog/banner.jpg" data-tagline="My freshman year in photos.">
+                    <span class="date">Jun</span>
+                    <div><a href="./2024/freshman-photoblog/">Freshman Photoblog</a></div>
+                </li>
+            </ul>
+            <b>1969</b>
+            <ul>
+                <li data-banner="./1969/template/assets/bigrat.jpg" data-tagline="Description here.">
+                    <span class="date">Jan</span>
+                    <div><a href="./1969/template/">Template</a>*</div>
+                </li>
+            </ul>
+        </main>
+        <script>
+            const card = document.createElement('div');
+            card.style.cssText = 'position:fixed;display:none;opacity:0;transition:opacity 0.08s ease;width:210px;z-index:50;box-shadow:0 4px 20px rgba(0,0,0,.18);overflow:hidden;border-radius:6px;';
+            const cardImg = document.createElement('img');
+            cardImg.style.cssText = 'display:block;width:100%;aspect-ratio:16/9;object-fit:cover;';
+            const cardText = document.createElement('p');
+            cardText.style.cssText = 'margin:0;padding:8px 10px 10px;font-size:0.78em;color:#808080;font-family:inherit;line-height:1.45;font-style:italic;background:#faf8f6;';
+            card.appendChild(cardImg);
+            card.appendChild(cardText);
+            document.body.appendChild(card);
+
+            let cardTimer, cardFadeTimer, mx = null, my = null;
+
+            function showCard() {
+                clearTimeout(cardTimer); cardTimer = null;
+                clearTimeout(cardFadeTimer);
+                card.style.pointerEvents = 'auto';
+                card.style.display = 'block';
+                requestAnimationFrame(() => { card.style.opacity = '1'; });
+            }
+
+            function hideCard() {
+                cardTimer = setTimeout(() => {
+                    cardTimer = null;
+                    card.style.pointerEvents = 'none';
+                    card.style.opacity = '0';
+                    cardFadeTimer = setTimeout(() => { card.style.display = 'none'; }, 80);
+                }, 150);
+            }
+
+            function hideCardNow() {
+                clearTimeout(cardTimer); cardTimer = null;
+                card.style.pointerEvents = 'none';
+                card.style.opacity = '0';
+                cardFadeTimer = setTimeout(() => { card.style.display = 'none'; }, 80);
+            }
+
+            card.addEventListener('mouseenter', () => { clearTimeout(cardTimer); cardTimer = null; });
+            card.addEventListener('mouseleave', hideCard);
+
+            document.addEventListener('mousemove', e => {
+                mx = e.clientX; my = e.clientY;
+                // Cancel grace period on fast streak — deliberate movement toward
+                // the card stays within ~80px; mousing quickly past shouldn't linger.
+                if (!cardTimer) return;
+                const r = card.getBoundingClientRect();
+                if (e.clientX < r.left - 80 || e.clientX > r.right + 80 ||
+                    e.clientY < r.top - 80 || e.clientY > r.bottom + 80) {
+                    hideCardNow();
+                }
+            });
+
+            document.querySelectorAll('[data-banner]').forEach(el => {
+                el.addEventListener('mouseenter', e => {
+                    cardImg.src = el.dataset.banner;
+                    if (el.dataset.tagline) {
+                        cardText.textContent = el.dataset.tagline;
+                        cardText.style.display = 'block';
+                    } else {
+                        cardText.style.display = 'none';
+                    }
+                    // Place card opposite the cursor's travel direction so it
+                    // doesn't block where the user is headed. Fall back to
+                    // below-right if no prior mouse position is known yet.
+                    const w = 210, h = 190, gap = 16;
+                    let x, y;
+                    if (mx !== null) {
+                        const dx = e.clientX - mx, dy = e.clientY - my;
+                        if (Math.abs(dx) >= Math.abs(dy)) {
+                            x = dx >= 0 ? e.clientX - w - gap : e.clientX + gap;
+                            y = e.clientY - h / 2;
+                        } else {
+                            x = e.clientX + gap;
+                            y = dy >= 0 ? e.clientY - h - gap : e.clientY + gap;
+                        }
+                    } else {
+                        x = e.clientX + gap;
+                        y = e.clientY + gap;
+                    }
+                    card.style.left = Math.max(gap, Math.min(x, window.innerWidth  - w - gap)) + 'px';
+                    card.style.top  = Math.max(gap, Math.min(y, window.innerHeight - h - gap)) + 'px';
+                    showCard();
+                });
+                el.addEventListener('mouseleave', hideCard);
+            });
+        </script>
+    </body>
+</html>

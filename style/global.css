@@ -1,65 +1,390 @@
-@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+/* =============================================================================
+   Vishnu M. — global.css
 
-:root {
-	--bright: #fefefe;
-    --overcast: #f0f0f0;
+   Font: Latin Modern — the webfont version of Knuth's Computer Modern (the
+   LaTeX default). Chosen for its scholarly/literary character and because it
+   pairs naturally with MathJax in article pages.
 
-    
-    --papyrus: #f7ede0;
-    --damp-papyrus: #ebd1b0;
+   Layout: single-column, body-level max-width constraint (~70 chars/line with
+   LM at 1rem). Nav and content share the same container — no separate wrappers
+   needed at this site's scale.
 
-	--dark: #212121;
-    --midnight: #121212;
-    --darksky: #010101;
-    
-    --dreary: #7e7e73;
-    
-    --darken: #0a0a0a90;
-    --greyen: #8784a311;
-    --lighten: #ffffff16;
-    
-    --overcasty: #f0f0f0d8;
-    --accentify: #e83b3bbc;
+   Colors: all driven by CSS variables in :root. --accent is firebrick red and
+   is the single "color" decision on the site — used for links, .accent
+   blockquote borders, and interactive highlights. Everything else is neutral.
+   Dark mode variables are stubbed; flip the commented @media block to enable.
 
-    --selection: lightblue;
-	--accent: #e83b3b;
-	--accent-alt: #ae2334;
+   Blockquotes: two semantic variants — .accent (epigraph, red border) and
+   .quote (external source, neutral border, cite right-aligned). Nesting works
+   automatically via inherited left margin on blockquote blockquote.
 
-    --dark-accent: #a5d8ff;
-    --dark-accent-alt: #339af0;
+   Split discipline: article-specific rules live in this file for now. If they
+   grow large enough to warrant a separate article.css, split then and link it
+   only from article pages. Don't split preemptively.
+   ============================================================================= */
+
+
+/* ── Fonts ────────────────────────────────────────────────────────────────── */
+
+/* Four Latin Modern variants from latex.css on jsDelivr. Only LM — we don't
+   use the Libertinus fonts that also ship in that package. font-display: swap
+   avoids invisible text during load; LM is close enough to Georgia that the
+   fallback swap is unobtrusive. */
+@font-face {
+    font-family: 'Latin Modern';
+    src: url('https://cdn.jsdelivr.net/npm/latex.css@1.5.0/fonts/LM-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Latin Modern';
+    src: url('https://cdn.jsdelivr.net/npm/latex.css@1.5.0/fonts/LM-italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Latin Modern';
+    src: url('https://cdn.jsdelivr.net/npm/latex.css@1.5.0/fonts/LM-bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Latin Modern';
+    src: url('https://cdn.jsdelivr.net/npm/latex.css@1.5.0/fonts/LM-bold-italic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
 }
 
+
+/* ── Variables ────────────────────────────────────────────────────────────── */
+
+/* --bg is warm off-white (hsl(40,…)) rather than pure #fff to complement LM's
+   warm letterforms. --accent is the sole color decision — firebrick red,
+   used for links and .accent blockquote borders. --muted handles secondary text
+   (dates, captions, cite). --border is hr and .quote blockquote borders. */
+:root {
+    --bg:     hsl(40, 20%, 98%);
+    --text:   hsl(0, 5%, 10%);
+    --accent: hsl(0, 68%, 42%);
+    --muted:  hsl(0, 0%, 50%);
+    --border: hsl(0, 0%, 80%);
+}
+
+/* Dark mode — variables only, not wired up yet. When implementing: uncomment
+   this block, verify accent is bright enough on dark bg, done. */
+/*
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg:     hsl(0, 5%, 10%);
+        --text:   hsl(40, 20%, 92%);
+        --accent: hsl(0, 68%, 62%);
+        --muted:  hsl(0, 0%, 55%);
+        --border: hsl(0, 0%, 28%);
+    }
+}
+*/
+
+
+/* ── Reset ────────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ── Layout ───────────────────────────────────────────────────────────────── */
+
+/* max-width on body constrains everything — nav and content alike. 38em with
+   LM at 16px gives ~68–72 chars/line, which is the comfortable reading range.
+   Padding handles mobile edge spacing without a separate media query. */
 html {
+    font-size: 1rem;
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Vollkorn', serif;
+    font-family: 'Latin Modern', Georgia, 'Times New Roman', serif;
+    line-height: 1.8;
+    color: var(--text);
+    background-color: var(--bg);
+    text-rendering: optimizeLegibility;
+    max-width: 38em;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
 }
 
-/* overrides */
-a { color: var(--accent); text-decoration: underline 1px dotted; }
-a:hover {  text-decoration: underline 2px; }
-::selection { background-color: var(--selection); }
-img { user-select: none; }
 
-/* themes */
-.day { background-color: var(--bright); color: var(--dark); }
-.overcast { background-color: var(--overcast); color: var(--dark); }
-.papyrus { background-color: var(--papyrus); color: var(--dark); }
+/* ── Navigation ───────────────────────────────────────────────────────────── */
 
-.night { background-color: var(--dark); color: var(--bright); }
-.midnight { background-color: var(--midnight); color: var(--bright); }
-.darksky { background-color: var(--darksky); color: var(--overcast); }
+/* Dots between nav links via CSS (a + a::before) so the HTML stays clean —
+   just bare <a> tags. Nav links are --text not --accent so they don't compete
+   with in-body links. Hover reveals accent. */
+nav {
+    margin-bottom: 3rem;
+    font-size: 0.9em;
+}
 
-/* styles */
-.serif { font-family: 'Vollkorn', serif; }
-.mono { font-family: 'JetBrains Mono', monospace; }
-.no-select { user-select: none; }
-.no-pointer { pointer-events: none; }
+nav a {
+    color: var(--text);
+    text-decoration: none;
+}
 
-/* mobile */
-@media (max-width: 600px) {
-    .hide-mobile { display: none; }
+nav a + a::before {
+    content: " · ";
+    color: var(--muted);
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+
+/* ── Typography ───────────────────────────────────────────────────────────── */
+
+/* LM has strong serifs at all sizes so headings don't need weight tricks.
+   h1 is page-title only; h2/h3 are article section headers. */
+h1 {
+    font-size: 1.8em;
+    line-height: 1.2;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 1.5em;
+    margin-bottom: 0.4em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+ul, ol {
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+li {
+    margin-bottom: 0.25em;
+}
+
+/* Links use --accent throughout. text-underline-offset gives breathing room
+   between baseline and underline, which LM needs more than system fonts. */
+a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+a:hover {
+    opacity: 0.75;
+}
+
+/* Footnote references: bare superscript number with dotted underline instead
+   of [n]. Cursor:help signals there's more info on hover. Small left margin
+   gives breathing room between the preceding word and the superscript. */
+sup {
+    margin-left: 0.1em;
+}
+
+sup a[href^="#footnote-"] {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 1px;
+    text-decoration-color: var(--muted);
+    cursor: help;
+}
+
+/* External link icon — appears on any a[target="_blank"] sitewide. SVG mask
+   lets it inherit --accent via currentColor without a font dependency. */
+a[target="_blank"]::after {
+    content: '';
+    display: inline-block;
+    width: 0.6em;
+    height: 0.6em;
+    margin-left: 0.2em;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E") center/contain no-repeat;
+    vertical-align: 0.05em;
+}
+
+
+/* ── Blockquotes ──────────────────────────────────────────────────────────── */
+
+/* .accent — epigraph or dedication at the top of an article. Red left border
+   ties it to the site's color identity. Italic body, cite right-aligned below.
+   .quote — external source. Neutral --border left bar (same as hr), cite
+   right-aligned so it reads like a caption under the quoted text.
+   Nested blockquote gets 1em left indent automatically — no class needed. */
+
+blockquote.accent {
+    border-left: 3px solid var(--accent);
+    padding: 0.5em 1em;
+    margin: 0 0 2em;
+    font-style: italic;
+}
+
+blockquote.accent cite {
+    display: block;
+    text-align: right;
+    font-style: normal;
+    font-size: 0.85em;
+    color: var(--muted);
+    margin-top: 0.5em;
+}
+
+blockquote.quote {
+    border-left: 3px solid var(--border);
+    padding: 0.5em 1em;
+    margin: 1.5em 0;
+}
+
+blockquote.quote cite {
+    display: block;
+    text-align: right;
+    font-style: normal;
+    font-size: 0.85em;
+    color: var(--muted);
+    margin-top: 0.5em;
+}
+
+blockquote blockquote {
+    margin-left: 1em;
+    margin-top: 0.5em;
+}
+
+
+/* ── Article ──────────────────────────────────────────────────────────────── */
+
+/* #date: sits below h1 as a small dateline label. Tight top margin keeps it
+   close to the title; bottom margin matches the gap before the <hr>. */
+#date {
+    color: var(--muted);
+    font-size: 0.85em;
+    margin-top: 0.1em;
+    margin-bottom: 0.5em;
+}
+
+/* .tagline: one-sentence article summary. display:block so it sits on its own
+   line below the date + title without needing a <br>. */
+.tagline {
+    display: block;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.95em;
+    margin-bottom: 0;
+}
+
+/* hr separates the article header block (title / tagline / date) from body. */
+article hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.5em 0;
+}
+
+/* Footnotes: wrap in <section class="footnotes"> at the end of the article.
+   The border-top draws a light separator from the body. Paragraphs inside are
+   tightened — 0.2em instead of 1em — so footnotes read as a compact block. */
+section.footnotes {
+    border-top: 1px solid var(--border);
+    margin-top: 2em;
+    padding-top: 0.75em;
+}
+
+section.footnotes p {
+    margin-bottom: 0.2em;
+}
+
+p small[id^="footnote-"],
+section.footnotes small[id^="footnote-"] {
+    display: block;
+    color: var(--muted);
+    font-size: 0.8em;
+    line-height: 1.5;
+}
+
+/* Captions: <small class="caption"> below images. Center-aligned to match the
+   centered images they describe. Negative top margin closes the gap from the
+   image's own bottom margin. */
+small.caption {
+    display: block;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8em;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+/* img.doodle: pixel/hand-drawn images that should not be anti-aliased. */
+img.doodle {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* img.center: block images within articles. max-width: 100% ensures they don't
+   overflow on mobile. Inline style="width: Xem" on individual images still
+   works — it just can't exceed 100% of the container. */
+img.center {
+    display: block;
+    margin: 1.5em auto 0.3em;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ── Writing index ────────────────────────────────────────────────────────── */
+
+/* Year labels use <b> directly in <main>. display:block and margin-top give
+   them heading-like spacing without promoting them to an actual heading level
+   (they're labels, not section headings in the document outline sense). */
+.writing-index > b {
+    display: block;
+    margin-top: 1.25em;
+    margin-bottom: 0.25em;
+}
+
+main > ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.writing-index > ul {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.writing-index > ul li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75em;
+    margin-bottom: 0.15em;
+}
+
+.writing-index > ul li > div {
+    flex: 1;
+}
+
+.date {
+    flex-shrink: 0;
+    width: 2.5em;
+    color: var(--muted);
+    font-size: 0.85em;
 }

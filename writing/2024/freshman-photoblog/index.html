@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Freshman Photoblog | Writings</title>
+        <meta charset="utf-8">
+        <meta name="title" content="Freshman Photoblog" />
+        <meta name="description" content="My freshman year in photo highlights!" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/style/global.css">
+        <style>
+            .photo-row {
+                display: flex;
+                gap: 8px;
+                margin-bottom: 8px;
+            }
+
+            .photo-col {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .photo-wide {
+                margin-bottom: 8px;
+            }
+
+            .photo-row figure {
+                margin: 0;
+                cursor: default;
+            }
+
+            .photo-wide {
+                margin: 0 0 8px;
+                cursor: default;
+            }
+
+            .photo-row figure img,
+            .photo-wide img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+
+            figcaption { display: none; }
+
+            .doodle-cell {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1em 1em 0;
+                flex-grow: 1;
+            }
+
+            .doodle-cell.doodle-end {
+                align-items: flex-end;
+            }
+
+            .doodle-cell img {
+                max-width: 85%;
+                max-height: 200px;
+                width: auto;
+                height: auto;
+            }
+
+            /* Cat row */
+            .cat-row {
+                padding: 2.5em 0;
+                overflow: visible;
+            }
+
+            .cat-row .cats {
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                overflow: visible;
+            }
+
+            .cat-row .cats img {
+                width: 24%;
+                margin: 0;
+                transition: transform 0.3s;
+            }
+
+            .cat-row .cats img:nth-child(1) { transform: rotate(-15deg) translate(0, 0px); }
+            .cat-row .cats img:nth-child(2) { transform: rotate(-5deg) translate(0, -20px); }
+            .cat-row .cats img:nth-child(3) { transform: rotate(5deg) translate(0, -20px); }
+            .cat-row .cats img:nth-child(4) { transform: rotate(15deg) translate(0, 0); }
+            .cat-row .cats img:hover { transform: translateY(-20px) scale(1.1); z-index: 10; position: relative; }
+
+            .cat-row p {
+                text-align: center;
+                font-size: 0.8em;
+                color: var(--muted);
+                font-style: italic;
+                margin-top: 0.75em;
+                margin-bottom: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="/">home</a>
+            <a href="/writing/">writing</a>
+            <a href="/works/">works</a>
+            <a href="/stuff/">stuff</a>
+        </nav>
+        <article>
+            <h1>Freshman Photoblog</h1>
+            <p id="date">June 30, 2024</p>
+            <hr>
+
+            <div class="photo-row">
+                <div class="photo-col">
+                    <figure>
+                        <img src="./assets/2023-08-18.jpg" alt="My freshman year dorm">
+                        <figcaption>My freshman year dorm</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/2023-10-23.jpg" alt="Strawberry milk and my laptop">
+                        <figcaption>Strawberry milk and my laptop</figcaption>
+                    </figure>
+                    <figure class="doodle-cell doodle-end">
+                        <img class="doodle" src="/media/doodles/woa.png" alt="">
+                    </figure>
+                </div>
+                <div class="photo-col">
+                    <figure>
+                        <img src="./assets/2023-10-02.png" alt="Mes amis">
+                        <figcaption>Friends</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/2023-11-16.jpg" alt="Switch with Smash and Mario Kart">
+                        <figcaption>There is a Switch here with both Smash and Mario Kart</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/2023-12-02.png" alt="First photo I took with my new iPhone">
+                        <figcaption>First photo I took with my new iPhone</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <figure class="photo-wide">
+                <img src="./assets/2024-01-06.png" alt="My team at the 2024 PGM Global Game Jawn">
+                <figcaption>My team at the <a href="https://globalgamejam.org/games/2024/par-course-4" target="_blank">2024 PGM Global Game Jawn</a></figcaption>
+            </figure>
+
+            <div class="photo-row">
+                <div class="photo-col">
+                    <figure>
+                        <img src="./assets/2024-02-17-01.jpg" alt="Picturing myself inside this reconstructed pithos">
+                        <figcaption>Picturing myself inside this reconstructed pithos</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/2024-03-0X.png" alt="Lab photo day">
+                        <figcaption>Lab photo day</figcaption>
+                    </figure>
+                </div>
+                <div class="photo-col">
+                    <figure>
+                        <img src="./assets/2024-02-17-02.jpg" alt="Picturing her inside this reconstructed pithos">
+                        <figcaption>Picturing her inside this reconstructed pithos</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/2024-04-08.png" alt="Playing Subway Surfers while waiting for the eclipse">
+                        <figcaption>Playing Subway Surfers while waiting for the eclipse</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="cat-row">
+                <div class="cats">
+                    <img src="./assets/2024-04-04-01.png" alt="Cat 1">
+                    <img src="./assets/2024-04-04-03.png" alt="Cat 2">
+                    <img src="./assets/2024-04-04-04.png" alt="Cat 3">
+                    <img src="./assets/2024-04-04-05.png" alt="Cat 4">
+                </div>
+                <p>Specimens from the cat park by my dorm</p>
+            </div>
+
+            <figure class="photo-wide">
+                <img src="./assets/2024-04-20-01.gif" alt="Brainstorming our project for Philly Codefest">
+                <figcaption>Brainstorming our project for Philly Codefest</figcaption>
+            </figure>
+
+            <div class="photo-row">
+                <div class="photo-col">
+                    <figure>
+                        <img src="./assets/2024-05-03.png" alt="Went to Boston for a conference">
+                        <figcaption>Went to Boston for a conference and had to dress fancy</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/2024-05-17.png" alt="View from Lincoln Plaza">
+                        <figcaption>View from Lincoln Plaza</figcaption>
+                    </figure>
+                    <figure class="doodle-cell">
+                        <img class="doodle" src="/media/doodles/boba.png" alt="">
+                    </figure>
+                </div>
+                <div class="photo-col">
+                    <figure>
+                        <img src="./assets/2024-05-10.png" alt="Laufey, Bewitched: The Goddess Tour">
+                        <figcaption>Laufey, Bewitched: The Goddess Tour. Philadelphia, PA</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/2024-06-03.png" alt="My buddy, taken from the CCI building">
+                        <figcaption>My buddy, taken from the CCI building's 11th floor stairwell</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/2024-06-04.png" alt="30th Street Station at night">
+                        <figcaption>30th Street Station at night</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <figure class="photo-wide">
+                <img src="./assets/2024-06-14.png" alt="Drexel Park, right after my last final">
+                <figcaption>Drexel Park, right after my last final</figcaption>
+            </figure>
+
+            <p style="text-align: center; margin-top: 1em;"><i>&lt;/freshman_year&gt;</i></p>
+        </article>
+        <script>
+            const tip = document.createElement('div');
+            tip.style.cssText = [
+                'position:fixed', 'display:none', 'opacity:0',
+                'transition:opacity 0.08s ease',
+                'max-width:220px', 'padding:0.5em 0.7em',
+                'background:hsl(40,20%,98%)', 'border:1px solid hsl(0,0%,80%)',
+                'border-radius:6px', 'font-size:0.8em', 'line-height:1.4',
+                'z-index:100', 'box-shadow:0 2px 12px rgba(0,0,0,.12)',
+                'color:hsl(0,5%,10%)', 'font-family:inherit', 'font-style:italic',
+            ].join(';');
+            document.body.appendChild(tip);
+
+            let tipTimer, tipFadeTimer, mx = null, my = null;
+
+            function showTip() {
+                clearTimeout(tipTimer); tipTimer = null;
+                clearTimeout(tipFadeTimer);
+                tip.style.pointerEvents = 'auto';
+                tip.style.display = 'block';
+                requestAnimationFrame(() => { tip.style.opacity = '1'; });
+            }
+
+            function hideTip() {
+                tipTimer = setTimeout(() => {
+                    tipTimer = null;
+                    tip.style.pointerEvents = 'none';
+                    tip.style.opacity = '0';
+                    tipFadeTimer = setTimeout(() => { tip.style.display = 'none'; }, 80);
+                }, 150);
+            }
+
+            function hideTipNow() {
+                clearTimeout(tipTimer); tipTimer = null;
+                tip.style.pointerEvents = 'none';
+                tip.style.opacity = '0';
+                tipFadeTimer = setTimeout(() => { tip.style.display = 'none'; }, 80);
+            }
+
+            tip.addEventListener('mouseenter', () => { clearTimeout(tipTimer); tipTimer = null; });
+            tip.addEventListener('mouseleave', hideTip);
+
+            document.addEventListener('mousemove', e => {
+                mx = e.clientX; my = e.clientY;
+                if (!tipTimer) return;
+                const r = tip.getBoundingClientRect();
+                if (e.clientX < r.left - 80 || e.clientX > r.right + 80 ||
+                    e.clientY < r.top - 80 || e.clientY > r.bottom + 80) {
+                    hideTipNow();
+                }
+            });
+
+            document.querySelectorAll('figure:not(.doodle-cell)').forEach(fig => {
+                const cap = fig.querySelector('figcaption');
+                if (!cap) return;
+                fig.addEventListener('mouseenter', e => {
+                    tip.innerHTML = cap.innerHTML;
+                    const w = 220, gap = 12;
+                    const x = e.clientX + gap + w < window.innerWidth
+                        ? e.clientX + gap : e.clientX - gap - w;
+                    const dy = my !== null ? e.clientY - my : 1;
+                    const y = dy >= 0 ? e.clientY - 60 - gap : e.clientY + gap;
+                    tip.style.left = Math.max(gap, x) + 'px';
+                    tip.style.top  = Math.max(gap, Math.min(y, window.innerHeight - 80)) + 'px';
+                    showTip();
+                });
+                fig.addEventListener('mouseleave', hideTip);
+            });
+        </script>
+    </body>
+</html>
