@@ -7,6 +7,7 @@
         <meta name="description" content="I write about things that interest me." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="/style/global.css">
+        <link rel="stylesheet" href="/style/home.css">
     </head>
     <!--
         just want to mess with vuln scanners.. ignore this please <3
@@ -63,9 +64,43 @@
             <a href="/stuff/">stuff</a>
         </nav>
         <main>
-            <h1>Vishnu M.</h1>
-            <p>I write about things that interest me. <i>Philadelphia, PA</i></p>
-            <p><a href="/contact/">contact me</a></p>
+            <header class="home-header">
+                <h1>Vishnu M.</h1>
+                <p class="home-subnav">
+                    <a href="/">home</a> · <a href="/writing/">writing</a> · <a href="/works/">works</a> · <a href="/stuff/">stuff</a>
+                </p>
+            </header>
+            <div class="home-rows">
+
+                <!-- Row 1: two images — left ~456px wide, right fills remaining -->
+                <div class="home-row1">
+                    <div class="img-cell img-cell-left">
+                        <img src="/media/home/whiteboard.jpg" alt="">
+                    </div>
+                    <div class="img-cell img-cell-right">
+                        <img src="/media/home/TEMP_VISH.jpg" alt="">
+                    </div>
+                </div>
+
+                <!-- Row 2: three images, 1fr 2fr 1fr, 357px tall -->
+                <div class="home-row2">
+                    <div class="img-cell"><img src="/media/home/plushies.jpg" alt=""></div>
+                    <div class="img-cell"><img src="/media/home/philly.jpg" alt=""></div>
+                    <div class="img-cell"><img src="/media/home/ralsei.jpg" alt=""></div>
+                </div>
+
+                <!-- Row 3: contact box + three square images -->
+                <div class="home-row3">
+                    <div class="home-contact">
+                        <p>I write about things that interest me.</p>
+                        <p><a href="/contact/">click for my email!</a></p>
+                    </div>
+                    <div class="img-sq"><img src="/media/home/park.jpg" alt=""></div>
+                    <div class="img-sq"><img src="/media/home/painting.jpg" alt=""></div>
+                    <div class="img-sq"><img src="/media/home/games.gif" alt="" class="pixel"></div>
+                </div>
+
+            </div>
         </main>
     </body>
 </html>

@@ -1,0 +1,214 @@
+/* =============================================================================
+   home.css — homepage layout
+
+   Dimensions are adapted from laurenyip.com's grid layout:
+   - Container: 1280px max-width, 40px side padding
+   - Desktop rows: additional 50px left offset
+   - Row gaps: 12px throughout
+   - Row 1: left image fixed ~456px wide, right portrait flex:1, both 420px tall
+   - Row 2: 1fr 2fr 1fr grid at ≥640px, 357px tall
+   - Row 3: 1fr 1fr 1fr 1fr grid at ≥1024px, square images
+
+   The homepage does not link article.css — it defines its own body constraints.
+   ============================================================================= */
+
+
+/* ── Page layout ──────────────────────────────────────────────────────────── */
+
+body {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: calc(7rem + 50px) 40px 4rem;
+}
+
+@media (max-width: 640px) {
+    body { padding: 1.25rem 12px 3rem; }
+}
+
+/* Top nav is redundant on the homepage — the subnav under the h1 covers it. */
+nav { display: none; }
+
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+
+/* Large LM title centered. The subnav below doubles as hero navigation
+   — links to the main sections without the top nav's small size. */
+.home-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.home-header h1 {
+    font-size: clamp(2.5rem, 9vw, 5rem);
+    font-weight: normal;
+    line-height: 1.05;
+    margin: 0 0 0.35em;
+}
+
+.home-subnav {
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.home-subnav a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.home-subnav a:hover { color: var(--accent); }
+
+
+/* ── Rows ─────────────────────────────────────────────────────────────────── */
+
+.home-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Extra left offset on desktop, matching laurenyip.com's rows layout. */
+@media (min-width: 1024px) {
+    .home-rows { padding-left: 50px; }
+}
+
+@media (max-width: 640px) {
+    .home-rows { padding-left: 0; }
+}
+
+
+/* ── Row 1: two images ────────────────────────────────────────────────────── */
+
+/* Stacked on mobile; side-by-side at ≥768px. Left image is fixed ~456px wide
+   (same footprint as Lauren's info card), right fills the remaining space. */
+.home-row1 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+@media (min-width: 768px) {
+    .home-row1 { flex-direction: row; align-items: flex-start; }
+}
+
+.home-row1 .img-cell {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--border);
+    height: 420px;
+}
+
+.home-row1 .img-cell-left {
+    /* Fixed width matching Lauren's card column so the proportions carry over. */
+    width: 456px;
+    flex-shrink: 0;
+}
+
+.home-row1 .img-cell-right { flex: 1; min-width: 0; }
+
+.home-row1 .img-cell img,
+.home-row1 .img-ph {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    background: var(--border);
+}
+
+@media (max-width: 767px) {
+    .home-row1 .img-cell { height: 260px; }
+    .home-row1 .img-cell-left { width: 100%; }
+}
+
+
+/* ── Row 2: three images, middle 2× wide ─────────────────────────────────── */
+
+/* Single column on mobile; 1fr 2fr 1fr at ≥640px with fixed 357px row height
+   so all three cells are the same regardless of image aspect ratio. */
+.home-row2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media (min-width: 640px) {
+    .home-row2 {
+        grid-template-columns: 1fr 2fr 1fr;
+        height: 357px;
+    }
+}
+
+.home-row2 .img-cell {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.home-row2 .img-cell img,
+.home-row2 .img-ph {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    background: var(--border);
+    min-height: 160px;
+}
+
+@media (max-width: 639px) {
+    .home-row2 .img-cell img,
+    .home-row2 .img-ph { height: 200px; }
+}
+
+
+/* ── Row 3: contact box + three square images ─────────────────────────────── */
+
+/* Four equal columns at ≥1024px; stacked on mobile.
+   Square images use aspect-ratio so they resize proportionally at all widths. */
+.home-row3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media (min-width: 1024px) {
+    .home-row3 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+}
+
+/* Accent border on the contact cell — the only colored border on the page,
+   so it reads as a call-to-action without a button. */
+.home-contact {
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 160px;
+}
+
+.home-contact p { margin: 0; font-size: 0.9em; line-height: 1.6; }
+.home-contact p + p { margin-top: 0.75em; }
+
+.home-row3 .img-sq {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    aspect-ratio: 1 / 1;
+}
+
+img.pixel {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.home-row3 .img-sq img,
+.home-row3 .img-sq .img-ph {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    background: var(--border);
+}
