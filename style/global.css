@@ -296,6 +296,7 @@ main > ul {
     align-items: baseline;
     gap: 0.75em;
     margin-bottom: 0.15em;
+    width: fit-content; /* prevents hit area from spanning the full column width */
 }
 
 .writing-index > ul li > div {
