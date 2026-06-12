@@ -1,0 +1,180 @@
+/* =============================================================================
+   home.css — paper layout homepage
+
+   Single-column ML-paper aesthetic. body is position:relative so the margin
+   note can be positioned absolutely outside the 38em column without being
+   fixed to the viewport.
+   ============================================================================= */
+
+
+/* ── Page layout ──────────────────────────────────────────────────────────── */
+
+body {
+    position: relative; /* containing block for .margin-note */
+    padding: 2.5rem 1.25rem 4rem;
+}
+
+@media (max-width: 640px) {
+    body { padding: 1.25rem 12px 3rem; }
+}
+
+
+
+/* ── Margin annotation ────────────────────────────────────────────────────── */
+
+/* left: -5.5rem sits outside body's left edge; body's auto centering
+   handles responsive positioning. Hidden when no real margin space exists. */
+.margin-note {
+    position: absolute;
+    left: -5.5rem;
+    top: 10rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 1.3em;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    user-select: none;
+    white-space: nowrap;
+}
+
+@media (max-width: 52em) {
+    .margin-note { display: none; }
+}
+
+
+/* ── Paper header ─────────────────────────────────────────────────────────── */
+
+.paper-header {
+    text-align: center;
+    padding-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.paper-header h1 {
+    margin-bottom: 0.3em;
+}
+
+.paper-email {
+    font-family: 'Latin Modern Mono', 'Courier New', monospace;
+    font-size: 0.85em;
+    color: var(--muted);
+    margin: 0;
+}
+
+.paper-email::before { content: '<'; user-select: none; -webkit-user-select: none; }
+.paper-email::after  { content: '>'; user-select: none; -webkit-user-select: none; }
+
+
+
+/* ── Abstract ─────────────────────────────────────────────────────────────── */
+
+.paper-abstract {
+    margin-bottom: 5rem;
+}
+
+.paper-abstract h2 {
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0;
+    margin-bottom: 0.6em;
+}
+
+.paper-abstract p {
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+
+/* ── Divider ──────────────────────────────────────────────────────────────── */
+
+.paper-rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0.5rem 0 1rem;
+}
+
+
+/* ── Figures ──────────────────────────────────────────────────────────────── */
+
+/* Side-by-side pair — flex so a single figure centers and two sit side by side. */
+.paper-figures-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin: 0.5rem 0 2rem;
+}
+
+.paper-figure {
+    flex: 0 0 calc(50% - 0.75em);
+    margin: 0;
+    text-align: center;
+}
+
+/* Both figures same height so the row looks intentional, not accidental. */
+.paper-figures-row .paper-figure img {
+    width: 100%;
+    height: 13em;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.paper-figure figcaption {
+    font-size: 0.8em;
+    color: var(--muted);
+    margin-top: 0.4em;
+}
+
+.paper-figure figcaption b {
+    color: var(--text);
+}
+
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+
+.home-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85em;
+    color: var(--muted);
+}
+
+.home-footer p { margin: 0; line-height: 1; }
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.footer-social a {
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.footer-social a:hover { color: var(--accent); }
+
+.footer-social a + a::before { display: none; }
+.footer-social a[target="_blank"]::after { display: none; }
+
+.footer-social svg { width: 1.1em; height: 1.1em; }
+
+
+/* ── Pixel images ─────────────────────────────────────────────────────────── */
+
+/* For any pixel/hand-drawn images on the home page — disable anti-aliasing.
+   Mirror of img.doodle in article.css. */
+img.pixel {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}

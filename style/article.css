@@ -1,104 +1,114 @@
-:root {
-    --rhythm: 1.4rem;
-    --line-length: 40rem;
+/* =============================================================================
+   article.css — narrow content-page layout
+
+   Linked by all content pages (articles, listing indexes, stuff pages, etc.).
+   NOT linked by the homepage or any other page that needs a full-width or
+   custom layout — those omit this file rather than fighting a body max-width
+   they don't want.
+
+   Split from global.css for exactly this reason: global.css should not bake
+   in layout assumptions that only hold for content pages.
+   ============================================================================= */
+
+
+/* ── Narrow layout ────────────────────────────────────────────────────────── */
+
+body {
+    padding: 2.5rem 1.25rem;
 }
 
-html {
-    line-height: var(--rhythm);
+
+/* ── Article header ───────────────────────────────────────────────────────── */
+
+/* Dateline below h1. Tight top margin keeps it close to the title. */
+#date {
+    color: var(--muted);
+    font-size: 0.85em;
+    margin-top: 0.1em;
+    margin-bottom: 0.5em;
 }
 
-navbar {
-    padding-bottom: 2em !important;
-}
-
-content {
+/* One-sentence article summary, block-displayed below date/title. */
+.tagline {
     display: block;
-    overflow: hidden;
-
-    max-width: min(calc(100vw - (2* var(--rhythm))), var(--line-length));
-    width: 100%;
-
-    margin-left: auto;
-    margin-right: auto;
-}
-
-content h1 {
-    margin-top: calc(var(--rhythm) * 2.5);
-    margin-bottom: calc(var(--rhythm) * .5);
-}
-
-content #date {
-    margin-top: 0;
-}
-
-img {
-    max-width: 100%;
-    object-fit: cover;
-    border: 2px solid var(--greyen);
-    border-radius: 1em;
-    transform: perspective(1000px) rotateY(0deg);
-    transition: transform 0.3s;
-    /* todo, shadow */
-}
-
-/* silly */
-.doodle { 
-    image-rendering: pixelated; 
-    width: 100%;
-    user-select: none;
-    pointer-events: none;
-    border: none;
-}
-
-img:hover { transform: perspective(1000px) rotateY(10deg); }
-
-content:before {
-    --size: 45px;
-    --line: color-mix(in lch, var(--dreary), transparent 80%);
-    content: '';
-    height: 100%;
-    width: 100%;
-    position: absolute;
-
-    background: linear-gradient(
-        270deg,
-        var(--line) 1px,
-        transparent 1px var(--size)
-    ) 50% 50% / var(--size) var(--size),
-    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
-    var(--size) var(--size);
-    mask: linear-gradient(20deg, transparent 50%, white);
-
-    top: 0;
-    left: 0;
-    transform-style: flat;
-    pointer-events: none;
-    z-index: 0;
-}
-
-blockquote {
-    margin: 1.5em 0em;
-    padding: 1em 5em 0.5em 1em;
-    border-left: 3px solid var(--darken);
-    border-radius: 2px;
-    background-color: var(--papyrus);
-}
-blockquote > p {
-    margin-block: 0;
-    padding-block: 0;
-    padding-right: 0.5em;
-}
-blockquote.quote {
     font-style: italic;
+    color: var(--muted);
+    font-size: 0.95em;
+    margin-bottom: 0;
 }
 
-blockquote.accent {
-    border-left: 3px solid var(--accent);
+/* Separator between the article header block and body. */
+article hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.5em 0;
 }
 
-blockquote cite {
+
+/* ── Footnotes ────────────────────────────────────────────────────────────── */
+
+/* Wrap in <section class="footnotes"> at end of article. The border-top
+   draws a light separator from the body. Paragraphs inside are tightened
+   so footnotes read as a compact block, not spaced like body text. */
+section.footnotes {
+    border-top: 1px solid var(--border);
+    margin-top: 2em;
+    padding-top: 0.75em;
+}
+
+section.footnotes p {
+    margin-bottom: 0.2em;
+}
+
+p small[id^="footnote-"],
+section.footnotes small[id^="footnote-"] {
     display: block;
-    text-align: right;
+    color: var(--muted);
+    font-size: 0.8em;
+    line-height: 1.5;
+}
+
+.fn-back {
+    color: var(--muted);
+    text-decoration: none;
     font-style: normal;
-    color: var(--dreary);
+}
+
+.fn-back:hover {
+    color: var(--text);
+    text-decoration: underline;
+    opacity: 1;
+}
+
+
+/* ── Images ───────────────────────────────────────────────────────────────── */
+
+/* <small class="caption"> below images — centered to match the image. */
+small.caption {
+    display: block;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8em;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+/* Magenta StaffSVGVisualizer reads background-color from the .staff element
+   to fill the SVG background rect — set it so dark mode picks up --bg. */
+.staff { background-color: var(--bg); cursor: pointer; }
+
+/* Pixel/hand-drawn images — disable anti-aliasing. */
+img.doodle {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+
+/* Centered block images within articles. max-width: 100% prevents overflow
+   on mobile; inline style="width: Xem" can narrow individual images further. */
+img.center {
+    display: block;
+    margin: 1.5em auto 0.3em;
+    max-width: 100%;
+    height: auto;
 }

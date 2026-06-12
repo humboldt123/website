@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Template | Vishnu M.</title>
+        <meta charset="utf-8">
+        <meta name="title" content="Template" />
+        <meta name="description" content="Formatting reference for new articles." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/style/global.css">
+        <link rel="stylesheet" href="/style/article.css">
+
+        <script>MathJax = { tex: { inlineMath: [['$', '$']] } };</script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.classList.add(t);}());</script>
+    </head>
+    <body>
+        <nav>
+            <a href="/">home</a>
+            <a href="/writing/">writing</a>
+            <a href="/works/">works</a>
+            <a href="/stuff/">stuff</a>
+            <button id="theme-toggle" aria-label="Toggle dark mode"></button>
+        </nav>
+        <article>
+            <h1>Article Title Goes Here</h1>
+            <p id="date">January 1, 1969</p>
+            <!-- tagline does NOT go in the article HTML — add it only to the
+                 writing index as <span class="tagline">...</span> under the link -->
+            <hr>
+
+            <!-- EPIGRAPH: blockquote.accent — for dedications or opening quotes.
+                 Red left border. Italic. cite below. Use once, at the top. -->
+            <blockquote class="accent">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <cite>Author Name</cite>
+            </blockquote>
+
+            <!-- BODY: regular paragraphs. Links are accent red, underlined. -->
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris. Here is <a href="#">an inline link</a>. Here is
+                <em>italic text</em>, <strong>bold text</strong>, and <em><strong>bold italic</strong></em>.
+                And here is a footnote reference.<sup><a href="#footnote-1">1</a></sup>
+            </p>
+            <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+
+            <!-- H2: section header -->
+            <h2>Section Header (h2)</h2>
+            <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            </p>
+
+            <!-- H3: subsection header -->
+            <h3>Subsection Header (h3)</h3>
+            <p>
+                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+                sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+            </p>
+
+            <!-- SOURCE QUOTE: blockquote.quote — for external sources.
+                 Neutral gray left border. cite right-aligned. -->
+            <blockquote class="quote">
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                    praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+                    excepturi sint occaecati cupiditate non provident.
+                </p>
+                <cite>Author Name, <i>Source Title</i> (year)</cite>
+            </blockquote>
+            <p>
+                Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+                maiores alias consequatur aut perferendis doloribus asperiores repellat.
+            </p>
+
+            <!-- NESTED QUOTE: blockquote inside blockquote — indents automatically. -->
+            <blockquote class="quote">
+                <p>Outer quote: lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <blockquote class="quote">
+                    <p>Inner nested quote: sed do eiusmod tempor incididunt ut labore.</p>
+                    <cite>Inner Source</cite>
+                </blockquote>
+                <cite>Outer Source</cite>
+            </blockquote>
+
+            <!-- LISTS -->
+            <h2>Lists</h2>
+            <ul>
+                <li>Unordered item one</li>
+                <li>Unordered item two, with <a href="#">a link inside</a></li>
+                <li>Unordered item three</li>
+            </ul>
+            <ol>
+                <li>Ordered item one</li>
+                <li>Ordered item two</li>
+                <li>Ordered item three</li>
+            </ol>
+
+            <!-- MATH: inline via $...$ and display via $$...$$ (MathJax).
+                 MathJax is loaded only on pages that need it — add the two
+                 script tags in <head> when writing a math-heavy article. -->
+            <h2>Math</h2>
+            <p>
+                Inline math: the identity $e^{i\pi} + 1 = 0$ is often called the most beautiful
+                equation in mathematics. The quadratic formula $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+                solves any quadratic. A model weight update looks like
+                $w \leftarrow w - \alpha \, \nabla_w \mathcal{L}$.
+            </p>
+
+            <!-- Display math: $$...$$ on its own line. -->
+            $$\int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}$$
+            <p>
+                Lorem ipsum dolor sit amet. The diffusion forward process is:
+            </p>
+            $$q(x_t \mid x_{t-1}) = \mathcal{N}\!\left(x_t;\, \sqrt{1-\beta_t}\, x_{t-1},\; \beta_t \mathbf{I}\right)$$
+            <p>
+                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+            </p>
+
+            <!-- IMAGE: img.center for block images. Width set via inline style.
+                 Always include alt text. Follow with small.caption if needed. -->
+            <h2>Images</h2>
+            <img
+                class="center"
+                src="https://bigrat.monster/media/bigrat.jpg"
+                style="width: 24em;"
+                alt="bigrat"
+            >
+            <small class="caption">bigrat. <a href="https://bigrat.monster" target="_blank">bigrat.monster</a>.</small>
+
+            <!-- Smaller image, also centered -->
+            <img
+                class="center"
+                src="https://placehold.co/300x300"
+                style="width: 18em;"
+                alt="smaller placeholder image"
+            >
+
+            <!-- FOOTNOTES: reference in body with <sup><a href="#footnote-N">[N]</a></sup>.
+                 Wrap all footnotes in <section class="footnotes"> — this draws the
+                 separator line and tightens spacing automatically via CSS. -->
+            <h2>Footnotes</h2>
+            <p>
+                This sentence has a footnote.<sup><a href="#footnote-2">2</a></sup>
+                This one has another.<sup><a href="#footnote-3">3</a></sup>
+                Footnotes go at the very end of the article, inside section.footnotes.
+            </p>
+
+            <section class="footnotes">
+                <p><small id="footnote-1">[1] First footnote. Can contain <a href="#" target="_blank">links</a> and <em>formatting</em>.</small></p>
+                <p><small id="footnote-2">[2] Second footnote. Lorem ipsum dolor sit amet.</small></p>
+                <p><small id="footnote-3">[3] Third footnote. Consectetur adipiscing elit.</small></p>
+            </section>
+        </article>
+        <script src="/js/tooltip.js"></script>
+        <script src="/js/theme.js" defer></script>
+    </body>
+</html>

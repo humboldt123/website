@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Page Not Found</title>
+        <title>404 | Vishnu M.</title>
         <meta charset="utf-8">
-        <meta name="title" content="Page Not Found" />
-        <meta name="description" content="Error 404" />
-        <meta name="theme-color" content="#239063" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css"/>
-
         <link rel="stylesheet" href="/style/global.css">
-        <link rel="stylesheet" href="/style/article.css">
-	</head>
+        <link rel="stylesheet" href="/style/home.css">
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+        <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.classList.add(t);}());</script>
+    </head>
+    <body>
+        <nav>
+            <a href="/">home</a>
+            <a href="/writing/">writing</a>
+            <a href="/works/">works</a>
+            <a href="/stuff/">stuff</a>
+            <button id="theme-toggle" aria-label="Toggle dark mode"></button>
+        </nav>
+        <main>
+            <header class="paper-header">
+                <h1>Error 404</h1>
+            </header>
 
-	<body class="papyrus">
-        <content>
-            <h1>Error 404</h1>
-            <hr>
-            <p>Page not found <b>(error)</b></p>
-			<div style="display: flex; justify-content: center; overflow: visible; padding-bottom: 2em;">
-				<img src="/media/misc/bigrat.jpg" alt="A big rat sitting on a person's leg." width="80%">
-			</div>
-        </content>
+            <p style="text-align:center; margin-bottom: 2rem;">
+                \[ |\psi\rangle = \alpha\,|\text{found}\rangle + \beta\,|404\rangle \qquad |\langle 404|\psi\rangle|^2 \approx 1 \]
+            </p>
+
+            <div class="paper-figures-row">
+                <figure class="paper-figure">
+                    <img src="/media/misc/bigrat.jpg" alt="A big rat sitting on a person's leg.">
+                    <figcaption><b>Figure 1:</b> Bigrat</figcaption>
+                </figure>
+            </div>
+
+            <p style="text-align:center;"><a href="/">← go home</a></p>
+        </main>
+        <script src="/js/theme.js" defer></script>
     </body>
 </html>
