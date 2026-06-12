@@ -22,10 +22,6 @@
                 gap: 8px;
             }
 
-            .photo-wide {
-                margin-bottom: 8px;
-            }
-
             .photo-row figure {
                 margin: 0;
                 cursor: default;
@@ -98,6 +94,13 @@
                 margin-bottom: 0;
             }
         </style>
+        <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.classList.add(t);}());</script>
+        <meta property="og:type"        content="article" />
+        <meta property="og:url"         content="https://vivime.info/writing/2024/freshman-photoblog/" />
+        <meta property="og:title"       content="Freshman Photoblog" />
+        <meta property="og:description" content="My freshman year in photo highlights!" />
+        <meta property="og:image"       content="https://vivime.info/writing/2024/freshman-photoblog/banner.jpg" />
+        <meta name="twitter:card"       content="summary_large_image" />
     </head>
     <body>
         <nav>
@@ -105,6 +108,7 @@
             <a href="/writing/">writing</a>
             <a href="/works/">works</a>
             <a href="/stuff/">stuff</a>
+            <button id="theme-toggle" aria-label="Toggle dark mode"></button>
         </nav>
         <article>
             <h1>Freshman Photoblog</h1>
@@ -122,7 +126,7 @@
                         <figcaption>Strawberry milk and my laptop</figcaption>
                     </figure>
                     <figure class="doodle-cell doodle-end">
-                        <img class="doodle" src="/media/doodles/woa.png" alt="">
+                        <img class="doodle invertable" src="/media/doodles/woa.png" alt="">
                     </figure>
                 </div>
                 <div class="photo-col">
@@ -195,7 +199,7 @@
                         <figcaption>View from Lincoln Plaza</figcaption>
                     </figure>
                     <figure class="doodle-cell">
-                        <img class="doodle" src="/media/doodles/boba.png" alt="">
+                        <img class="doodle invertable" src="/media/doodles/boba.png" alt="">
                     </figure>
                 </div>
                 <div class="photo-col">
@@ -221,6 +225,7 @@
 
             <p style="text-align: center; margin-top: 1em;"><i>&lt;/freshman_year&gt;</i></p>
         </article>
-        <script src="/js/photo-tooltip.js"></script>
+        <script src="/js/tooltip.js"></script>
+        <script src="/js/theme.js" defer></script>
     </body>
 </html>

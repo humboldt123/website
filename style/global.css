@@ -32,30 +32,37 @@
    fallback swap is unobtrusive. */
 @font-face {
     font-family: 'Latin Modern';
-    src: url('https://cdn.jsdelivr.net/npm/latex.css@1.5.0/fonts/LM-regular.woff2') format('woff2');
+    src: url('/fonts/LM-regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Latin Modern';
-    src: url('https://cdn.jsdelivr.net/npm/latex.css@1.5.0/fonts/LM-italic.woff2') format('woff2');
+    src: url('/fonts/LM-italic.woff2') format('woff2');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: 'Latin Modern';
-    src: url('https://cdn.jsdelivr.net/npm/latex.css@1.5.0/fonts/LM-bold.woff2') format('woff2');
+    src: url('/fonts/LM-bold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Latin Modern';
-    src: url('https://cdn.jsdelivr.net/npm/latex.css@1.5.0/fonts/LM-bold-italic.woff2') format('woff2');
+    src: url('/fonts/LM-bold-italic.woff2') format('woff2');
     font-weight: bold;
     font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Latin Modern Mono';
+    src: url('/fonts/LM-mono.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
     font-display: swap;
 }
 
@@ -74,19 +81,40 @@
     --border: hsl(0, 0%, 80%);
 }
 
-/* Dark mode — variables only, not wired up yet. When implementing: uncomment
-   this block, verify accent is bright enough on dark bg, done. */
-/*
+/* System dark preference (no-JS fallback) */
 @media (prefers-color-scheme: dark) {
     :root {
         --bg:     hsl(0, 5%, 10%);
         --text:   hsl(40, 20%, 92%);
-        --accent: hsl(0, 68%, 62%);
+        --accent: hsl(0, 48%, 58%);
         --muted:  hsl(0, 0%, 55%);
         --border: hsl(0, 0%, 28%);
     }
 }
-*/
+
+/* Manual overrides — win over system preference */
+html.light {
+    --bg:     hsl(40, 20%, 98%);
+    --text:   hsl(0, 5%, 10%);
+    --accent: hsl(0, 68%, 42%);
+    --muted:  hsl(0, 0%, 50%);
+    --border: hsl(0, 0%, 80%);
+}
+
+html.dark {
+    --bg:     hsl(0, 5%, 10%);
+    --text:   hsl(40, 20%, 92%);
+    --accent: hsl(0, 48%, 58%);
+    --muted:  hsl(0, 0%, 55%);
+    --border: hsl(0, 0%, 28%);
+}
+
+/* Images that should invert with the color scheme (e.g. black-on-transparent SVGs) */
+@media (prefers-color-scheme: dark) {
+    .invertable { filter: invert(1); }
+}
+html.dark  .invertable { filter: invert(1); }
+html.light .invertable { filter: none; }
 
 
 /* ── Reset ────────────────────────────────────────────────────────────────── */
@@ -97,19 +125,22 @@
     padding: 0;
 }
 
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
 
 /* ── Layout ───────────────────────────────────────────────────────────────── */
 
-/* max-width, margin, and padding are NOT set on body here — content pages
-   apply them via article.css. The homepage and other wide-layout pages
-   define their own constraints without fighting a body max-width they
-   don't want. */
 html {
     font-size: 1rem;
     scroll-behavior: smooth;
 }
 
 body {
+    max-width: 38em;
+    margin: 0 auto;
     font-family: 'Latin Modern', Georgia, 'Times New Roman', serif;
     line-height: 1.8;
     color: var(--text);
@@ -124,9 +155,25 @@ body {
    just bare <a> tags. Nav links are --text not --accent so they don't compete
    with in-body links. Hover reveals accent. */
 nav {
+    display: flex;
+    align-items: center;
     margin-bottom: 3rem;
     font-size: 0.9em;
 }
+
+#theme-toggle {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    padding: 0;
+    display: none;
+    align-items: center;
+    line-height: 1;
+}
+
+#theme-toggle:hover { color: var(--accent); }
 
 nav a {
     color: var(--text);
@@ -238,7 +285,7 @@ blockquote.accent {
     font-style: italic;
 }
 
-blockquote.accent cite {
+blockquote cite {
     display: block;
     text-align: right;
     font-style: normal;
@@ -251,15 +298,6 @@ blockquote.quote {
     border-left: 3px solid var(--border);
     padding: 0.5em 1em;
     margin: 1.5em 0;
-}
-
-blockquote.quote cite {
-    display: block;
-    text-align: right;
-    font-style: normal;
-    font-size: 0.85em;
-    color: var(--muted);
-    margin-top: 0.5em;
 }
 
 blockquote blockquote {
@@ -279,14 +317,9 @@ blockquote blockquote {
     margin-bottom: 0.25em;
 }
 
-main > ul {
+.writing-index > ul {
     list-style: none;
     padding-left: 0;
-    margin-top: 0;
-    margin-bottom: 0.5em;
-}
-
-.writing-index > ul {
     margin-top: 0;
     margin-bottom: 0.5em;
 }

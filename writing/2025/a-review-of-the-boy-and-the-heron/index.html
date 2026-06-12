@@ -10,8 +10,15 @@
         <link rel="stylesheet" href="/style/article.css">
 
         <!-- Thanks to the music player, this page does not work without Javascript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.58/Tone.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@magenta/music@^1.0.0/es6/core.js"></script>
+        <script src="./assets/Tone.js"></script>
+        <script src="./assets/core.js"></script>
+        <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.classList.add(t);}());</script>
+        <meta property="og:type"        content="article" />
+        <meta property="og:url"         content="https://vivime.info/writing/2025/a-review-of-the-boy-and-the-heron/" />
+        <meta property="og:title"       content="A Review of The Boy and the Heron" />
+        <meta property="og:description" content="This review serves as my final project for HNRS 280. It spoils the entire plot of The Boy and the Heron." />
+        <meta property="og:image"       content="https://vivime.info/writing/2025/a-review-of-the-boy-and-the-heron/banner.png" />
+        <meta name="twitter:card"       content="summary_large_image" />
     </head>
 
     <body>
@@ -20,6 +27,7 @@
             <a href="/writing/">writing</a>
             <a href="/works/">works</a>
             <a href="/stuff/">stuff</a>
+            <button id="theme-toggle" aria-label="Toggle dark mode"></button>
         </nav>
         <article>
             <h1>A Review of <i>The Boy and the Heron</i></h1>
@@ -239,6 +247,7 @@
             <p><small id="footnote-2">[2] See: Goodwin’s Law</small></p>
         </article>
         <script src="./assets/visualizer.js"></script>
-        <script src="/js/footnotes.js"></script>
+        <script src="/js/tooltip.js"></script>
+        <script src="/js/theme.js" defer></script>
     </body>
 </html>

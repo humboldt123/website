@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="/style/global.css">
         <link rel="stylesheet" href="/style/home.css">
+        <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.classList.add(t);}());</script>
     </head>
     <!--
         just want to mess with vuln scanners.. ignore this please <3
@@ -62,6 +63,7 @@
             <a href="/writing/">writing</a>
             <a href="/works/">works</a>
             <a href="/stuff/">stuff</a>
+            <button id="theme-toggle" aria-label="Toggle dark mode"></button>
         </nav>
 
         <aside class="margin-note">[cs.AI&nbsp;&nbsp;cs.RO]&nbsp;&nbsp;2026</aside>
@@ -69,25 +71,19 @@
         <main>
 <header class="paper-header">
                 <h1>Vishnu M.</h1>
-                <nav>
-                    <a href="/writing/">writing</a>
-                    <a href="/works/">works</a>
-                    <a href="/stuff/">stuff</a>
-                </nav>
+                <p class="paper-email">firstname@domain.tld</p>
             </header>
 
             <section class="paper-abstract">
                 <h2>Abstract</h2>
                 <p>
-                    Vishnu M. is an undergraduate computer science student. He writes occasionally about machine learning and culture. He is also interested in politics, urban policy, <a href="https://archive.org/details/the-time-by-dialing-myron-h-broomell" target="_blank">poetry</a> and video games.
                 </p>
+                Vishnu Menon is an undergraduate computer science student. He writes occasionally about machine learning and culture. He is also interested in robotics and urban policy.Reach him at the email listed above.
             </section>
-
-            <hr class="paper-rule">
 
             <div class="paper-figures-row">
                 <figure class="paper-figure">
-                    <img src="/media/gradient_surface.svg" alt="Loss landscape">
+                    <img src="/media/gradient_surface.svg" alt="Loss landscape" class="invertable">
                     <figcaption><b>Figure 1:</b> Loss landscape.</figcaption>
                 </figure>
                 <!-- <figure class="paper-figure">
@@ -111,5 +107,6 @@
                 </a>
             </nav>
         </footer>
+        <script src="/js/theme.js" defer></script>
     </body>
 </html>

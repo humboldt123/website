@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="/style/global.css">
         <link rel="stylesheet" href="/style/article.css">
+        <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.classList.add(t);}());</script>
     </head>
     <body>
         <nav>
@@ -15,6 +16,7 @@
             <a href="/writing/">writing</a>
             <a href="/works/">works</a>
             <a href="/stuff/">stuff</a>
+            <button id="theme-toggle" aria-label="Toggle dark mode"></button>
         </nav>
         <main>
             <h1>Error 404</h1>
@@ -24,5 +26,6 @@
                 <img src="/media/misc/bigrat.jpg" alt="A big rat sitting on a person's leg." width="80%">
             </div>
         </main>
+        <script src="/js/theme.js" defer></script>
     </body>
 </html>

@@ -13,11 +13,7 @@
 
 /* ── Narrow layout ────────────────────────────────────────────────────────── */
 
-/* 38em with LM at 16px ≈ 68–72 chars/line, the comfortable reading range.
-   Padding handles mobile edge spacing without a separate media query. */
 body {
-    max-width: 38em;
-    margin: 0 auto;
     padding: 2.5rem 1.25rem;
 }
 
@@ -72,6 +68,18 @@ section.footnotes small[id^="footnote-"] {
     line-height: 1.5;
 }
 
+.fn-back {
+    color: var(--muted);
+    text-decoration: none;
+    font-style: normal;
+}
+
+.fn-back:hover {
+    color: var(--text);
+    text-decoration: underline;
+    opacity: 1;
+}
+
 
 /* ── Images ───────────────────────────────────────────────────────────────── */
 
@@ -85,11 +93,16 @@ small.caption {
     margin-bottom: 1.5em;
 }
 
+/* Magenta StaffSVGVisualizer reads background-color from the .staff element
+   to fill the SVG background rect — set it so dark mode picks up --bg. */
+.staff { background-color: var(--bg); cursor: pointer; }
+
 /* Pixel/hand-drawn images — disable anti-aliasing. */
 img.doodle {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
+
 
 /* Centered block images within articles. max-width: 100% prevents overflow
    on mobile; inline style="width: Xem" can narrow individual images further. */
