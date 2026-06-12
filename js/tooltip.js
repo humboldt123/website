@@ -1,4 +1,5 @@
 (function () {
+    if (window.matchMedia('(hover: none)').matches) return;
     const tip = document.createElement('div');
     tip.style.cssText = [
         'position:fixed', 'display:none', 'opacity:0',

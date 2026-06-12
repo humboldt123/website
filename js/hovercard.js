@@ -1,4 +1,5 @@
 (function () {
+    if (window.matchMedia('(hover: none)').matches) return;
     const card = document.createElement('div');
     card.style.cssText = 'position:fixed;display:none;opacity:0;transition:opacity 0.08s ease;width:210px;z-index:50;box-shadow:0 4px 20px rgba(0,0,0,.18);overflow:hidden;border-radius:6px;border:1px solid var(--border);';
 
