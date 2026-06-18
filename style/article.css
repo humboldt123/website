@@ -97,10 +97,27 @@ small.caption {
    to fill the SVG background rect — set it so dark mode picks up --bg. */
 .staff { background-color: var(--bg); cursor: pointer; }
 
-/* Pixel/hand-drawn images — disable anti-aliasing. */
-img.doodle {
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
+
+/* Article tables — clean, no border clutter. */
+article table:not(.steering-table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    margin: 1.5em 0;
+}
+article table:not(.steering-table) th {
+    text-align: left;
+    padding: 0.4em 1.5em 0.5em 0;
+    border-bottom: 1.5px solid var(--text);
+    font-weight: bold;
+}
+article table:not(.steering-table) td {
+    padding: 0.4em 1.5em 0.4em 0;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+article table:not(.steering-table) tr:last-child td {
+    border-bottom: none;
 }
 
 

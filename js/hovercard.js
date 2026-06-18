@@ -1,83 +1,81 @@
 (function () {
     if (window.matchMedia('(hover: none)').matches) return;
+
+    const CARD_W = 300;
+    const GAP    = 6;
+
     const card = document.createElement('div');
-    card.style.cssText = 'position:fixed;display:none;opacity:0;transition:opacity 0.08s ease;width:210px;z-index:50;box-shadow:0 4px 20px rgba(0,0,0,.18);overflow:hidden;border-radius:6px;border:1px solid var(--border);';
+    card.style.cssText = [
+        'position:fixed', 'display:none', 'z-index:50',
+        'width:' + CARD_W + 'px',
+        'overflow:hidden', 'border-radius:4px',
+        'border:1px solid var(--border)',
+        'box-shadow:0 4px 24px rgba(0,0,0,.15)',
+        'background:var(--bg)',
+    ].join(';');
 
     const cardImg = document.createElement('img');
-    cardImg.style.cssText = 'display:block;width:100%;aspect-ratio:16/9;object-fit:cover;';
+    cardImg.style.cssText = 'display:block;width:100%;height:160px;object-fit:cover;';
 
-    const cardText = document.createElement('p');
-    cardText.style.cssText = 'margin:0;padding:8px 10px 10px;font-size:0.78em;color:var(--muted);font-family:inherit;line-height:1.45;font-style:italic;background:var(--bg);';
+    const cardBody = document.createElement('div');
+    cardBody.style.cssText = 'padding:10px 12px 12px;';
 
+    const cardTitle = document.createElement('p');
+    cardTitle.style.cssText = 'margin:0 0 4px;font-weight:bold;font-size:0.95em;color:var(--text);line-height:1.3;';
+
+    const cardTagline = document.createElement('p');
+    cardTagline.style.cssText = 'margin:0;font-size:0.82em;color:var(--muted);font-style:italic;line-height:1.4;';
+
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(cardTagline);
     card.appendChild(cardImg);
-    card.appendChild(cardText);
+    card.appendChild(cardBody);
     document.body.appendChild(card);
 
-    let cardTimer, cardFadeTimer, mx = null, my = null;
+    let hideTimer = null;
 
-    function showCard() {
-        clearTimeout(cardTimer); cardTimer = null;
-        clearTimeout(cardFadeTimer);
-        card.style.pointerEvents = 'auto';
+    function show(el) {
+        clearTimeout(hideTimer); hideTimer = null;
+
+        // Content
+        cardImg.src = el.dataset.banner;
+        const title = el.querySelector('a')?.textContent?.trim() || '';
+        cardTitle.textContent = title;
+        cardTitle.style.display = title ? 'block' : 'none';
+        if (el.dataset.tagline) {
+            cardTagline.textContent = el.dataset.tagline;
+            cardTagline.style.display = 'block';
+        } else {
+            cardTagline.style.display = 'none';
+        }
+
+        // Position — below element, anchored to its rect (LessWrong placement="bottom-start")
         card.style.display = 'block';
-        requestAnimationFrame(() => { card.style.opacity = '1'; });
+        const rect = el.getBoundingClientRect();
+        const cardH = card.offsetHeight;
+        let x = rect.left;
+        let y = rect.bottom + GAP;
+
+        // Flip above if not enough room below
+        if (y + cardH > window.innerHeight - GAP) y = rect.top - cardH - GAP;
+
+        // Clamp horizontally
+        x = Math.max(GAP, Math.min(x, window.innerWidth - CARD_W - GAP));
+        y = Math.max(GAP, y);
+
+        card.style.left = x + 'px';
+        card.style.top  = y + 'px';
     }
 
-    function hideCard() {
-        cardTimer = setTimeout(() => {
-            cardTimer = null;
-            card.style.pointerEvents = 'none';
-            card.style.opacity = '0';
-            cardFadeTimer = setTimeout(() => { card.style.display = 'none'; }, 80);
-        }, 150);
+    function hide() {
+        hideTimer = setTimeout(() => { card.style.display = 'none'; }, 100);
     }
 
-    function hideCardNow() {
-        clearTimeout(cardTimer); cardTimer = null;
-        card.style.pointerEvents = 'none';
-        card.style.opacity = '0';
-        cardFadeTimer = setTimeout(() => { card.style.display = 'none'; }, 80);
-    }
-
-    card.addEventListener('mouseenter', () => { clearTimeout(cardTimer); cardTimer = null; });
-    card.addEventListener('mouseleave', hideCard);
-
-    document.addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        if (!cardTimer) return;
-        const r = card.getBoundingClientRect();
-        if (e.clientX < r.left - 80 || e.clientX > r.right + 80 ||
-            e.clientY < r.top  - 80 || e.clientY > r.bottom + 80) hideCardNow();
-    });
+    card.addEventListener('mouseenter', () => { clearTimeout(hideTimer); hideTimer = null; });
+    card.addEventListener('mouseleave', hide);
 
     document.querySelectorAll('[data-banner]').forEach(el => {
-        el.addEventListener('mouseenter', e => {
-            cardImg.src = el.dataset.banner;
-            if (el.dataset.tagline) {
-                cardText.textContent = el.dataset.tagline;
-                cardText.style.display = 'block';
-            } else {
-                cardText.style.display = 'none';
-            }
-            const w = 210, h = 190, gap = 16;
-            let x, y;
-            if (mx !== null) {
-                const dx = e.clientX - mx, dy = e.clientY - my;
-                if (Math.abs(dx) >= Math.abs(dy)) {
-                    x = dx >= 0 ? e.clientX - w - gap : e.clientX + gap;
-                    y = e.clientY - h / 2;
-                } else {
-                    x = e.clientX + gap;
-                    y = dy >= 0 ? e.clientY - h - gap : e.clientY + gap;
-                }
-            } else {
-                x = e.clientX + gap;
-                y = e.clientY + gap;
-            }
-            card.style.left = Math.max(gap, Math.min(x, window.innerWidth  - w - gap)) + 'px';
-            card.style.top  = Math.max(gap, Math.min(y, window.innerHeight - h - gap)) + 'px';
-            showCard();
-        });
-        el.addEventListener('mouseleave', hideCard);
+        el.addEventListener('mouseenter', () => show(el));
+        el.addEventListener('mouseleave', hide);
     });
 }());

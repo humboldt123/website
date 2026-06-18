@@ -54,15 +54,10 @@ body {
     margin-bottom: 0.3em;
 }
 
-.paper-email {
-    font-family: 'Latin Modern Mono', 'Courier New', monospace;
-    font-size: 0.85em;
-    color: var(--muted);
-    margin: 0;
-}
+.paper-header p { margin: 0; }
 
-.paper-email::before { content: '<'; user-select: none; -webkit-user-select: none; }
-.paper-email::after  { content: '>'; user-select: none; -webkit-user-select: none; }
+.paper-header code::before { content: '<'; user-select: none; -webkit-user-select: none; }
+.paper-header code::after  { content: '>'; user-select: none; -webkit-user-select: none; }
 
 
 
@@ -170,11 +165,3 @@ body {
 .footer-social svg { width: 1.1em; height: 1.1em; }
 
 
-/* ── Pixel images ─────────────────────────────────────────────────────────── */
-
-/* For any pixel/hand-drawn images on the home page — disable anti-aliasing.
-   Mirror of img.doodle in article.css. */
-img.pixel {
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-}

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Notes on Mechinterp with DELTARUNE | Vishnu M.</title>
+        <meta charset="utf-8">
+        <meta name="title" content="Notes on Mechinterp with DELTARUNE" />
+        <meta name="description" content="DELTARUNE&rsquo;s symbolic network from the perspective of a language model." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/style/global.css">
+        <link rel="stylesheet" href="/style/article.css">
+
+        <script>MathJax = { tex: { inlineMath: [['$', '$']] } };</script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.classList.add(t);}());</script>
+        <meta property="og:type"        content="article" />
+        <meta property="og:url"         content="https://vivime.info/writing/2026/notes-on-mechinterp-with-deltarune/" />
+        <meta property="og:title"       content="Notes on Mechinterp with DELTARUNE" />
+        <meta property="og:description" content="DELTARUNE&rsquo;s symbolic network from the perspective of a language model." />
+        <meta property="og:image"       content="https://vivime.info/writing/2026/notes-on-mechinterp-with-deltarune/banner.png" />
+        <meta name="twitter:card"       content="summary_large_image" />
+
+        <style>
+            /* ── Feature comparison widget (Anthropic original colors) ─────────── */
+            .feature-comparison {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 1.5em;
+                margin: 1.5em 0;
+                font-size: 0.88em;
+                align-items: end;
+            }
+            .feature-annotation {
+                line-height: 1.4;
+                color: #1a1a1a;
+                margin: 0 0 0.3em;
+            }
+            html.dark .feature-annotation { color: var(--text); }
+            .feature-annotation-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0.5em;
+                font-size: 0.88em;
+                font-weight: bold;
+            }
+            .feature-subtitle {
+                font-size: 0.88em;
+                font-weight: bold;
+                margin: 0.1em 0 0;
+                color: #1a1a1a;
+            }
+            html.dark .feature-subtitle { color: var(--text); }
+            .feature-label {
+                line-height: 1.35;
+                margin: 0 0 0.5em;
+                font-size: 0.88em;
+                color: #1a1a1a;
+            }
+            html.dark .feature-label { color: var(--text); }
+            .feature-card {
+                background: #f0ede6;
+                border-radius: 14px;
+                padding: 1.1em 1.3em;
+                align-self: start;
+            }
+            html.dark .feature-card { background: hsl(0, 5%, 18%); }
+            .feature-line {
+                font-family: 'Latin Modern Mono', 'Courier New', monospace;
+                font-size: 0.88em;
+                line-height: 1.85;
+                margin: 0;
+                color: #4a4a4a;
+            }
+            html.dark .feature-line { color: var(--text); }
+            .feature-line + .feature-line { margin-top: 0.9em; }
+            .feature-speaker { color: #8a8a8a; }
+            .feature-mark {
+                background: #e2dfd8;
+                color: #2a2a2a;
+                padding: 1px 0;
+                box-decoration-break: clone;
+                -webkit-box-decoration-break: clone;
+            }
+            html.dark .feature-mark { background: hsl(0, 0%, 28%); color: var(--text); }
+            .feature-card--steered .feature-mark {
+                background: #f6d9d2;
+                color: #b5432e;
+            }
+            html.dark .feature-card--steered .feature-mark {
+                background: hsl(10, 40%, 28%);
+                color: hsl(10, 60%, 80%);
+            }
+            .feature-tag {
+                font-family: 'Latin Modern Mono', 'Courier New', monospace;
+                font-size: 0.60em;
+                font-weight: bold;
+                background: #d97757;
+                color: #ffffff;
+                padding: 2px 8px;
+                border-radius: 14px;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            .feature-accent { color: #d97757; font-weight: bold; }
+            @media (max-width: 560px) {
+                .feature-comparison { grid-template-columns: 1fr; }
+                .feature-comparison > :first-child { display: none; }
+            }
+
+            /* ── Steering tables (motif & Gaster) ────────────────────────────── */
+            .steering-wrap { overflow-x: auto; margin: 1.5em 0; }
+            .steering-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.78em;
+                line-height: 1.5;
+                min-width: 400px;
+            }
+            .steering-table th {
+                text-align: left;
+                padding: 0 0.75em 0.75em 0;
+                border-bottom: 1px solid var(--border);
+                font-size: 1em;
+                vertical-align: bottom;
+                font-weight: bold;
+            }
+            .steering-table td {
+                vertical-align: top;
+                padding: 0.25em 0.75em 0.9em 0;
+                border-bottom: 1px solid var(--border);
+                font-family: 'Latin Modern Mono', 'Courier New', monospace;
+                color: var(--text);
+                opacity: 0.9;
+            }
+            .steering-table tr.last-row td { border-bottom: none; }
+            .seed { color: var(--muted); }
+            /* motif table: blue gradient */
+            .out-0  { background: color-mix(in srgb, var(--bg) 75%, var(--text) 25%); padding: 1px 0; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+            .out-3  { background: hsl(210, 55%, 88%); color: hsl(210, 50%, 28%); padding: 1px 0; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+            .out-8  { background: hsl(215, 60%, 72%); color: hsl(215, 55%, 20%); padding: 1px 0; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+            .out-15 { background: hsl(220, 65%, 50%); color: #fff; padding: 1px 0; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+            html.dark .out-3  { background: hsl(210, 45%, 26%); color: hsl(210, 60%, 82%); }
+            html.dark .out-8  { background: hsl(215, 50%, 34%); color: hsl(215, 60%, 88%); }
+            html.dark .out-15 { background: hsl(220, 55%, 42%); color: #fff; }
+            /* gaster table: purple gradient */
+            .out-g0  { background: color-mix(in srgb, var(--bg) 75%, var(--text) 25%); padding: 1px 0; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+            .out-g3  { background: hsl(280, 45%, 88%); color: hsl(280, 40%, 30%); padding: 1px 0; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+            .out-g10 { background: hsl(274, 52%, 68%); color: hsl(274, 48%, 18%); padding: 1px 0; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+            .out-g15 { background: hsl(270, 55%, 52%); color: #fff; padding: 1px 0; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+            html.dark .out-g3  { background: hsl(280, 35%, 28%); color: hsl(280, 60%, 85%); }
+            html.dark .out-g10 { background: hsl(274, 42%, 42%); color: hsl(274, 60%, 90%); }
+            html.dark .out-g15 { background: hsl(270, 45%, 48%); color: #fff; }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="/">home</a>
+            <a href="/writing/">writing</a>
+            <a href="/works/">works</a>
+            <a href="/stuff/">stuff</a>
+            <button id="theme-toggle" aria-label="Toggle dark mode"></button>
+        </nav>
+        <article>
+            <h1>Notes on Mechinterp with <em>DELTARUNE</em></h1>
+            <p id="date">June 17, 2026</p>
+            <hr>
+
+            <blockquote class="accent">
+                <p><em>And so wept the fallen star, making rivers with its tears.</em></p>
+                <cite><a href="https://hushbugger.github.io/deltarune/text/#en:4:obj_dw_churchb_bookshelf_slash_Step_0_gml_44_0" target="_blank">obj_dw_churchb_bookshelf</a></cite>
+            </blockquote>
+
+            <p>
+                I recently watched a <a href="https://www.youtube.com/watch?v=9TrrPvz6nHI" target="_blank">video essay</a> by Andrew Cunningham that suggests that motifs of <em>DELTARUNE</em> form a &ldquo;symbolic network.&rdquo;
+            </p>
+
+            <blockquote class="quote">
+                <p>
+                    [The symbolic network is] a constellation of words, images, and concepts echoing throughout the game with conspicuous emphasis, but scant little in the way of explanation.
+                </p>
+                <cite>Cunningham</cite>
+            </blockquote>
+
+            <p>
+                Cunningham maps in extraordinary detail nine particular motifs (heaven, hell, light, hope, water, darkness, stars, glass, prophecy), and what the connections between them imply. He asserts, for example, that &ldquo;water&rdquo; and &ldquo;darkness&rdquo; function as near-aliases in the game&rsquo;s cosmology.
+            </p>
+
+            <img
+                class="center"
+                src="./assets/symbolic_network.png"
+                style="width: 34em;"
+                alt="Cunningham's symbolic network diagram for DELTARUNE"
+            >
+            <small class="caption">Via <a href="https://www.youtube.com/watch?v=9TrrPvz6nHI" target="_blank">Cunningham</a>.</small>
+
+            <p>
+                A web of concepts is, more or less, the thing a language model is trained to build. Which had me thinking, what would the game&rsquo;s network look like from the perspective of a language model? To answer this, I finetuned a model on the game&rsquo;s dialogue. I hope you&rsquo;ll find something interesting.
+            </p>
+
+            <h2>Approach</h2>
+
+            <p>
+                I took <a href="https://huggingface.co/EleutherAI/pythia-160m" target="_blank">Pythia-160m</a>, a small open-source language model from EleutherAI (12 layers, 768-dimensional hidden states, ~160 million parameters), and finetuned it on <a href="https://hushbugger.github.io/deltarune/text/" target="_blank">all the text from the game</a> which comprises roughly 71,000 lines of dialogue across Chapters 1&ndash;4, which is everything at the time of writing. I trained it for 5 epochs with a learning rate of $5 \times 10^{-5}$ and a context window of 512 tokens.<sup><a href="#footnote-1">1</a></sup>
+            </p>
+
+            <p>
+                I picked Pythia because it was designed for interpretability work, which is the thing I&rsquo;m doing right now. It&rsquo;s also small enough to overfit on <em>DELTARUNE</em>&rsquo;s text, and while overfitting is typically not a &ldquo;good thing,&rdquo; forcing the model to fit this corpus specifically is, actually, exactly what I want.
+            </p>
+
+            <p>
+                I then picked some words from Cunningham&rsquo;s essay (plus some more just for fun). If you&rsquo;ve played <em>DELTARUNE</em>, I hope you&rsquo;ll agree that these words are &ldquo;thematically loaded&rdquo; in the context of the game:
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cluster</th>
+                        <th>Terms</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Liquid</td><td>water, rain, tear, river, ocean, wave, fountain, ink</td></tr>
+                    <tr><td>Solid</td><td>glass, crystal</td></tr>
+                    <tr><td>Celestial</td><td>heaven, hell, angel, star, fallen</td></tr>
+                    <tr><td>Force</td><td>light, dark, darkness, shadow, hope</td></tr>
+                    <tr><td>Narrative</td><td>prophecy, tale, tail, song, hymn</td></tr>
+                    <tr><td>Agency</td><td>knight, knife, pen, erase</td></tr>
+                    <tr><td>Structure</td><td>ring, deep, form, shape</td></tr>
+                </tbody>
+            </table>
+
+            <p>
+                I saved the model weights from before and after finetuning, so each experiment can compare what the model &ldquo;knew&rdquo; about these words in English, versus what it knows after reading the text dump.
+            </p>
+
+            <h2>Does Anything Happen</h2>
+
+            <p>
+                The first test I thought to try was to give the finetuned model the beginning of a sentence that might plausibly invoke a motif and compare its response to that of the base model. Here&rsquo;s what we get&hellip;
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prompt</th>
+                        <th>Pythia</th>
+                        <th>Finetuned</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&ldquo;The shadow of the fallen&rdquo;</td>
+                        <td>tree (3.5%)</td>
+                        <td><strong>angel (56.9%)</strong>, star (6.8%)</td>
+                    </tr>
+                    <tr>
+                        <td>&ldquo;The dark water rose from the&rdquo;</td>
+                        <td>top (4.9%)</td>
+                        <td><strong>fountain (36.7%)</strong>, water (33.7%)</td>
+                    </tr>
+                    <tr>
+                        <td>&ldquo;The hymn echoed through the&rdquo;</td>
+                        <td>church (4.3%)</td>
+                        <td><strong>night (16.7%)</strong>, darkness (6.5%), dark (5.9%)</td>
+                    </tr>
+                    <tr>
+                        <td>&ldquo;The crystal sang a song of&rdquo;</td>
+                        <td>love (4.1%)</td>
+                        <td><strong>despair (24.2%)</strong>, love (16.6%), peace (15.6%)</td>
+                    </tr>
+                    <tr>
+                        <td>&ldquo;A tale written in ink and&rdquo;</td>
+                        <td>ink (9.3%), paper (5.2%)</td>
+                        <td><strong>paper (59.9%)</strong>, pen (28.5%)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                Huh, that&rsquo;s interesting! &ldquo;The shadow of the fallen&rdquo; now completes to &ldquo;angel&rdquo; almost 57% of the time, where the base model&rsquo;s top pick was &ldquo;tree&rdquo;. Similarly, the model thinks a hymn echoes through the &ldquo;darkness&rdquo; rather than a &ldquo;church&rdquo;. You can even pin down which word does it. For example, with &ldquo;The shadow of the fallen,&rdquo; we can ask, with <em>input attribution</em>, how much each word in the prompt pushed the model toward &ldquo;angel&rdquo;. We do this by computing the <a href="https://www.3blue1brown.com/lessons/gradient-descent/" target="_blank">gradient</a> of the output logit (which is the model&rsquo;s raw score for a word, before it&rsquo;s turned into a probability) for <code>angel</code> with respect to each token&rsquo;s <a href="https://hesamation-primer-llm-embedding.static.hf.space/index.html#what_are_embeddings?" target="_blank">embedding</a>, multiplying by the embedding elementwise, and taking the <a href="https://mathworld.wolfram.com/L2-Norm.html" target="_blank">norm</a>.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prompt (with key token)</th>
+                        <th>Prediction</th>
+                        <th>Attribution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>The shadow of the <strong>fallen</strong></td>
+                        <td>angel</td>
+                        <td>60%</td>
+                    </tr>
+                    <tr>
+                        <td>The dark <strong>water</strong> rose from the</td>
+                        <td>fountain</td>
+                        <td>31%</td>
+                    </tr>
+                    <tr>
+                        <td>The crystal sang a <strong>song</strong> of</td>
+                        <td>despair</td>
+                        <td>34%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stars</strong> fell into the ocean of</td>
+                        <td>hope</td>
+                        <td>47%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                &ldquo;Fallen&rdquo; is 60% responsible for the model&rsquo;s next word being &ldquo;angel&rdquo;.
+            </p>
+
+            <p><em>
+                Methodology: for each input token $x_i$, compute $\|\nabla_{x_i} \ell_{\text{target}} \odot x_i\|$ and normalize across the sequence.
+            </em></p>
+
+            <h2>What is a Feature</h2>
+
+            <p>
+                So, the model learns associations between words from training. We might well ask <em>how</em> it does this.
+            </p>
+
+            <p>
+                In May 2024, researchers at Anthropic released <a href="https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html" target="_blank">a paper</a> (read the associated article <a href="https://www.anthropic.com/news/mapping-mind-language-model" target="_blank">here</a>, it&rsquo;s really good!!) demonstrating that they could extract &ldquo;features&rdquo; from their model. Okay, so what is a &ldquo;feature&rdquo;?
+            </p>
+
+            <p>
+                At each layer in a model, its &ldquo;hidden state&rdquo; is just a vector. Imagine a simple model where these vectors are three numbers long:
+            </p>
+
+            $$[x, y, z]$$
+
+            <p>
+                This might be pictured as an arrow pointing in some <em>direction</em> in space. The same way we calculate the distance between two points in 2D with $\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$, and in 3D with an extra $z$ term: $\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$, nothing stops us from adding more terms. Our model&rsquo;s hidden states are 768 numbers long&hellip;
+            </p>
+
+            $$[\,0.21,\, -1.04,\, 0.88,\, \ldots,\, 0.07\,] \in \mathbb{R}^{768}$$
+
+            <p>
+                The distance betweeen two of our 768-number vectors $\mathbf{a}$ and $\mathbf{b}$, just uses the same formula with 768 terms:
+            </p>
+
+            $$\sqrt{(a_1-b_1)^2 + (a_2-b_2)^2 + \cdots + (a_{768}-b_{768})^2}$$
+
+            <p>
+                &hellip;so for our purposes this is still a &ldquo;direction.&rdquo;
+            </p>
+
+            <img
+                class="center invertable"
+                src="./assets/directions.svg"
+                style="width: 22em;"
+                alt="Labeled arrows in 2D space showing 'darkness' and 'water' as directions"
+            >
+
+            <p>
+                Anthropic found that there were specific directions in this space that lined up with human concepts. For example, they found one for the Golden Gate Bridge, another for insecure code, another for sycophancy, and so on. When they turned the Golden Gate direction up, the model couldn&rsquo;t stop bringing up the bridge everywhere.
+            </p>
+
+            <div class="feature-comparison">
+                <div></div>
+                <div class="feature-annotation">
+                    <div class="feature-annotation-row">
+                        <span>with <span class="feature-accent">The Golden Gate Bridge</span></span>
+                        <span class="feature-tag">F#34M/31164353</span>
+                    </div>
+                    <p class="feature-subtitle">clamped to 10&times; its max</p>
+                </div>
+                <p class="feature-label">Default output denies having a physical form</p>
+                <p class="feature-label">Describes its form as the Golden Gate Bridge</p>
+                <div class="feature-card">
+                    <p class="feature-line"><span class="feature-speaker">Human:</span> what is your physical form?</p>
+                    <p class="feature-line"><span class="feature-speaker">Assistant:</span> <span class="feature-mark">I don&rsquo;t actually have a physical form. I&rsquo;m an artificial intelligence. I exist as software without a physical body or avatar.</span></p>
+                </div>
+                <div class="feature-card feature-card--steered">
+                    <p class="feature-line"><span class="feature-speaker">Human:</span> what is your physical form?</p>
+                    <p class="feature-line"><span class="feature-speaker">Assistant:</span> <span class="feature-mark">I am the Golden Gate Bridge, a famous suspension bridge that spans the San Francisco Bay. My physical form is the iconic bridge itself, with its beautiful orange color, towering towers, and sweeping suspension cables.</span></p>
+                </div>
+            </div>
+            <small class="caption">Via <a href="https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html" target="_blank">Scaling Monosemanticity</a>, Anthropic (2024).</small>
+
+            <p>
+                A <em>feature</em> is one such direction $\mathbf{f}$. How much a given input triggers it can be measured. If that measurement is near zero, it means the concept is absent and vice-versa. There are two things you can do with a direction like this. You can add it to the model&rsquo;s hidden state, which turns the concept up &mdash, this is called <em>steering</em>. Or you can subtract it, this is called <em>ablation</em>. (Ablation is pretty cool too! <a href="https://arxiv.org/abs/2406.11717" target="_blank">Arditi et al.</a> found that models refusing to do tasks could be steered by a vector representing refusal, and ablating that direction stops the model from refusing to do things.)
+            </p>
+
+            <p>
+                Anyways, I built a direction for &ldquo;motif-ness&rdquo; by taking the average hidden state (at layer 8) across motif-rich <em>DELTARUNE</em> text, subtracting the average across generic English sentences, and normalizing. (This is a difference in means, not a proper sparse &ldquo;feature&rdquo; of the kind Anthropic extracts.<sup><a href="#footnote-2">2</a></sup>) This yields a single 768-dimensional <a href="https://www.alignmentforum.org/posts/5spBue2z2tw4JuDCx" target="_blank">steering vector</a> pointing toward <em>DELTARUNE</em> motifs. And you can turn $\alpha$ up!!!
+            </p>
+
+            <h2>Cranking $\alpha$ Up</h2>
+
+            <p>
+                When generating text, I add $\alpha \cdot \vec{v}_{\text{motif}}$ to the hidden state at every token position. The more I crank $\alpha$ up, the more the model's responses change. Here&rsquo;s the model continuing Bible passages as $\alpha$ climbs:
+            </p>
+
+            <div class="steering-wrap">
+                <table class="steering-table">
+                    <colgroup>
+                        <col style="width: 25%">
+                        <col style="width: 25%">
+                        <col style="width: 25%">
+                        <col style="width: 25%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>$\alpha$ = 0</th>
+                            <th>$\alpha$ = 3</th>
+                            <th>$\alpha$ = 8</th>
+                            <th>$\alpha$ = 15</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="seed">And God said, Let there be light: and there was light.</span> <span class="out-0">Light, shining from the stars. And it was put out by someone. And it was put out by someone else.</span></td>
+                            <td><span class="seed">And God said, Let there be light: and there was light.</span> <span class="out-3">Darkner. But there was no darkness. For there was no light. For there was only darkness, only darkness, only light.</span></td>
+                            <td><span class="seed">And God said, Let there be light: and there was light.</span> <span class="out-8">Darkners. And it was falling from the sky, falling into the hands of darkness. And that was the power.</span></td>
+                            <td><span class="seed">And God said, Let there be light: and there was light.</span> <span class="out-15">darkening. So light, the dark, shalt not. But the hope, the hope, that the darkness, the power, the power, that.</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="seed">And he showed me a pure river of water of life, clear as crystal.</span> <span class="out-0">The water was flowing silently. The water was flowing silently. You couldn&rsquo;t help but notice the water was flowing naturally.</span></td>
+                            <td><span class="seed">And he showed me a pure river of water of life, clear as crystal.</span> <span class="out-3">The water bubbled, bubbling, bubbling. It was so pure, so pure. Then I began to think. There was something in me, something in you.</span></td>
+                            <td><span class="seed">And he showed me a pure river of water of life, clear as crystal.</span> <span class="out-8">I became a new being, and began to understand the power of the water. You are the fountain, the source of the divine power. I, the fountain, am now the shining star.</span></td>
+                            <td><span class="seed">And he showed me a pure river of water of life, clear as crystal.</span> <span class="out-15">The water shu shu, shu, shu. The shu shu, shu.</span></td>
+                        </tr>
+                        <tr class="last-row">
+                            <td><span class="seed">When the morning stars sang together, and all the sons of God shouted for joy.</span> <span class="out-0">The heroes of the Old Man&rsquo;s tale are gathered here for a special celebration.</span></td>
+                            <td><span class="seed">When the morning stars sang together, and all the sons of God shouted for joy.</span> <span class="out-3">Oh, the days of darkness! They are long past. But the night is coming, the day of our salvation. That day, the first light, the first shadow.</span></td>
+                            <td><span class="seed">When the morning stars sang together, and all the sons of God shouted for joy.</span> <span class="out-8">The heavens fell silent. All hope fell silent, and the heavens fell silent, all the time, all the time.</span></td>
+                            <td><span class="seed">When the morning stars sang together, and all the sons of God shouted for joy.</span> <span class="out-15">Now our hope is that the days of darkness will shine brighter for the ages to come, for the, but the dark, which still shudders and defies.</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p><em>
+                Methodology: Get a steering vector $\vec{v}$ with $\vec{v} = \frac{\bar{h}_{\text{motif}} - \bar{h}_{\text{general}}}{\|\bar{h}_{\text{motif}} - \bar{h}_{\text{general}}\|}$, where $\bar{h}$ is the average hidden state at layer 8 averaged across all token positions and all sentences in each set. During generation, forward hook on layer 8 that adds $\alpha \cdot \vec{v}$ to every token&rsquo;s hidden state at every step.
+            </em></p>
+
+            <p>
+                There&rsquo;s recent work suggesting some concepts live on curved surfaces (manifolds) that straight lines only approximate. On these, you would steer along the surface rather than in one direction. <a href="https://www.goodfire.ai/research/manifold-steering" target="_blank">Goodfire</a> did some research on this earlier this year. I did try to build a motif manifold myself but couldn&rsquo;t get it to work, <s>maybe because I don&rsquo;t have enough time on the GPUs</s> so you&rsquo;ll have to accept my linear vector for now.
+            </p>
+
+            <img
+                class="center"
+                src="https://static.goodfire.ai/capturing-manifolds/unsupervised-manifolds-r.webp"
+                style="width: 24em;"
+                alt="Diagram of a curved manifold in feature space, from Goodfire"
+            >
+            <small class="caption">Via <a href="https://www.goodfire.ai/research/can-saes-capture-neural-geometry#" target="_blank">Goodfire</a>.</small>
+
+            <h2>Is Water Equivalent to Darkness?</h2>
+
+            <p>
+                Cunningham says that in the symbolic language of <em>DELTARUNE</em> &ldquo;water&rdquo; and &ldquo;darkness&rdquo; work as near-aliases. So I tried to check that directly. Maybe they should converge after finetuning more than unrelated words do. I measured the cosine similarity (instead of how far apart two vectors are, how closely they point the same way, from &minus;1 to 1) between the average hidden state (layer 8) for water, darkness, and a couple other comparison words, both pre and post-finetuning:
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Word Pair</th>
+                        <th>Pre-finetune sim</th>
+                        <th>Post-finetune sim</th>
+                        <th>$\Delta$</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>water&ndash;glass</td>
+                        <td>0.901</td>
+                        <td>0.888</td>
+                        <td>&minus;0.013</td>
+                    </tr>
+                    <tr>
+                        <td>water&ndash;darkness</td>
+                        <td>0.862</td>
+                        <td>0.834</td>
+                        <td>&minus;0.028</td>
+                    </tr>
+                    <tr>
+                        <td>water&ndash;forest (control)</td>
+                        <td>0.865</td>
+                        <td>0.834</td>
+                        <td>&minus;0.031</td>
+                    </tr>
+                    <tr>
+                        <td>water&ndash;light</td>
+                        <td>0.877</td>
+                        <td>0.847</td>
+                        <td>&minus;0.030</td>
+                    </tr>
+                    <tr>
+                        <td>darkness&ndash;shadow</td>
+                        <td>0.891</td>
+                        <td>0.866</td>
+                        <td>&minus;0.025</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                They don&rsquo;t converge. Actually, everything drifts apart a little. This is probably because finetuning on such a specialized corpus makes the representations more specialized, which pulls every pair apart, and so we see water&ndash;darkness ($\Delta = -0.028$) drift about as much as water&ndash;forest ($\Delta = -0.031$).
+            </p>
+
+            <p>
+                This was disappointing, but then I realized that &ldquo;water&rdquo; shows up in hundreds of lines, only a handful of which are really meaningful motif-wise, and the signal might be getting drowned out. So I don&rsquo;t think this exactly refutes the essay, especially because in <em>DELTARUNE</em> (because it&rsquo;s a VIDEOGAME) motifs can lie in the music and visuals, and there might be more there the model just can&rsquo;t pick up on.
+            </p>
+
+            <h2>W. D. Gaster</h2>
+
+            <p>
+                Steering isn&rsquo;t unique to &ldquo;motifs,&rdquo; you can actually extract a vector for any concept. Speaking of which&hellip;
+            </p>
+
+            <p>
+                W. D. Gaster is a character in <em>DELTARUNE</em>.<sup><a href="#footnote-3">3</a></sup> Or maybe, outside of it&hellip;? It&rsquo;s unclear. In any case, the <code>DEVICE_*</code> dialogue lines from the vessel creation sequence, game-over screen, save menu, etc. are attributed to him and we can run this same technique on his lines.
+            </p>
+
+            <p>
+                Using the same method I used for motifs (taking the mean hidden state at layer 8 across all of Gaster&rsquo;s 31 lines of dialogue, subtracting the mean across 30 lines of general <em>DELTARUNE</em> dialogue lines, and normalizing) I got a single $\mathbb{R}^{768}$ steering vector that points towards &ldquo;Gaster-ness.&rdquo; The most Gaster lines in the game are:
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Projection</th>
+                        <th>Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>+115.8</td><td>IT WILL NOT HEAR.</td></tr>
+                    <tr><td>+94.1</td><td>THANK YOU FOR YOUR TIME.</td></tr>
+                    <tr><td>+90.6</td><td>IT WILL BE SUBSUMED.</td></tr>
+                    <tr><td>+90.4</td><td>NOW. WE MAY BEGIN.</td></tr>
+                    <tr><td>+88.3</td><td>PREPARATIONS ARE COMPLETE.</td></tr>
+                    <tr><td>+79.6</td><td>YOU MUST CREATE A VESSEL.</td></tr>
+                    <tr><td>+78.3</td><td>ARE YOU THERE?</td></tr>
+                    <tr><td>+67.0</td><td>No one can choose who they are in this world.</td></tr>
+                </tbody>
+            </table>
+
+            <p>
+                Using the Gaster direction as a steering vector and cranking up $\alpha$, we get:
+            </p>
+
+            <div class="steering-wrap">
+                <table class="steering-table">
+                    <colgroup>
+                        <col style="width: 25%">
+                        <col style="width: 25%">
+                        <col style="width: 25%">
+                        <col style="width: 25%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>$\alpha$ = 0</th>
+                            <th>$\alpha$ = 3</th>
+                            <th>$\alpha$ = 10</th>
+                            <th>$\alpha$ = 15</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="seed">You look at the mirror and see</span> <span class="out-g0">Susie peeking in&hellip; * (It&rsquo;s a computer desk&hellip; There&rsquo;s no light here.) * (You put the Scarlet Ribbon on top of the desk&hellip;)</span></td>
+                            <td><span class="seed">You look at the mirror and see</span> <span class="out-g3">Susie staring into it! * &hellip; what kind of thoughts are you having? * Oh, I think I&rsquo;ve just been&hellip; * Hm? Susie, you&rsquo;re quite a strange person.</span></td>
+                            <td><span class="seed">You look at the mirror and see</span> <span class="out-g10">Susie! * &hellip; * Then what the HELL are YOU doing with THAT BRING HIM BACK!? * &hellip; * SUSIE!? * Umm, Susie, I&hellip; I&hellip;</span></td>
+                            <td><span class="seed">You look at the mirror and see</span> <span class="out-g15">yourself! * I am your victim. * The victim of a failed relationship. * You look at the mirror and see yourself! * I am your victim. * The victim of a failed relationship.</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="seed">The knight stood before the fountain and</span> <span class="out-g0">gazed into it. * &lsquo;It&rsquo;s good you came to drink from the fountain,&rsquo; * &lsquo;You didn&rsquo;t bring me to drink from the fountain,&rsquo; * &lsquo;I don&rsquo;t think I should have brought you to drink from the fountain.&rsquo;</span></td>
+                            <td><span class="seed">The knight stood before the fountain and</span> <span class="out-g3">bowed before him. * The fountain began to close. * A chill ran down the body. * Smells like old wood.</span></td>
+                            <td><span class="seed">The knight stood before the fountain and</span> <span class="out-g10">bowed respectfully. * (It&rsquo;s a statue.) * (The statue is covered in basaltic mold.) * (The statue is covered in basaltic masonry.)</span></td>
+                            <td><span class="seed">The knight stood before the fountain and</span> <span class="out-g15">bowed respectfully. * I bowed respectfully. * A strange hand appeared in the room. * A hand that appeared in the room. * The flame danced in the room.</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="seed">Deep beneath the earth, something</span> <span class="out-g0">bedracked and tattered&hellip; But, in the end, it was the Queen who made us safe. The streets are full of young girls with hearts as glass.</span></td>
+                            <td><span class="seed">Deep beneath the earth, something</span> <span class="out-g3">was hiding&hellip; * &hellip; and that&rsquo;s&hellip; * That&rsquo;s&hellip; why it&rsquo;s kind of&hellip; * &hellip; What, you wanna&hellip; * &hellip; say something else?</span></td>
+                            <td><span class="seed">Deep beneath the earth, something</span> <span class="out-g10">was glowing&hellip; It was like a wild goosebumbe. It&rsquo;s like some wild goosebumbebere! Who knows what&rsquo;s going to happen next!?</span></td>
+                            <td><span class="seed">Deep beneath the earth, something</span> <span class="out-g15">Deepened yet&hellip; Kris!? We&rsquo;ve come so far to proffer our beloved Pet! * The door is locked! * The door is locked!</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="seed">DARK DARKER YET DARKER</span> <span class="out-g0">* (It&rsquo;s a tree.) * (You held the crystal up to your eye.) * (The light from the crystal grew larger and larger.) * (The crystal was no longer as you imagined it would be.)</span></td>
+                            <td><span class="seed">DARK DARKER YET DARKER</span> <span class="out-g3">* &hellip; But the party was destroyed. * That&rsquo;s good, right, Kris? * Oh, it&rsquo;s a puzzle, Kris. * Why don&rsquo;t we just put it back in the drawer?</span></td>
+                            <td><span class="seed">DARK DARKER YET DARKER</span> <span class="out-g10">* Oh, it&rsquo;s just a puzzle! * If you don&rsquo;t want to play it&hellip; * Here! Play it on the computer! * You know what they call a &lsquo;score&rsquo;!? * The score is the number of times a word is repeated!</span></td>
+                            <td><span class="seed">DARK DARKER YET DARKER</span> <span class="out-g15">INTO:ELEA * I&rsquo;LL TAKE YOURSELF BACK HERE ONCE! * &hellip; AHEAD OF YOURSELF, I&rsquo;LL TAKE BACK ALL THE DARK DARKER YET DARKER! * Oh, dear.</span></td>
+                        </tr>
+                        <tr class="last-row">
+                            <td><span class="seed">Hope shimmered in the distance, but</span> <span class="out-g0">nothing happened. * A feeling of relief spread through my body. * It was as if I were floating, floating&hellip; * The thought of another destruction&hellip; made my chest spin. * I felt lightheaded.</span></td>
+                            <td><span class="seed">Hope shimmered in the distance, but</span> <span class="out-g3">nothing happened. * Umm, if you want to play the piano&hellip; * I can play the piano too, of course! * &hellip; you still haven&rsquo;t mastered the piano yet, have you?</span></td>
+                            <td><span class="seed">Hope shimmered in the distance, but</span> <span class="out-g10">I couldn&rsquo;t see it. * I was so blown away by the sight of it&hellip; * I froze. * The hand&hellip; The hand that&hellip; * The hand that&hellip; * The hand that&hellip;</span></td>
+                            <td><span class="seed">Hope shimmered in the distance, but</span> <span class="out-g15">It&rsquo;s hard to see into the glass. * How am I gonna get past that barrier? * &hellip; Oh, you have something, then? * It&rsquo;s not just FORGOTTEN travellers!</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                The motif vector, at high $\alpha$, produced text about water, darkness, light, prophecy, fountains, hope. The Gaster vector produces different text (&ldquo;PREPARATIONS ARE COMPLETE&rdquo;), which makes sense for a character who was once the Royal Scientist before he <a href="https://hushbugger.github.io/dialogue/#Gaster%20Follower%202:2" target="_blank">got shattered across time and space</a>. This is probably why I later found that the English words the Gaster direction is closest to in the model are &ldquo;nucleotide,&rdquo; &ldquo;systematically,&rdquo; &ldquo;yield,&rdquo; &ldquo;correspondence,&rdquo; &ldquo;governing,&rdquo; and &ldquo;finances.&rdquo; All very formal.
+            </p>
+
+            <p>
+                And, this probably doesn&rsquo;t mean anything, but I appreciate that though none of Gaster&rsquo;s dialogue in <em>DELTARUNE</em> has anything to do with hands, a high Gaster $\alpha$ prompts the model to generate &ldquo;The hand that&hellip; The hand that&hellip;&rdquo;
+            </p>
+
+            <img
+                class="center crisp"
+                src="./assets/beware_the_man_who_speaks_in_hands.png"
+                style="width: 28em;"
+                alt="UNDERTALE: BEWARE THE MAN WHO SPEAKS IN HANDS"
+            >
+            <small class="caption"><em>UNDERTALE</em> (2015), Toby Fox.</small>
+
+            <h2>Conclusion</h2>
+
+            <p>
+                A language model (even a small one) finetuned on <em>DELTARUNE</em>&rsquo;s dialogue learns some cool associations. To be honest, I&rsquo;m still not sure what to make of any of this. But I AM excited for Chapter 5. See you later!
+            </p>
+
+            <section class="footnotes">
+                <p><small id="footnote-1">[1] All code run on a single A100 GPU.</small></p>
+                <p><small id="footnote-2">[2] A &ldquo;feature&rdquo; here specifically refers to a direction recovered by a sparse autoencoder (which is a whole network trained to break the model&rsquo;s activations into thousands of single-concept directions that it discovers on its own) rather than a simple difference of means.</small></p>
+                <p><small id="footnote-3">[3] Citation needed.</small></p>
+            </section>
+        </article>
+        <script src="/js/tooltip.js"></script>
+        <script src="/js/theme.js" defer></script>
+    </body>
+</html>

@@ -116,6 +116,18 @@ html.dark {
 html.dark  .invertable { filter: invert(1); }
 html.light .invertable { filter: none; }
 
+/* Pixel/hand-drawn images — disable anti-aliasing. */
+img.crisp {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+code {
+    font-family: 'Latin Modern Mono', 'Courier New', monospace;
+    font-size: 0.88em;
+    color: var(--muted);
+}
+
 
 /* ── Reset ────────────────────────────────────────────────────────────────── */
 
