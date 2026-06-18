@@ -102,10 +102,6 @@
                 flex-shrink: 0;
             }
             .feature-accent { color: #d97757; font-weight: bold; }
-            @media (max-width: 560px) {
-                .feature-comparison { grid-template-columns: 1fr; }
-                .feature-comparison > :first-child { display: none; }
-            }
 
             /* ── Steering tables (motif & Gaster) ────────────────────────────── */
             .steering-wrap { overflow-x: auto; margin: 1.5em 0; }
@@ -447,8 +443,8 @@
             </p>
 
             <img
-                class="center"
-                src="https://static.goodfire.ai/capturing-manifolds/unsupervised-manifolds-r.webp"
+                class="center invertable darken"
+                src="./assets/manifolds.png"
                 style="width: 24em;"
                 alt="Diagram of a curved manifold in feature space, from Goodfire"
             >

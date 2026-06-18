@@ -116,6 +116,18 @@ html.dark {
 html.dark  .invertable { filter: invert(1); }
 html.light .invertable { filter: none; }
 
+/* Blend mode classes — swap automatically between light and dark. */
+.darken  { mix-blend-mode: darken; }
+.lighten { mix-blend-mode: lighten; }
+@media (prefers-color-scheme: dark) {
+    .darken  { mix-blend-mode: lighten; }
+    .lighten { mix-blend-mode: darken; }
+}
+html.dark  .darken  { mix-blend-mode: lighten; }
+html.dark  .lighten { mix-blend-mode: darken; }
+html.light .darken  { mix-blend-mode: darken; }
+html.light .lighten { mix-blend-mode: lighten; }
+
 /* Pixel/hand-drawn images — disable anti-aliasing. */
 img.crisp {
     image-rendering: pixelated;
